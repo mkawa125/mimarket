@@ -18,7 +18,15 @@
          $this->db->insert("enterprises", $data);
      }
      public function DisplayEnterprises(){
-         $enterprises = $this->db->get('enterprises');
+         $this->db->select('*');
+         $this->db->from('enterprises');
+         $this->db->where(
+             array(
+                 'user_id' => $_SESSION['user_id']
+
+             ));
+         $enterprises = $this->db->get();
          return $enterprises;
+
      }
  }

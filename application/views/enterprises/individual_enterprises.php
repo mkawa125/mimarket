@@ -54,6 +54,54 @@
             padding: 5px;
             margin: 5px;
         }
+        ul.sidebar-menu li ul.sub li a {
+
+            padding: 0 0 0 32px;
+
+            line-height: 30px;
+
+            height: 30px;
+
+            -webkit-transition: all 0.3s ease;
+
+            -o-transition: all 0.3s ease;
+
+            transition: all 0.3s ease;
+
+            color: #d0d8df;
+
+            font-size: small;
+
+        }
+        ul.sidebar-menu li a{
+
+            color: #d0d8df;
+
+            text-decoration: none;
+
+            display: block;
+
+            padding: 8px 0 8px 15px;
+
+            font-size: small;
+
+            line-height: 25px;
+
+            font-weight: 300;
+
+            font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+
+            outline: none;
+
+            -webkit-transition: all 0.3s ease;
+
+            -moz-transition: all 0.3s ease;
+
+            -o-transition: all 0.3s ease;
+
+            transition: all 0.3s ease;
+
+        }
     </style>
 </head>
 
@@ -387,14 +435,8 @@
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h5 class="page-header"><i class="fa fa-home"></i> Dashboard</h5>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <section class="panel">
-                        <header class="panel-heading">Welcome <a href="#"><?php echo $_SESSION['name']?></a> to online marketing system</header>
+                    <section class="panel ">
+                        <header class="panel-heading panel-heading">Welcome <a href="#"><?php echo $_SESSION['name']?></a> to online marketing system</header>
                         <div class="panel-body">
 <!--                             /.row -->
                             <div class="row">

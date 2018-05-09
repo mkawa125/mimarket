@@ -57,6 +57,8 @@ class Enterprise extends CI_Controller{
 
                 'image_url' => $_POST['image'],
 
+                'user_id' => $_SESSION['user_id'],
+
                 'register_date' => date('Y-m-d H:i:s'),
             );
 
