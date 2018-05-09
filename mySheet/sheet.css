@@ -1,0 +1,15 @@
+.panel-title1{
+    background-color: #ff9966;
+    margin: 0;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+.paragraph{
+    color: rgb(90, 90, 90);
+    font-size: small;
+    font-family: "Roboto Slab", "Georgia", Arial, sans-serif;
+}
+body{
+    font-family: "Roboto Slab", "Georgia", Arial, sans-serif;
+}
