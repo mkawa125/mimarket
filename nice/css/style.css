@@ -3,7 +3,7 @@
 
 body {
     color: #797979;
-    background: white;
+    background-color: whitesmoke;
     font-family: 'Lato', sans-serif;
     padding: 0 !important;
     margin: 0 !important;
@@ -967,9 +967,9 @@ ul.sidebar-menu li.active a i {
 
 .dark-bg {
 
-    background-color: #78a0b4;
+    background-color: white;
 
-    border-bottom: 1px solid #f1f2f7;
+    border-bottom: 1px solid #BDBDBD;
 
 }
 
@@ -1004,6 +1004,8 @@ a.logo {
     float: left;
 
     margin-top: 15px;
+
+    margin-right: 10px;
 
     text-transform: uppercase;
 
@@ -1983,9 +1985,9 @@ div[data-role="editor-toolbar"] {
 
 .dark-bg {
 
-    color : #fff;
+    color :  #424242;
 
-    background : #1a2732;
+    background : white;
 
 }
 

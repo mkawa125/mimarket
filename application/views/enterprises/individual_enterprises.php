@@ -34,11 +34,13 @@
     <link href="<?php echo base_url()?>nice/css/xcharts.min.css" rel=" stylesheet">
     <link href="<?php echo base_url()?>nice/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
 
+    <!--    Data tables -->
+    <link href="<?php echo base_url()?>/DataTables/css/dataTables.bootstrap.min.css" rel=" stylesheet">
+    <link href="<?php echo base_url()?>nice/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.17/datatables.min.css"/>
+
     <!--custom style sheet-->
     <style>
-        .dark-bg{
-            background-color: whitesmoke;
-        }
         .icon_menu{
             color: black;
         }
@@ -53,6 +55,11 @@
             border-radius: 4px;
             padding: 5px;
             margin: 5px;
+        }
+        .items{
+            border: 1px solid #D5D8DC ;
+            padding: 10px;
+            background-color: white;
         }
         ul.sidebar-menu li ul.sub li a {
 
@@ -105,7 +112,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: whitesmoke">
 <!-- container section start-->
 <div id="container" class="">
     <header class="header dark-bg">
@@ -113,250 +120,110 @@
             <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
         </div>
 
-<!--        logo start-->
+        <!--logo start-->
         <a href="index.html" class="logo">MI<span class="lite">MARKET</span></a>
-<!--        logo end-->
+        <!--logo end-->
 
-        <div class="nav search-row" id="top_menu">
-<!--              search form start -->
-            <ul class="nav top-menu">
-                <li>
-                    <form class="navbar-form">
-                        <input class="form-control" placeholder="Search" type="text">
-                    </form>
-                </li>
-            </ul>
-<!--              search form end -->
-        </div>
+        <!--  search form start -->
+        <form class="row search-row" action="#" method="post" enctype="multipart/form-data">
 
-        <div class="top-nav notification-row">
-<!--             notificatoin dropdown start-->
-            <ul class="nav pull-right top-menu">
+            <div class="col-sm-3">
+                <div class="form-group input-group">
+                    <label for="ProductName"></label>
+                    <input class="form-control" type="text" name="ProductName" id="ProductName">
+                </div>
+            </div>
 
-<!--                 task notificatoin start -->
-                <li id="task_notificatoin_bar" class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-task-l"></i>
-                        <span class="badge bg-important">6</span>
-                    </a>
-                    <ul class="dropdown-menu extended tasks-bar">
-                        <li>
-                            <p class="blue">You have 6 pending letter</p>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">Design PSD </div>
-                                    <div class="percent">90%</div>
-                                </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                                        <span class="sr-only">90% Complete (success)</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">
-                                        Project 1
-                                    </div>
-                                    <div class="percent">30%</div>
-                                </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-                                        <span class="sr-only">30% Complete (warning)</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">Digital Marketing</div>
-                                    <div class="percent">80%</div>
-                                </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                        <span class="sr-only">80% Complete</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">Logo Designing</div>
-                                    <div class="percent">78%</div>
-                                </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%">
-                                        <span class="sr-only">78% Complete (danger)</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">Mobile App</div>
-                                    <div class="percent">50%</div>
-                                </div>
-                                <div class="progress progress-striped active">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                                        <span class="sr-only">50% Complete</span>
-                                    </div>
-                                </div>
 
-                            </a>
-                        </li>
-                        <li class="external">
-                            <a href="#">See All Tasks</a>
-                        </li>
-                    </ul>
-                </li>
-<!--                 task notificatoin end -->
-<!--                 inbox notificatoin start-->
-                <li id="mail_notificatoin_bar" class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-envelope-l"></i>
-                        <span class="badge bg-important">5</span>
-                    </a>
-                    <ul class="dropdown-menu extended inbox">
-                        <li>
-                            <p class="blue">You have 5 new messages</p>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="photo"><img alt="avatar" src="./img/avatar-mini.jpg"></span>
-                                <span class="subject">
-                                    <span class="from">Greg  Martin</span>
-                                    <span class="time">1 min</span>
-                                    </span>
-                                <span class="message">
-                                        I really like this admin panel.
-                                    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="photo"><img alt="avatar" src="./img/avatar-mini2.jpg"></span>
-                                <span class="subject">
-                                    <span class="from">Bob   Mckenzie</span>
-                                    <span class="time">5 mins</span>
-                                    </span>
-                                <span class="message">
-                                     Hi, What is next project plan?
-                                    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="photo"><img alt="avatar" src="./img/avatar-mini3.jpg"></span>
-                                <span class="subject">
-                                    <span class="from">Phillip   Park</span>
-                                    <span class="time">2 hrs</span>
-                                    </span>
-                                <span class="message">
-                                        I am like to buy this Admin Template.
-                                    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="photo"><img alt="avatar" src="./img/avatar-mini4.jpg"></span>
-                                <span class="subject">
-                                    <span class="from">Ray   Munoz</span>
-                                    <span class="time">1 day</span>
-                                    </span>
-                                <span class="message">
-                                        Icon fonts are great.
-                                    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">See all messages</a>
-                        </li>
-                    </ul>
-                </li>
-<!--                 inbox notificatoin end -->
-<!--                 alert notification start-->
-                <li id="alert_notificatoin_bar" class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <div class="col-sm-3">
+                <div class="form-group input-group">
+                    <select class="form-control" id="category"  name="category">
+                        <option value="electronics" selected>Electronics</option>
+                        <option value="construction">Construction</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="furniture">Furniture</option>
+                    </select>
+                </div>
+            </div>
 
-                        <i class="icon-bell-l"></i>
-                        <span class="badge bg-important">7</span>
-                    </a>
-                    <ul class="dropdown-menu extended notification">
-                        <li>
-                            <p class="blue">You have 4 new notifications</p>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="label label-primary"><i class="icon_profile"></i></span>
-                                Friend Request
-                                <span class="small italic pull-right">5 mins</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="label label-warning"><i class="icon_pin"></i></span>
-                                John location.
-                                <span class="small italic pull-right">50 mins</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="label label-danger"><i class="icon_book_alt"></i></span>
-                                Project 3 Completed.
-                                <span class="small italic pull-right">1 hr</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="label label-success"><i class="icon_like"></i></span>
-                                Mick appreciated your work.
-                                <span class="small italic pull-right"> Today</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">See all notifications</a>
-                        </li>
-                    </ul>
-                </li>
-<!--                 alert notification end-->
-<!--                 user login dropdown start-->
+            <div class="col-sm-3">
+                <div class="form-group input-group">
+                    <select class="form-control" id="location" name="location">
+                        <option value="Arusha">Arusha</option>
+                        <option value="Dar es salaam" selected>Dar es salaam</option>
+                        <option value="dodoma">Dodoma</option>
+                        <option value="geita">Geita</option>
+                        <option value="iringa">Iringa</option>
+                        <option value="kagera">Kagera</option>
+                        <option value="katavi">Katavi</option>
+                        <option value="kigoma">Kigoma</option>
+                        <option value="kilimanjaro">Kilimanjaro</option>
+                        <option value="lindi">Lindi</option>
+                        <option value="manyara">Manyara</option>
+                        <option value="mara">Mara</option>
+                        <option value="mbeya">Mbeya</option>
+                        <option value="morogoro">Morogoro</option>
+                        <option value="mtwara">Mtwara</option>
+                        <option value="mwanza">Mwanza</option>
+                        <option value="njombe">Njombe</option>
+                        <option value="pemba north">Pemba North</option>
+                        <option value="pemba south">Pemba South</option>
+                        <option value="pwani">Pwani</option>
+                        <option value="rukwa">Rukwa</option>
+                        <option value="ruvuma">Ruvuma</option>
+                        <option value="">Shinyanga</option>
+                        <option value="simiyu">Simiyu</option>
+                        <option value="singida">Singida</option>
+                        <option value="tabora">Tabora</option>
+                        <option value="tanga">Tanga</option>
+                        <option value="zanzibar north">Zanzibar north</option>
+                        <option value="zanzibar south">Zanzibar south and central</option>
+                        <option value="zanzibar west">Zanzibar West</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="form-group input-group">
+                    <button class="btn btn-danger" type="submit" name="IndexSearch">Search</button>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="top-nav notification-row" >
+            <ul>
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['name']?></span>
+                        <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
-                            <a  href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="icon_profile"></i> My Profile</a>
+                            <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
+                            <a href="#"><i class="fa fa-envelope"></i> My Inbox</a>
                         </li>
                         <li>
                             <a href="#"><i class="icon_chat_alt"></i> Chats</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="icon_key_alt"></i> Log Out</a>
+                            <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
 
                         <li>
-                            <a href="documentation.html"><i class=""></i> Documentation</a>
+                            <a href="#"><i class="fa fa-question-circle"></i> Documentation</a>
                         </li>
                     </ul>
                 </li>
-<!--                 user login dropdown end -->
+                <!-- user login dropdown end -->
             </ul>
-<!--             notificatoin dropdown end-->
+            <!-- notificatoin dropdown end-->
         </div>
     </header>
 <!--    header end-->
@@ -431,45 +298,51 @@
     </aside>
 <!--    sidebar end-->
 
+
     <section id="main-content">
         <section class="wrapper">
             <div class="row">
-                <div class="col-lg-12">
-                    <section class="panel ">
-                        <header class="panel-heading panel-heading">Welcome <a href="#"><?php echo $_SESSION['name']?></a> to online marketing system</header>
-                        <div class="panel-body">
-<!--                             /.row -->
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    <?php $success_msg = $this->session->flashdata('$success_msg');
-                                    if ($success_msg){?>
-                                        <div class="error"><i class="fa fa-success"></i><?php echo $success_msg?></div>
-                                        <?php
-                                    }
-                                    ?>
-<!--                                    <button class="btn btn-success" onclick="add_book()"><i class="glyphicon glyphicon-plus"></i> Add Book</button>-->
+                <div class="col-lg-3">
 
-                                </div>
-                                <div class="col-lg-2">
-                                    <a href="<?php echo base_url()?>index.php/Direct/newEnterprise">
-                                        <button class="btn btn-success"><i class="fa fa-user-plus">Add enterprise</i></button>
-                                    </a>
-                                </div>
-                            </div>
+                </div>
+                <div class="col-lg-8">
 
-                            <div class="row">
-                            <div class="col-sm-12" style="margin-top: 5px">
+                </div>
+            </div>
 
-                                <div class="col-sm-12">
-                                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+            <div class="row">
+                <div class="col-lg-11 col-sm-offset-1">
+                    <h5 class="#"><i class="fa fa-dashboard"></i> <a href="#">Dashboard</a>  <i class="fa fa-angle-double-right"></i><span><a href="#">Enterprises</a></span></h5>
+                    <section class="">
+                        <div class="col-lg-11">
+                            <?php $success_msg = $this->session->flashdata('success_msg');
+                            if ($success_msg){?>
+                                <div class="alert alert-success alert-dismissible"><?php echo $success_msg?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></div>
+                                <?php
+                            }
+                            ?>
+                            <div class="row items" >
+                                    <div class="col-lg-10">
+                                        <h5 style="color: #da8241">List of your registered stores</h5>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <a href="<?php echo base_url()?>index.php/Direct/newEnterprise">
+                                            <button class="btn btn-success"><i class="fa fa-user-plus">Add enterprise</i></button>
+                                        </a>
+                                    </div>
+
+                                <div class="col-sm-12" style="margin-top: 10px">
+                                    <table  class="table table-striped table-bordered" id="enterprise" style="font-size: small">
                                         <thead>
                                         <tr>
                                             <th>NO</th>
                                             <th>Enterprise Name</th>
                                             <th>Location</th>
+                                            <th>Image</th>
                                             <th>Date Registered</th>
-                                            <th>Description</th>
-                                            <th>Action</th>
+                                            <th width="80">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -480,12 +353,14 @@
                                                 <th scope="row"><?php echo $row->enterprise_id; ?></th>
                                                 <td><?php echo $row->name; ?></td>
                                                 <td><?php echo $row->location; ?></td>
+                                                <td>
+                                                    <img width="50" height="30" src="<?php echo base_url("Images/organizationImages/".$row->image_url) ?>" alt="No image">
+                                                </td>
                                                 <td style="color: cornflowerblue"><?php echo $row->register_date ?></td>
-                                                <td><?php echo $row->description ?></td>
                                                 <td>
                                                     <a onclick="add_book()"><span class="glyphicon glyphicon-edit" style="color: orange"  aria-hidden="true"></span></a>
-                                                    <a href="delete/<?php echo $row->enterprise_id; ?>"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
                                                     <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal<?php echo $row->enterprise_id; ?>">Delete</button>
+                                                    <a href="<?php echo base_url()?>index.php/Enterprise/ViewEnterpriseDetails?ent=<?php echo $row->enterprise_id; ?>"><button type="button" class="btn btn-primary btn-xs">View</button></a>
 
                                                     <!-- Modal -->
                                                     <div class="modal fade" id="myModal<?php echo $row->enterprise_id; ?>" role="dialog">
@@ -495,14 +370,14 @@
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                    <h4 class="modal-title">Delete File</h4>
+                                                                    <h4 class="modal-title" style="color: red">Delete Enterprise</h4>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <p>Are you sure?</p>
+                                                                    <p>Are you sure you want to delete <a href="#"><?php echo $row->name?></a>?</p>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                                                    <a href="delete/<?php echo $row->enterprise_id; ?>"><button type="button" class="btn btn-danger"> Yes..! Delete</button></a>
+                                                                    <a href="<?php echo base_url()?>index.php/Enterprise/DeleteEnterprise?ent=<?php echo $row->enterprise_id; ?>"><button type="button" class="btn btn-danger"> Yes..! Delete</button></a>
                                                                 </div>
                                                             </div>
 
@@ -514,181 +389,73 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                </div>
-
-
-                                <script type="text/javascript">
-                                    $(document).ready( function () {
-                                        $('#table_id').DataTable();
-                                    } );
-                                    var save_method; //for save method string
-                                    var table;
-
-
-                                    function add_book()
-                                    {
-                                        save_method = 'add';
-                                        $('#form')[0].reset(); // reset form on modals
-                                        $('#modal_form').modal('show'); // show bootstrap modal
-                                        //$('.modal-title').text('Add Person'); // Set Title to Bootstrap modal title
-                                    }
-
-                                    function edit_book(id)
-                                    {
-                                        save_method = 'update';
-                                        $('#form')[0].reset(); // reset form on modals
-
-                                        //Ajax Load data from ajax
-                                        $.ajax({
-                                            url : "<?php echo site_url('index.php/book/ajax_edit/')?>/" + id,
-                                            type: "GET",
-                                            dataType: "JSON",
-                                            success: function(data)
-                                            {
-
-                                                $('[name="book_id"]').val(data.book_id);
-                                                $('[name="book_isbn"]').val(data.book_isbn);
-                                                $('[name="book_title"]').val(data.book_title);
-                                                $('[name="book_author"]').val(data.book_author);
-                                                $('[name="book_category"]').val(data.book_category);
-
-
-                                                $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-                                                $('.modal-title').text('Edit Book'); // Set title to Bootstrap modal title
-
-                                            },
-                                            error: function (jqXHR, textStatus, errorThrown)
-                                            {
-                                                alert('Error get data from ajax');
-                                            }
-                                        });
-                                    }
-
-
-
-                                    function save()
-                                    {
-                                        var url;
-                                        if(save_method == 'add')
-                                        {
-                                            url = "<?php echo site_url('index.php/book/book_add')?>";
-                                        }
-                                        else
-                                        {
-                                            url = "<?php echo site_url('index.php/book/book_update')?>";
-                                        }
-
-                                        // ajax adding data to database
-                                        $.ajax({
-                                            url : url,
-                                            type: "POST",
-                                            data: $('#form').serialize(),
-                                            dataType: "JSON",
-                                            success: function(data)
-                                            {
-                                                //if success close modal and reload ajax table
-                                                $('#modal_form').modal('hide');
-                                                location.reload();// for reload a page
-                                            },
-                                            error: function (jqXHR, textStatus, errorThrown)
-                                            {
-                                                alert('Error adding / update data');
-                                            }
-                                        });
-                                    }
-
-                                    function delete_book(id)
-                                    {
-                                        if(confirm('Are you sure delete this data?'))
-                                        {
-                                            // ajax delete data from database
-                                            $.ajax({
-                                                url : "<?php echo site_url('index.php/book/book_delete')?>/"+id,
-                                                type: "POST",
-                                                dataType: "JSON",
-                                                success: function(data)
-                                                {
-
-                                                    location.reload();
-                                                },
-                                                error: function (jqXHR, textStatus, errorThrown)
-                                                {
-                                                    alert('Error deleting data');
-                                                }
-                                            });
-
-                                        }
-                                    }
-
-                                </script>
-
-                                <!-- Bootstrap modal -->
-                                <div class="modal fade" id="modal_form" role="dialog">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title">Edit</h4>
-                                            </div>
-                                            <div class="modal-body form">
-                                                <form action="#" id="form" class="form-horizontal">
-                                                    <input type="hidden" value="<?php echo $row->name; ?>" name="book_id"/>
-                                                    <div class="form-body">
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3">Name</label>
-                                                            <div class="col-md-9">
-                                                                <input name="book_isbn" placeholder="Benterprise name" class="form-control" type="text">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3" for="location">location</label>
-                                                            <div class="col-md-9">
-                                                                <select class="form-control" id="location">
-                                                                    <option value="dar">Dar es salaam</option>
-                                                                    <option value="dar">Dar es salaam</option>
-                                                                    <option value="dar">Dar es salaam</option>
-                                                                    <option value="dar">Dar es salaam</option>
-                                                                    <option value="dar">Dar es salaam</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3">Owner</label>
-                                                            <div class="col-md-9">
-                                                                <input name="book_author" placeholder="owner" class="form-control" type="text">
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3">Category</label>
-                                                            <div class="col-md-9">
-                                                                <input name="book_category" placeholder="Book Category" class="form-control" type="text">
-
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                            </div>
-                                        </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                                </div><!-- /.modal -->
-                                <!-- End Bootstrap modal -->
-
-                            </div>
                             </div>
                         </div>
-
                     </section>
                 </div>
             </div>
         </section>
+    </section>
+
+
+
+    <!-- Bootstrap modal -->
+    <div class="modal fade" id="modal_form" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Edit</h4>
+                </div>
+                <div class="modal-body form">
+                    <form action="#" id="form" class="form-horizontal">
+                        <input type="hidden" value="<?php echo $row->name; ?>" name="book_id"/>
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Name</label>
+                                <div class="col-md-9">
+                                    <input name="book_isbn" placeholder="Benterprise name" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3" for="location">location</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" id="location">
+                                        <option value="dar">Dar es salaam</option>
+                                        <option value="dar">Dar es salaam</option>
+                                        <option value="dar">Dar es salaam</option>
+                                        <option value="dar">Dar es salaam</option>
+                                        <option value="dar">Dar es salaam</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Owner</label>
+                                <div class="col-md-9">
+                                    <input name="book_author" placeholder="owner" class="form-control" type="text">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Category</label>
+                                <div class="col-md-9">
+                                    <input name="book_category" placeholder="Book Category" class="form-control" type="text">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- End Bootstrap modal -->
 </div>
-</body>
 <!-- statics end -->
 <!-- javascripts -->
 <script src="<?php echo base_url()?>nice/js/jquery.js"></script>
@@ -722,5 +489,14 @@
 <script src="<?php echo base_url()?>nice/js/wysiwyg.js"></script>
 <script src="<?php echo base_url()?>nice/summernote/summernote-lite.js"></script>
 
-<!-- custom script for this page--></html>
+<script src="<?php echo base_url()?>/DataTables/js/dataTables.bootstrap.min.js" type="javascript"></script>
+<script src="<?php echo base_url()?>/DataTables/js/jquery.dataTables.min.js"></script>
+<script href="https://cdn.datatables.net/1.10.17/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.17/datatables.min.js"></script>
 
+<!-- custom script for this page-->
+
+<script>
+        $('#enterprise').dataTable();
+</script>
+</html>

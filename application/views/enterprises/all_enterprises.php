@@ -276,7 +276,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['name']?></span>
+                        <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
@@ -395,7 +395,7 @@
                 </div>
             </div>
         </section>
-</div>
+    </div>
 </body>
 <!-- statics end -->
 <!-- javascripts -->

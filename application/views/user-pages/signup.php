@@ -57,10 +57,12 @@ require 'validation.php';
             <div class="login-panel panel-default" style="background-color: whitesmoke">
                 <div class="panel-heading" style="text-align: center">
                     <h3 style="color: #00a0df">Mimarket signup</h3>
-                    <p class="paragraph re-paragraph">Already have an account?
-                        <a href="<?php echo base_url(); ?>index.php/Direct/login">Login</a></p>
+
                 </div>
                 <div class="panel-body">
+
+                    <p class="paragraph re-paragraph">Already have an account?
+                        <a href="<?php echo base_url(); ?>index.php/Direct/login">Login</a></p>
                   <form role="form" name="register" method="post" action="">
                         <fieldset>
 
@@ -92,13 +94,6 @@ require 'validation.php';
                                 <input class="form-control" placeholder="Phone number" name="phone" id="phone"
                                        type="text" autofocus title="Phone number is compasury">
                             </div>
-                           <div class="form-group input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <select class="form-control" id="type" name="type">
-                                   <option value="enterprise">Enterprise</option>
-                                   <option value="user" selected>Normal user</option>
-                               </select>
-                           </div>
 
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-home"></i></span>
@@ -151,7 +146,7 @@ require 'validation.php';
                                        type="password" title="Re enter password" >
                             </div>
 <!--                             Change this to a button or input when using this as a form -->
-                            <button class="btn btn-success btn-block" name="register" type="submit" style="border-radius: 0">Register</button>
+                            <button class="btn btn-danger btn-block" name="register" type="submit" style="border-radius: 0">Register</button>
                         </fieldset>
                     </form>
                 </div>

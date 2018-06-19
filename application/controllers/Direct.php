@@ -33,7 +33,7 @@ class Direct extends CI_Controller
         $this->load->view('dashboard/index.php');
     }
     public function home(){
-        $this->load->view('dashboard/home.php');
+        redirect('Products/DefaultProducts');
     }
     public function enterprises(){
         $this->load->view('enterprises/all_enterprises.php');

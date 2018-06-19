@@ -51,7 +51,7 @@ class Authentication extends CI_Controller
                 //set session variables
                 $_SESSION['user_logged'] = TRUE;
                 $_SESSION['email'] = $user->email;
-                $_SESSION['name'] = $user->name;
+                $_SESSION['full_name'] = $user->full_name;
                 $_SESSION['username'] = $user->username;
                 $_SESSION['user_id'] = $user->user_id;
                 $_SESSION['phone'] = $user->phone;
@@ -60,7 +60,7 @@ class Authentication extends CI_Controller
 
 
                 //redirect user
-                redirect("Direct/home");
+                redirect("Products/DefaultProducts");
 
 
             } else {
@@ -89,7 +89,7 @@ class Authentication extends CI_Controller
         if ($this->form_validation->run() == TRUE){
 
             $data = array(
-                'name' => $_POST['name'],
+                'full_name' => $_POST['name'],
 
                 'location' => $_POST['location'],
 

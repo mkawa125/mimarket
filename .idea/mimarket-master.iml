@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bootstrap/css" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bootstrap/fonts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bootstrap/js" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/datatables/css" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/datatables/images" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/datatables/js" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/font-awesome/css" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/font-awesome/fonts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/font-awesome/less" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/font-awesome/scss" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bootstrap/css" />
+          <root url="file://$MODULE_DIR$/vendor/bootstrap/fonts" />
+          <root url="file://$MODULE_DIR$/vendor/bootstrap/js" />
+          <root url="file://$MODULE_DIR$/vendor/datatables/css" />
+          <root url="file://$MODULE_DIR$/vendor/datatables/images" />
+          <root url="file://$MODULE_DIR$/vendor/datatables/js" />
+          <root url="file://$MODULE_DIR$/vendor/font-awesome/css" />
+          <root url="file://$MODULE_DIR$/vendor/font-awesome/fonts" />
+          <root url="file://$MODULE_DIR$/vendor/font-awesome/less" />
+          <root url="file://$MODULE_DIR$/vendor/font-awesome/scss" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bootstrap/css" />
+          <root url="file://$MODULE_DIR$/vendor/bootstrap/fonts" />
+          <root url="file://$MODULE_DIR$/vendor/bootstrap/js" />
+          <root url="file://$MODULE_DIR$/vendor/datatables/css" />
+          <root url="file://$MODULE_DIR$/vendor/datatables/images" />
+          <root url="file://$MODULE_DIR$/vendor/datatables/js" />
+          <root url="file://$MODULE_DIR$/vendor/font-awesome/css" />
+          <root url="file://$MODULE_DIR$/vendor/font-awesome/fonts" />
+          <root url="file://$MODULE_DIR$/vendor/font-awesome/less" />
+          <root url="file://$MODULE_DIR$/vendor/font-awesome/scss" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

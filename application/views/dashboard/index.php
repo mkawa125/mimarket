@@ -37,127 +37,135 @@
     <link href="<?php echo base_url()?>nice/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
 
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <!--fonts icon-->
+
+
     <!--custom style sheet-->
     <style>
-        .dark-bg{
-            background-color: whitesmoke;
+
+        .icon_menu{
+            color: black;
+        }
+
+        .search-row {
+
+            float: left;
+
+            margin-top: 15px;
+
+            margin-left: 5px;
+
         }
         .icon_menu{
             color: black;
         }
-        .sech{
-            font-size: small;
+        .front-head{
+            color: #DC7633  ;
+            font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif;
         }
-        .items{
-            margin: 20px;
-            border: 1px solid #848484;
-            padding: 5px;
 
-        }
-        .display{
-            font-size: small;
-            line-height: 22px;
-        }
-        .view{
-            margin-left: 350px;
-            border-radius: 0;
-        }
 
 
     </style>
 </head>
 
-<body>
+<body style="background-color: whitesmoke">
 <!-- container section start -->
 
-<div id="container" class="">
+<div id="container" class="#">
     <header class="header dark-bg">
         <div class="toggle-nav">
             <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
         </div>
 
         <!--logo start-->
-        <a href="index.html" class="logo">MI<span class="lite">MARKET</span></a>
+        <a href="#" class="logo">MI<span class="lite">MARKET</span></a>
         <!--logo end-->
 
-        <div class="nav search-row" id="top_menu">
+
             <!--  search form start -->
 
-            <!--  search form end -->
-        </div>
-        <div class="top-nav notification-row" style="margin-top: 25px">
-            <!-- notificatoin dropdown start-->
-            <ul class="nav pull-right top-menu">
+            <form class="row search-row" action="#" method="post" enctype="multipart/form-data">
 
-                <li>
-                    <div class="col-lg-3">
-                        <ul class="nav top-menu">
-                            <li>
-                                <form class="navbar-form">
-                                    <input class="form-control" placeholder="Enterprise or product" type="text" width="">
-                                </form>
-                            </li>
-                        </ul>
+                <div class="col-sm-3">
+                    <div class="form-group input-group">
+                        <label for="ProductName"></label>
+                        <input class="form-control" type="text" name="ProductName" id="ProductName">
                     </div>
-                </li>
-
-                <li>
-                <div class="col-lg-3">
-                    <ul class="nav tp-menu">
-                        <li>
-                            <form class="navbar-form">
-                                <select class="form-control" id="region">
-                                    <option>Arusha</option>
-                                    <option>Dar es salaam</option>
-                                    <option>Dodoma</option>
-                                    <option>Geita</option>
-                                    <option>Iringa</option>
-                                    <option>Kagera</option>
-                                    <option>Katavi</option>
-                                    <option>Kigoma</option>
-                                    <option>Kilimanjaro</option>
-                                    <option>Lindi</option>
-                                    <option>Manyara</option>
-                                    <option>Mara</option>
-                                    <option>Mbeya</option>
-                                    <option>Morogoro</option>
-                                    <option>Mtwara</option>
-                                    <option>Mwanza</option>
-                                    <option>Njombe</option>
-                                    <option>Pemba North</option>
-                                    <option>Pemba South</option>
-                                    <option>Pwani</option>
-                                    <option>Rukwa</option>
-                                    <option>Ruvuma</option>
-                                    <option>Shinyanga</option>
-                                    <option>Simiyu</option>
-                                    <option>Singida</option>
-                                    <option>Tabora</option>
-                                    <option>Tanga</option>
-                                    <option>Zanzibar north</option>
-                                    <option>Zanzibar south and central</option>
-                                    <option>Zanzibar West</option>
-                                </select>
-                            </form>
-                        </li>
-                    </ul>
                 </div>
-                </li>
 
-                <li>
-                <div class="col-lg-1">
-                    <button class="btn btn-primary sech">Search</button>
+
+                <div class="col-sm-3">
+                    <div class="form-group input-group">
+                        <select class="form-control" id="category"  name="category">
+                            <option value="electronics" selected>Electronics</option>
+                            <option value="construction">Construction</option>
+                            <option value="hardware">Hardware</option>
+                            <option value="plumbing">Plumbing</option>
+                            <option value="furniture">Furniture</option>
+                        </select>
+                    </div>
                 </div>
-                </li>
+
+                <div class="col-sm-3">
+                    <div class="form-group input-group">
+                        <select class="form-control" id="location" name="location">
+                            <option value="Arusha">Arusha</option>
+                            <option value="Dar es salaam" selected>Dar es salaam</option>
+                            <option value="dodoma">Dodoma</option>
+                            <option value="geita">Geita</option>
+                            <option value="iringa">Iringa</option>
+                            <option value="kagera">Kagera</option>
+                            <option value="katavi">Katavi</option>
+                            <option value="kigoma">Kigoma</option>
+                            <option value="kilimanjaro">Kilimanjaro</option>
+                            <option value="lindi">Lindi</option>
+                            <option value="manyara">Manyara</option>
+                            <option value="mara">Mara</option>
+                            <option value="mbeya">Mbeya</option>
+                            <option value="morogoro">Morogoro</option>
+                            <option value="mtwara">Mtwara</option>
+                            <option value="mwanza">Mwanza</option>
+                            <option value="njombe">Njombe</option>
+                            <option value="pemba north">Pemba North</option>
+                            <option value="pemba south">Pemba South</option>
+                            <option value="pwani">Pwani</option>
+                            <option value="rukwa">Rukwa</option>
+                            <option value="ruvuma">Ruvuma</option>
+                            <option value="">Shinyanga</option>
+                            <option value="simiyu">Simiyu</option>
+                            <option value="singida">Singida</option>
+                            <option value="tabora">Tabora</option>
+                            <option value="tanga">Tanga</option>
+                            <option value="zanzibar north">Zanzibar north</option>
+                            <option value="zanzibar south">Zanzibar south and central</option>
+                            <option value="zanzibar west">Zanzibar West</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="form-group input-group">
+                        <button class="btn btn-danger" type="submit" name="IndexSearch">Search</button>
+                    </div>
+                </div>
+            </form>
+
+            <!--  search form end -->
+
+        <div class="top-nav notification-row" style="margin-top: 25px">
+            <!--drop down start-->
+            <ul class="nav pull-right top-menu">
 
                 <li class="dropdown">
                     <a  href="<?php echo base_url()?>index.php/Direct/login">
-                        <span class="username"><i class="fa fa-user" style="font-size: larger"></i>User login</span>
+                        <span class="username"><i class="fa fa-user" style="font-size: larger"></i> User login</span>
                     </a>
                 </li>
-                <!-- user login dropdown end -->
             </ul>
-            <!-- notificatoin dropdown end-->
         </div>
     </header>
     <!--header end-->
@@ -174,13 +182,44 @@
 
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-users"></i>
-                        <span>Users</span><span class="menu-arrow arrow_carrot-right"></span>
+                    <a href="javascript:" class=""><i class="fa fa-user"></i>
+                        <span>Account</span><span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="<?php echo base_url()?>index.php/Direct/login""><i class="fa fa-lock"></i>Login</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Direct/login"><i class="fa fa-lock"></i>Login</a></li>
                         <li><a class="" href="<?php echo base_url()?>index.php/Direct/register"><i class="fa fa-user"></i>Register</a></li>
                     </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:" class=""><i class="fa fa-object-group"></i>
+                        <span>Categories</span><span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="<?php echo base_url()?>index.php/Direct/login"><i class="fa fa-lock"></i>Electronics</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Direct/register"><i class="fa fa-user"></i>Construction</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Direct/login"><i class="fa fa-lock"></i>Plumbing</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Direct/register"><i class="fa fa-user"></i>Furniture</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Direct/login"><i class="fa fa-lock"></i>Hardware</a></li>
+
+                    </ul>
+                </li>
+
+            </ul>
+
+
+            <ul class="sidebar-menu">
+
+                <li class="sub-menu">
+                    <a href="javascript:" class=""><i class="fa fa-cog"></i>
+                        <span>System</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:" class=""><i class="fa fa-cogs"></i>
+                        <span>Privacy policies</span>
+                    </a>
                 </li>
 
                 <li class="sub-menu">
@@ -189,7 +228,20 @@
                     </a>
                 </li>
 
+                <li class="sub-menu">
+                    <a href="javascript:" class=""><i class="fa fa-phone"></i>
+                        <span>Contact us</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:" class=""><i class="fa fa-question-circle"></i>
+                        <span>Help</span>
+                    </a>
+                </li>
+
             </ul>
+
 
             <!-- sidebar menu end-->
 
@@ -201,164 +253,81 @@
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-3">
-                    <h5 class="page-header"><i class="fa fa-home"></i> Dashboard</h5>
+                    <h5 class="#"><i class="fa fa-home"></i> Home</h5>
+                </div>
+                <div class="col-lg-8">
+
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-11 col-sm-offset-1">
                     <section class="">
                         <div class="col-lg-11">
                             <div class="row items" >
-                                <div class="col-sm-3" style="padding: 0">
-                                    <img src="<?php echo base_url()?>nice/img/images2.jpg" width="100%" height="100%">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h4 style="color: orangered">Mkawa Engineering group</h4>
-                                   <span style="color: cornflowerblue"><i class="fa fa-map-marker" style="padding-right: 5px"></i>Dar es salaam</span>
-                                    <p class="display">Makini POS delivers the reliability of managing
-                                        more than one Business in a Single Platform.
-                                        It gives you Realtime access over your Sales, Stocks
-                                        </p>
-                                    <row>
-                                    <button class="btn btn-primary view "><i class="fa fa-eye"></i>View</button>
-                                    <button class="btn btn-danger " style="border-radius: 0"><i class="fa fa-bookmark"></i>Add favourite</button>
-                                    </row>
-                                </div>
-                            </div>
-
-                            <div class="row items" >
-                                <div class="col-sm-3" style="padding: 0">
-                                    <img src="<?php echo base_url()?>nice/img/images3.jpg" width="100%" height="150">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h4 style="color: orangered">Papaa mukuru construction agents</h4>
-                                    <span style="color: cornflowerblue"><i class="fa fa-map-marker" style="padding-right: 5px"></i>Dodoma</span>
-                                    <p class="display">Makini POS delivers the reliability of managing
-                                        more than one Business in a Single Platform.
-                                        It gives you Realtime access over your Sales, Stocks
-                                    </p>
-                                    <row>
-                                        <button class="btn btn-primary view "><i class="fa fa-eye"></i>View</button>
-                                        <button class="btn btn-danger " style="border-radius: 0"><i class="fa fa-bookmark"></i>Add favourite</button>
-                                    </row>
-                                </div>
-                            </div>
-
-                            <div class="row items" >
-                                <div class="col-sm-3" style="padding: 0">
-                                    <img src="<?php echo base_url()?>nice/img/images4.jpg" width="100%" height="150">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h4 style="color: orangered">Mlimani electronics and building materials</h4>
-                                    <span style="color: cornflowerblue"><i class="fa fa-map-marker" style="padding-right: 5px"></i>Tanga</span>
-                                    <p class="display">Makini POS delivers the reliability of managing
-                                        more than one Business in a Single Platform.
-                                        It gives you Realtime access over your Sales, Stocks
-                                    </p>
-                                    <row>
-                                        <button class="btn btn-primary view "><i class="fa fa-eye"></i>View</button>
-                                        <button class="btn btn-danger " style="border-radius: 0"><i class="fa fa-bookmark"></i>Add favourite</button>
-                                    </row>
-                                </div>
-                            </div>
-
-                            <div class="row items" >
-                                <div class="col-sm-3" style="padding: 0">
-                                    <img src="<?php echo base_url()?>nice/img/images5.jpg" width="100%" height="150">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h4 style="color: orangered">Mkawa Engineering group</h4>
-                                    <span style="color: cornflowerblue"><i class="fa fa-map-marker" style="padding-right: 5px"></i>location</span>
-                                    <p class="display">Makini POS delivers the reliability of managing
-                                        more than one Business in a Single Platform.
-                                        It gives you Realtime access over your Sales, Stocks
-                                    </p>
-                                    <row>
-                                        <button class="btn btn-primary view "><i class="fa fa-eye"></i>View</button>
-                                        <button class="btn btn-danger " style="border-radius: 0"><i class="fa fa-bookmark"></i>Add favourite</button>
-                                    </row>
-                                </div>
-                            </div>
-
-                            <div class="row items" >
-                                <div class="col-sm-3" style="padding: 0">
-                                    <img src="<?php echo base_url()?>nice/img/images6.jpg" width="100%" height="150">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h4 style="color: orangered">Mkawa Engineering group</h4>
-                                    <span style="color: cornflowerblue"><i class="fa fa-map-marker" style="padding-right: 5px"></i>location</span>
-                                    <p class="display">Makini POS delivers the reliability of managing
-                                        more than one Business in a Single Platform.
-                                        It gives you Realtime access over your Sales, Stocks
-                                    </p>
-                                    <row>
-                                        <button class="btn btn-primary view "><i class="fa fa-eye"></i>View</button>
-                                        <button class="btn btn-danger " style="border-radius: 0"><i class="fa fa-bookmark"></i>Add favourite</button>
-                                    </row>
-                                </div>
-                            </div>
-
-                            <div class="row items" >
-                                <div class="col-sm-3" style="padding: 0">
-                                    <img src="<?php echo base_url()?>nice/img/images7.jpg" width="100%" height="150">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h4 style="color: orangered">Mkawa Engineering group</h4>
-                                    <span style="color: cornflowerblue"><i class="fa fa-map-marker" style="padding-right: 5px"></i>location</span>
-                                    <p class="display">Makini POS delivers the reliability of managing
-                                        more than one Business in a Single Platform.
-                                        It gives you Realtime access over your Sales, Stocks
-                                    </p>
-                                    <row>
-                                        <button class="btn btn-primary view "><i class="fa fa-eye"></i>View</button>
-                                        <button class="btn btn-danger " style="border-radius: 0"><i class="fa fa-bookmark"></i>Add favourite</button>
-                                    </row>
-                                </div>
-                            </div>
-
-                            <div class="row items" >
-                                <div class="col-sm-3" style="padding: 0">
-                                    <img src="<?php echo base_url()?>nice/img/images8.jpg" width="100%" height="150">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h4 style="color: orangered">Mkawa Engineering group</h4>
-                                    <span style="color: cornflowerblue"><i class="fa fa-map-marker" style="padding-right: 5px"></i>location</span>
-                                    <p class="display">Makini POS delivers the reliability of managing
-                                        more than one Business in a Single Platform.
-                                        It gives you Realtime access over your Sales, Stocks
-                                    </p>
-                                    <row>
-                                        <button class="btn btn-primary view "><i class="fa fa-eye"></i>View</button>
-                                        <button class="btn btn-danger " style="border-radius: 0"><i class="fa fa-bookmark"></i>Add favourite</button>
-                                    </row>
-                                </div>
-                            </div>
-
-                            <div class="row items" >
-                                <div class="col-sm-3" style="padding: 0">
-                                    <img src="<?php echo base_url()?>nice/img/images9.jpg" width="100%" height="150">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h4 style="color: orangered">Shungu construction compny</h4>
-                                    <span style="color: cornflowerblue"><i class="fa fa-map-marker" style="padding-right: 5px"></i>Arusha</span>
-                                    <p class="display">Makini POS delivers the reliability of managing
-                                        more than one Business in a Single Platform.
-                                        It gives you Realtime access over your Sales, Stocks
-                                    </p>
-                                    <row>
-                                        <button class="btn btn-primary view "><i class="fa fa-eye"></i>View</button>
-                                        <button class="btn btn-danger " style="border-radius: 0"><i class="fa fa-bookmark"></i>Add favourite</button>
-                                    </row>
+                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                    <!-- Carousel indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                                    </ol>
+                                    <!-- Wrapper for carousel items -->
+                                    <div class="carousel-inner" style="height: 200px">
+                                        <div class="item active">
+                                            <img src="<?php echo base_url()?>/Images/systemImages/body.jpg" width="100%"  alt="First Slide">
+                                        </div>
+                                        <div class="item">
+                                            <img src="<?php echo base_url()?>/Images/systemImages/toi2.jpg" width="100%"  alt="Second Slide">
+                                        </div>
+                                        <div class="item">
+                                            <img src="<?php echo base_url()?>/Images/systemImages/body2.jpg" width="100%" alt="Third Slide">
+                                        </div>
+                                    </div>
+                                    <!-- Carousel controls -->
+                                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                    </section>
+                    </div>
+                 </div>
 
+            <div class="row">
+                <div class="col-lg-11 col-sm-offset-1">
+                    <section class="">
+                        <div class="col-lg-11">
+                            <h4 class="#">Popular products</h4>
+                            <div class="row items" >
+
+                                popular products queries goes here
+
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-lg-11 col-sm-offset-1">
+                    <section class="">
+                        <div class="col-lg-11">
+                            <h4 class="#">Most ordered companies</h4>
+                            <div class="row items" >
+                                most ordered companies comes here
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
-</div>
 </body>
+
 <!-- statics end -->
 <!-- javascripts -->
 <script src="<?php echo base_url()?>nice/js/jquery.js"></script>
@@ -393,4 +362,5 @@
 <!-- custom script for this page-->
 
 </html>
+
 

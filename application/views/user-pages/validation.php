@@ -120,7 +120,6 @@ if (isset($_POST['register'])) {
                 'phone' => $_POST['phone'],
                 'pass1' => md5($_POST['pass1']),
                 'pass2' => md5($_POST['pass2']),
-                'user-type' => $_POST['type'],
                 'location' => $_POST['location'],
                 'register-date' => date('Y-m-d H:i:s'),
             );
