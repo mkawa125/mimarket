@@ -211,16 +211,9 @@
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-credit-card"></i>
-                        <span>Account</span><span class="menu-arrow arrow_carrot-right"></span>
+                    <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
+                        <span>Orders</span>
                     </a>
-                    <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-credit-card-alt"></i>Billing</a></li>
-                        <li><a class="" href="#"><i class="fa fa-code"></i>Developer API</a></li>
-                        <li><a class="" href="#"><i class="fa fa-cog"></i>Organizations</a></li>
-                        <li><a class="" href="#"><i class="fa fa-lock"></i>Personal settings</a></li>
-                        <li><a class="" href="#"><i class="fa fa-folder"></i>Project</a></li>
-                    </ul>
                 </li>
 
                 <li class="sub-menu">
@@ -251,17 +244,11 @@
                 <li class="">
                     <a class="" href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a>
                 </li>
-
             </ul>
-
-
             <!-- sidebar menu end-->
         </div>
     </aside>
     <!--sidebar end-->
-
-
-
 
     <section id="main-content">
         <section class="wrapper">
@@ -276,7 +263,17 @@
 
             <div class="row">
                 <div class="col-lg-11 col-sm-offset-1">
-                    <h5 class="#"><i class="fa fa-dashboard"></i> Dashboard</h5>
+                    <div class="col-sm-2"> <h5 class="#"><i class="fa fa-dashboard"></i> Dashboard</h5></div>
+                    <div class="col-sm-6">
+                        <?php $success_msg = $this->session->flashdata('success_msg');
+                        if ($success_msg){?>
+                            <div class="alert alert-success alert-dismissible" style="text-align: center"><?php echo $success_msg?> <?php echo $_SESSION['username'] ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></div>
+                            <?php
+                        }
+                        ?>
+                    </div>
                     <section class="">
                         <div class="col-lg-11">
                             <div class="row items" >
@@ -382,17 +379,18 @@
                             <div class="row items" >
                                 <?php foreach ($products->result() as $defaultProducts){?>
                                     <div class="col-sm-2 default">
-                                        <a href="#">
-                                        <img src="<?php echo base_url()?>/Images/productImages/<?php echo $defaultProducts->product_image?>" width="100%" height="100"></a>
-                                        <h5 style="color: cornflowerblue"><strong><?php echo $defaultProducts->ProductName?></strong></h5>
-                                        <p><strong>Price:</strong> <span style="color: red"> <?php echo $defaultProducts->product_price?> tzs</span>/piece</p>
-                                        <p><strong>Enterprise:</strong> <span><a href="#"> <?php echo $defaultProducts->name?></a></span>, <span><?php echo $defaultProducts->location?></span></p>
-                                        <button class="btn btn-info btn-block">More details</button>
+                                        <h5 style="color: cornflowerblue"><a href="<?php echo base_url()?>index.php/Products/ViewProductDetails?prod=<?php echo $defaultProducts->product_id?>"><strong><?php echo $defaultProducts->ProductName?></strong></a></h5>
+                                        <a href="<?php echo base_url()?>index.php/Products/ViewProductDetails?prod=<?php echo $defaultProducts->product_id?>">
+                                        <img src="<?php echo base_url()?>/Images/productImages/<?php echo $defaultProducts->product_image?>" width="100%" height="60"></a>
+                                        <div class="centered" style="position: absolute; top: 40%; left: 35%; transform: translate(-50%, -50%)">
+                                            <label><strong>Price:</strong> <span style="color: chocolate"> <?php echo $defaultProducts->product_price?> tzs</span></label>
+                                        </div>
 
+                                        <label><strong>Enterprise:</strong> <span><a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultProducts->enterprise_id?>"> <?php echo $defaultProducts->name?></a></span>, <span><?php echo $defaultProducts->location?></span></label>
+                                        <a href="<?php echo base_url()?>index.php/Products/ViewProductDetails?prod=<?php echo $defaultProducts->product_id?>"><button class="btn btn-info btn-block">More details</button></a>
                                     </div>
 
                                 <?php }?>
-
                             </div>
                         </div>
                     </section>
@@ -407,10 +405,9 @@
                             <div class="row items" >
                                 <?php foreach ($enterprises->result() as $defaultEnterprises){?>
                                     <div class="col-md-2 default">
-                                        <a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><h6 style="color: cornflowerblue; border-bottom: 1px solid #D5D8DC; padding: 5px"><strong><?php echo $defaultEnterprises->name?></strong></h6></a>
-                                        <a href="#"><img src="<?php echo base_url()?>/Images/organizationImages/<?php echo $defaultEnterprises->image_url?>" width="100%" height="100"></a>
-                                        <p><strong>Total products:</strong> <span style="color: red"> <?php echo $defaultEnterprises->total_products?></span></p>
-                                        <p><strong>Category:</strong> <span><a href="#"> <?php echo $defaultEnterprises->category?></a></span>, <span><i class="fa fa-map"></i> <?php echo $defaultEnterprises->location?></span></p>
+                                        <a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><h6 style="color: cornflowerblue; padding: 5px"><strong><?php echo $defaultEnterprises->name?></strong></h6></a>
+                                        <a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><img src="<?php echo base_url()?>/Images/organizationImages/<?php echo $defaultEnterprises->image_url?>" width="100%" height="70"></a>
+                                        <label><strong>Category:</strong> <span><a href="#"> <?php echo $defaultEnterprises->category?></a></span>, <span><i class="fa fa-map"></i> <?php echo $defaultEnterprises->location?></span></label>
                                         <a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><button class="btn btn-danger btn-block">More details</button></a>
                                     </div>
 
@@ -442,6 +439,7 @@
             </div>
         </section>
     </section>
+</footer>
 </body>
 <!-- statics end -->
 <!-- javascripts -->

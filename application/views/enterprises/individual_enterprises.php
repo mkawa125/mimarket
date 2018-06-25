@@ -261,16 +261,9 @@
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-credit-card"></i>
-                        <span>Account</span><span class="menu-arrow arrow_carrot-right"></span>
+                    <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
+                        <span>Orders</span>
                     </a>
-                    <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-credit-card-alt"></i>Billing</a></li>
-                        <li><a class="" href="#"><i class="fa fa-code"></i>Developer API</a></li>
-                        <li><a class="" href="#"><i class="fa fa-cog"></i>Organizations</a></li>
-                        <li><a class="" href="#"><i class="fa fa-lock"></i>Personal settings</a></li>
-                        <li><a class="" href="#"><i class="fa fa-folder"></i>Project</a></li>
-                    </ul>
                 </li>
             </ul>
             <ul class="sidebar-menu">

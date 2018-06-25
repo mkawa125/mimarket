@@ -271,16 +271,9 @@
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-credit-card"></i>
-                        <span>Account</span><span class="menu-arrow arrow_carrot-right"></span>
+                    <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
+                        <span>Orders</span>
                     </a>
-                    <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-credit-card-alt"></i>Billing</a></li>
-                        <li><a class="" href="#"><i class="fa fa-code"></i>Developer API</a></li>
-                        <li><a class="" href="#"><i class="fa fa-cog"></i>Organizations</a></li>
-                        <li><a class="" href="#"><i class="fa fa-lock"></i>Personal settings</a></li>
-                        <li><a class="" href="#"><i class="fa fa-folder"></i>Project</a></li>
-                    </ul>
                 </li>
             </ul>
             <ul class="sidebar-menu">
@@ -331,56 +324,74 @@
                                 if (isset($SingleEnterprise)){
                                 ?>
 
-                                <div class="col-lg-10" style="padding: 10px">
-                                    <h5 style="color: #da8241; text-transform: uppercase;"><a href="#" style="color: #da8241"><strong><?php echo $SingleEnterprise->name?></strong></a></h5>
-                                </div>
-                                <div class="col-lg-2"></div>
-
-                                <div class="col-sm-12" style="border-top: 1px solid #D5D8DC ; font-size: small">
-                                    <div class="col-sm-3 image-box">
-                                        <img width="100%" height="150" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
-                                    </div>
-                                    <div class="col-sm-8 summary-box " style="border: 1px solid #D5D8DC">
-                                        <h5 class="summary">Enterprise contact information</h5>
-                                        <label><strong>Store name: </strong></label><span> <?php echo $SingleEnterprise->name?></span><br>
-                                        <label><strong>Products: </strong></label><span> <?php echo $SingleEnterprise->category?></span><br>
-                                        <label><strong>Date registered: </strong></label><span> <?php echo $SingleEnterprise->register_date?></span><br>
-                                        <label><strong>User phone: </strong></label><span> <?php echo $SingleEnterprise->phone?></span><br>
+                                <div class="col-sm-11 image-box" style="margin: 20px; border: 1px solid #D5D8DC; padding: 10px">
+                                    <div class="row" style="margin: 5px; border: 1px solid #BDBDBD">
+                                        <div class="col-sm-6">
+                                            <h5 style="text-transform: uppercase; color: red; text-align: center; font-size: smaller">
+                                                <strong>Please fill the form below to make your order request</strong>
+                                            </h5>
+                                        </div>
+                                        <div class="col-sm-6" style="background-color: whitesmoke; border-left: 1px solid #BDBDBD">
+                                            <h5 style="text-transform: uppercase; color:; text-align: center">
+                                             <strong><?php echo $SingleEnterprise->name?></strong>
+                                            </h5>
+                                        </div>
                                     </div>
                                     <?php }?>
-                                </div>
 
-                                <div class="col-sm-11 image-box" style="margin: 20px; border: 1px solid #D5D8DC; padding: 10px">
-                                    <h5 style="text-transform: uppercase; color:red; text-align: center"><strong>Please fill the form below to make your order request</strong></h5>
-                                    <form class="#" action="#" method="post" enctype="multipart/form-data" role="form" name="add_name" id="add_name">
+                                    <form class="#" action="<?php echo base_url()?>index.php/Products/AddOrder" method="post" enctype="multipart/form-data" role="form" name="add_name" id="add_name">
                                         <fieldset>
                                             <div class="row">
-                                                <div class="col-sm-4" style="background-color: whitesmoke; margin: 15px; border: 1px solid #BDBDBD; border-radius: 8px">
+                                                <div class="col-sm-4" style="background-color: whitesmoke; margin: 15px; border: 1px solid #BDBDBD; border-radius: 0">
                                                     <h5 style="text-align: center; text-transform: uppercase; color: cornflowerblue">
                                                         <i class="fa fa-user"></i><strong> customer Contact Details:</strong></h5>
                                                     <small>You can click your details to change it whenever necessary</small>
                                                     <div class="form-group input-group">
-                                                        <span class="input-group-addon" style="background-color: #F5D0A9; width: 80px; font-size: small">Names</span>
-                                                        <input class="form-control required" placeholder="Enter your name" name="name" id="name"
-                                                               type="text" autofocus title="Enter your name" value="<?php echo $_SESSION['full_name']?>" style="text-transform: capitalize">
-                                                    </div>
-
-                                                    <div class="form-group input-group">
                                                         <span class="input-group-addon" style="background-color: #F5D0A9; width: 80px; font-size: small">Email</i></span>
-                                                        <input class="form-control required" placeholder="Enter your username" name="username"
-                                                               type="text" autofocus title="Please enter your username"  id="uname" value="<?php echo $_SESSION['email']?>">
+                                                        <input class="form-control required" placeholder="Email address" name="email"
+                                                               type="text" autofocus title="Please you can change this email here"  id="email" value="<?php echo $_SESSION['email']?>">
                                                     </div>
 
                                                     <div class="form-group input-group" >
                                                         <span class="input-group-addon" style="background-color: #F5D0A9; width: 80px; font-size: small">Phone</span>
                                                         <input class="form-control" id="phone" name="phone"
-                                                               type="email" autofocus title="Email address" value="<?php echo $_SESSION['phone']?>" style="text-transform: capitalize"">
+                                                               type="text" autofocus title="Email address" value="<?php echo $_SESSION['phone']?>" style="text-transform: capitalize"">
                                                     </div>
 
                                                     <div class="form-group input-group">
                                                         <span class="input-group-addon" style="background-color: #F5D0A9; width: 80px; font-size: small">Location</span>
-                                                        <input class="form-control" placeholder="delivery location" name="phone" id="location"
-                                                               type="text" autofocus title="Phone number is compasury">
+                                                        <select class="form-control" id="location" name="location">
+                                                            <option value="Arusha">Arusha</option>
+                                                            <option value="Dar es salaam" selected>Dar es salaam</option>
+                                                            <option value="dodoma">Dodoma</option>
+                                                            <option value="geita">Geita</option>
+                                                            <option value="iringa">Iringa</option>
+                                                            <option value="kagera">Kagera</option>
+                                                            <option value="katavi">Katavi</option>
+                                                            <option value="kigoma">Kigoma</option>
+                                                            <option value="kilimanjaro">Kilimanjaro</option>
+                                                            <option value="lindi">Lindi</option>
+                                                            <option value="manyara">Manyara</option>
+                                                            <option value="mara">Mara</option>
+                                                            <option value="mbeya">Mbeya</option>
+                                                            <option value="morogoro">Morogoro</option>
+                                                            <option value="mtwara">Mtwara</option>
+                                                            <option value="mwanza">Mwanza</option>
+                                                            <option value="njombe">Njombe</option>
+                                                            <option value="pemba north">Pemba North</option>
+                                                            <option value="pemba south">Pemba South</option>
+                                                            <option value="pwani">Pwani</option>
+                                                            <option value="rukwa">Rukwa</option>
+                                                            <option value="ruvuma">Ruvuma</option>
+                                                            <option value="">Shinyanga</option>
+                                                            <option value="simiyu">Simiyu</option>
+                                                            <option value="singida">Singida</option>
+                                                            <option value="tabora">Tabora</option>
+                                                            <option value="tanga">Tanga</option>
+                                                            <option value="zanzibar north">Zanzibar north</option>
+                                                            <option value="zanzibar south">Zanzibar south and central</option>
+                                                            <option value="zanzibar west">Zanzibar West</option>
+                                                        </select>
                                                     </div>
 
                                                     <div class="form-group input-group">
@@ -388,24 +399,34 @@
                                                         <input class="form-control required" name="dateOfNeed"
                                                                type="date" autofocus title="Please enter your username"  id="date">
                                                     </div>
+                                                    <div class="form-group input-group">
+                                                        <span class="input-group-addon" style="background-color: #F5D0A9; width: 80px; font-size: small">Order Name</i></span>
+                                                        <input class="form-control" name="order_name"
+                                                               type="text" autofocus title="order name"  id="order_name">
+                                                    </div>
+                                                    <div class="form-group input-group">
+                                                        <span class="input-group-addon" style="background-color: #F5D0A9; width: 80px; font-size: small">Files</i></span>
+                                                        <input class="form-control" name="documents"
+                                                               type="text" autofocus title="Upload additional order documents"  id="document">
+                                                    </div>
 
 
                                                 </div>
                                                 <div class="col-sm-7">
-                                                    <label><strong>List the Products you need</strong></label>
+                                                    <label><small>List the Products you need</small></label>
                                                     <div class="form-group">
                                                             <div class="table-responsive">
                                                                 <table class="table table-bordered table-striped" id="dynamic_field">
                                                                     <tr>
-                                                                        <td><input style="font-size: small" type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td>
-                                                                        <td><input style="font-size: small" type="text" name="features" placeholder="Product features" class="form-control name_list" /></td>
-                                                                        <td><input  style="font-size: small" type="number" name="quantity" placeholder="quantity" class="form-control name_list" /></td>
+                                                                        <td><input style="font-size: small" type="text" name="name[]" placeholder="Product Name" class="form-control name_list" /></td>
+                                                                        <td><input style="font-size: small" type="text" name="features[]" placeholder="Product features" class="form-control name_list" /></td>
+                                                                        <td><input  style="font-size: small" type="number" name="quantity[]" placeholder="quantity" class="form-control name_list" /></td>
                                                                         <td><button type="button" name="add" id="add" class="btn btn-info"><i class="fa fa-plus"></i></button></td>
                                                                     </tr>
                                                                 </table>
                                                                 <div class="#">
                                                                     <div class="col-sm-8"></div>
-                                                                    <div class="col-sm-4"><button type="button" name="submit" id="submit" class="btn btn-success btn-block">Submit Order</button>
+                                                                    <div class="col-sm-4"><button type="submit" name="submitOrder" id="submit" class="btn btn-success btn-block"><i class="fa fa-shopping-cart"></i> Submit Order</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -430,15 +451,15 @@
         var i=1;
         $('#add').click(function(){
             i++;
-            $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="text" name="features" placeholder="product features" class="form-control name_list" /></td><td><input type="number" name="quantity" placeholder="quantity" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+            $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="name[]" placeholder="Product Name" class="form-control name_list" /></td><td><input type="text" name="features[]" placeholder="product features" class="form-control name_list" /></td><td><input type="number" name="quantity[]" placeholder="quantity" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove"><i class="fa fa-minus"></i></button></td></tr>');
         });
         $(document).on('click', '.btn_remove', function(){
             var button_id = $(this).attr("id");
             $('#row'+button_id+'').remove();
         });
-        $('#submit').click(function(){
+        $('#submitOrder').click(function(){
             $.ajax({
-                url:"name.php",
+                url:"<?php echo base_url()?>/index.php/Products/AddOrder",
                 method:"POST",
                 data:$('#add_name').serialize(),
                 success:function(data)

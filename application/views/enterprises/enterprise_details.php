@@ -266,16 +266,9 @@
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-credit-card"></i>
-                        <span>Account</span><span class="menu-arrow arrow_carrot-right"></span>
+                    <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
+                        <span>Orders</span>
                     </a>
-                    <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-credit-card-alt"></i>Billing</a></li>
-                        <li><a class="" href="#"><i class="fa fa-code"></i>Developer API</a></li>
-                        <li><a class="" href="#"><i class="fa fa-cog"></i>Organizations</a></li>
-                        <li><a class="" href="#"><i class="fa fa-lock"></i>Personal settings</a></li>
-                        <li><a class="" href="#"><i class="fa fa-folder"></i>Project</a></li>
-                    </ul>
                 </li>
             </ul>
             <ul class="sidebar-menu">
@@ -345,36 +338,61 @@
                                 <div class="col-sm-12" style="border-top: 1px dotted #D5D8DC ; font-size: small">
                                     <div class="col-sm-3 image-box">
                                         <img width="100%" height="150" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
+                                        <label>Other images</label><br>
+                                        <img  style="margin-top: 3px" width="20%" height="50" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
+                                        <img  style="margin-top: 3px" width="20%" height="50" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
+                                        <img  style="margin-top: 3px" width="20%" height="50" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
+                                        <img  style="margin-top: 3px" width="20%" height="50" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
+
+
                                     </div>
-                                    <div class="col-sm-5 summary-box " style="border: 1px solid #D5D8DC">
-                                        <h5 class="summary">Store information</h5>
-                                        <label><strong>Store name: </strong></label><span> <?php echo $SingleEnterprise->name?></span><br>
-                                        <label><strong>Products: </strong></label><span> <?php echo $SingleEnterprise->category?></span><br>
-                                        <label><strong>Date registered: </strong></label><span> <?php echo $SingleEnterprise->register_date?></span><br>
-                                        <label><strong>User phone: </strong></label><span> <?php echo $SingleEnterprise->phone?></span><br>
-                                        <label><strong>Store catalogue: </strong></label><a href="#"> <span style="color: red"> Download</span> <i class="fa fa-download"></i></a> <br>
-                                        <button type="button" class="btn btn-success">Edit store details</button>
+
+                                    <div class="col-sm-5" style="margin: 10px">
+                                        <div style="background-color: cadetblue; padding: 5px; border: 1px solid #BDBDBD">
+                                            <h5 style="font-size: small; color: white; text-align: center">Store Summary</h5>
+                                        </div>
+                                        <div class="col-sm-12" style="border: 1px solid #BDBDBD; padding: 5px; font-size: small; background-color: whitesmoke">
+                                            <?php if (isset($SingleEnterprise)){
+                                                ?>
+                                                <div class="col-sm-9">
+                                                    <label><strong>Store name: </strong></label><span> <?php echo $SingleEnterprise->name?></span><br>
+                                                    <label><strong>Products: </strong></label><span> <?php echo $SingleEnterprise->category?></span><br>
+                                                    <label><strong>Date registered: </strong></label><span> <?php echo $SingleEnterprise->register_date?></span><br>
+                                                    <label><strong>User phone: </strong></label><span> <?php echo $SingleEnterprise->phone?></span><br>
+                                                    <label><strong>Store catalogue: </strong></label><a href="#"> <span style="color: red"> Download</span> <i class="fa fa-download"></i></a> <br>
+                                                    <button type="button" class="btn btn-success">Edit store details</button>
+                                                </div>
+
+                                            <?php } ?>
+
+                                        </div>
+
                                     </div>
-                                    <div class="col-sm-3 summary-box" style="border: 1px solid #D5D8DC">
-                                        <h5 style="text-align: center" class="summary">Enterprise Summary</h5>
-                                        <div class="row">
-                                            <div class="col-sm-7" style="background-color: ">Total products</div>
-                                            <div class="col-sm-5" style="background-color: "><?php echo $SingleEnterprise->total_products?></div>
+                                    <div class="col-sm-3" style=" padding: 0; margin: 10px; border: 1px solid #BDBDBD; border-radius: 0;">
+                                        <div style="background-color: darkslategray; padding: 5px; border: 1px solid #BDBDBD">
+                                            <h5 style="font-size: small; color: white; text-align: center">Store Summary</h5>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-sm-7" style="background-color: ">Store visitors</div>
-                                            <div class="col-sm-5" style="background-color: "><?php echo $SingleEnterprise->enterprise_visitors?></div>
+
+                                        <div class="" style="padding: 15px; font-size: small; background-color: whitesmoke">
+                                            <ol style="list-style: square">
+                                                <li style="padding: 5px"><a href="" style="margin: 5px;">Total products <span><strong><?php echo $SingleEnterprise->total_products?></strong></span></a>
+
+                                                </li>
+                                                <li style="padding: 5px"><a href="" style="margin: 5px;">Store Visitors <span><strong><?php echo $SingleEnterprise->enterprise_visitors?></strong></span></a>
+
+                                                </li>
+                                                <li style="padding: 5px"><a href="" style="margin: 5px;">Total Orders<span> <strong><?php echo $SingleEnterprise->total_products?></strong></span></a>
+
+                                                </li>
+                                                <li style="padding: 5px"><a href="" style="margin: 5px;">Rejected Orders<span> <strong><?php echo $SingleEnterprise->total_products?></strong></span></a>
+
+                                                </li>
+
+                                            </ol>
+                                            <a href="<?php echo base_url()?>index.php/Products/viewEnterpriseOrders?ent=<?php echo $SingleEnterprise->enterprise_id?>">
+                                                <button title="view new order requests" type="button" class="btn btn-warning btn-block">View Orders</button>
+                                            </a>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-sm-7" style="background-color: ">Total orders</div>
-                                            <div class="col-sm-5" style="background-color: "><?php echo $SingleEnterprise->total_products?></div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-7">Confirmed orders</div>
-                                            <div class="col-sm-5"><?php echo $SingleEnterprise->total_products?></div>
-                                        </div>
-                                        <button title="view new order requests" type="button" class="btn btn-warning btn-block">New Order requests (0)</button>
-                                        <button title="view new order requests" type="button" class="btn btn-info btn-block">All Orders (12)</button>
                                     </div>
                                 <?php }?>
                                 </div>
@@ -449,6 +467,71 @@
             </div>
         </section>
     </section>
+
+    <!-- Bootstrap modal -->
+    <div class="modal fade" id="add_product" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Add New Product</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="<?php echo base_url()?>index.php/Products/AddProducts?ent=<?php ?>" method="post" class="#" enctype="multipart/form-data">
+                        <div class="form-body">
+
+                            <div class="row">
+
+                                <div class="col-sm-6 "><label for="email" id="email">Product name:</label>
+                                    <input type="text" class="form-control" placeholder="Product name" name="product_name">
+                                </div>
+
+                                <div class="col-sm-6 "><label for="email" id="email">Quantity:</label>
+                                    <input type="number" class="form-control" placeholder="Quantity " name="quantity" title="product quantity" >
+                                </div>
+                            </div>
+
+                            <label for="category" id="category">Category:</label>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-object-group"></i></span>
+                                <select id="category" class="form-control" name="category">
+                                    <option value="electronics" selected>Electronics</option>
+                                    <option value="construction">Construction</option>
+                                    <option value="hardware">Hardware</option>
+                                    <option value="plumbing">Plumbing</option>
+                                    <option value="furniture">Furniture</option>
+                                </select>
+                            </div>
+
+                            <label for="product_price">Price:</label>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">tzs</span>
+                                <input type="number" class="form-control" placeholder="product price" name="product_price" id="product_price" title="enter product title" >
+                                <span class="input-group-addon">@ product</span>
+                            </div>
+
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-image"></i></span>
+                                <input type="file" class="form-control" placeholder="product image" name="product_image" title="upload product image" >
+                            </div>
+
+                            <label for="email" id="email">Description:</label>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"></span>
+                                <textarea type="text" rows="5" class="form-control" placeholder="Say something about this product" name="description" ></textarea>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" name="saveProduct" class="btn btn-primary">Save Product</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- End Bootstrap modal -->
 </div>
 <!-- statics end -->
 <!-- javascripts -->

@@ -52,6 +52,7 @@ class Enterprise extends CI_Controller{
                         'phone' => $_SESSION['phone'],
                         'image_url' => $store_image['file_name'],
                         'user_id' => $_SESSION['user_id'],
+                        'enterprise_orders' => 0,
                         'register_date' => date('Y-m-d H:i:s'),
                     );
 
@@ -103,9 +104,26 @@ class Enterprise extends CI_Controller{
     {
         $this->load->model('EnterpriseModel');
         $_SESSION['enterprise'] = $_GET['ent'];
-        $data['SingleEnterprise'] = $this->EnterpriseModel->customerEnterpriseDetails();
-        $data['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
-        $this->load->view('enterprises/user_enterprise_view', $data);
+        $enterprise['SingleEnterprise'] = $this->EnterpriseModel->customerEnterpriseDetails();
+        $enterprise['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
+        $this->db->select('*');
+        $this->db->from('ms_enterprise_views');
+        $this->db->where(array(
+            'user_id' => $_SESSION['user_id'],
+            'enterprise_id' => $_SESSION['enterprise'],
+        ));
+        $query = $this->db->get();
+        $user_view = $query->row();
+        if (isset($user_view->user_id)){
+            $this->load->view('enterprises/user_enterprise_view', $enterprise);
+        }else{
+            $data = array(
+                'enterprise_id' => $_SESSION['enterprise'],
+                'user_id' => $_SESSION['user_id'],
+            );
+            $this->db->insert('ms_enterprise_views', $data);
+            $this->load->view('enterprises/user_enterprise_view', $enterprise);
+        }
     }
 
 }

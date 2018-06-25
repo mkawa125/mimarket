@@ -2,11 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: mkawa
- * Date: 6/18/2018
- * Time: 11:27 AM
+ * Date: 6/23/2018
+ * Time: 11:38 PM
  */
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,6 +55,8 @@
             padding: 10px;
             border: 1px solid #D5D8DC;
             background-color: whitesmoke;
+            text-transform: capitalize;
+            text-align: center;
         }
         .summary-box{
             padding: 8px;
@@ -70,6 +71,9 @@
             border: 1px solid #D5D8DC ;
             padding: 10px;
             background-color: white;
+        }
+        .btn{
+            border-radius: 0;
         }
         ul.sidebar-menu li ul.sub li a {
 
@@ -119,6 +123,7 @@
             transition: all 0.3s ease;
 
         }
+
     </style>
 </head>
 
@@ -319,6 +324,7 @@
                         <i class="fa fa-angle-double-right"></i><span><a href="#">Enterprise Name</a></span></h5>
                     <section class="">
                         <div class="col-lg-11">
+
                             <?php $success_msg = $this->session->flashdata('success_msg');
                             if ($success_msg){?>
                                 <div class="alert alert-success alert-dismissible"><?php echo $success_msg?>
@@ -327,70 +333,159 @@
                                 <?php
                             }
                             ?>
-
-                            <div class="row items" >
-                                <?php  if (isset($SingleEnterprise)){
-                                    ?>
-                                <div class="col-sm-12" style="font-size: small">
-                                    <div class="col-sm-3 image-box">
-                                        <img width="100%" height="200" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
-                                        <div class="col-sm-11 image-box">
-                                            <img width="100%" height="200" src="#" alt="Google map location">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-8" style="margin: 10px">
-                                        <div class="col-sm-12" style="border: 1px solid #BDBDBD; padding: 5px; font-size: small; background-color: whitesmoke">
-                                            <div style="background-color: cadetblue; padding: 5px; border: 1px solid #BDBDBD">
-                                                <h5 style="font-size: small; color: white; text-align: center; text-transform: uppercase"><?php echo $SingleEnterprise->name?></h5>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <h5><strong>Enterprise Descriptions</strong></h5>
-                                                <div class="description" style="border: solid 1px #D5D8DC; padding: 10px; background-color: white">
-                                                    <p><?php echo $SingleEnterprise->description?></p>
-                                                    <p>Please click here to <a href="#"> Download product the enterprise/catalogue <i class="fa fa-download" style="color:red;"></i></a></p>
-                                                </div>
-
-                                                <p style="margin-top: 10px"><strong style="color: chocolate">Contact Details</strong></p>
-                                                <label><strong><i class="fa fa-user"></i> Owner's name: </strong></label><span> <?php echo $SingleEnterprise->username?></span><br>
-                                                <label><strong><i class="fa fa-envelope"></i> Email: </strong></label><span style="color: cornflowerblue"> <?php echo $SingleEnterprise->email?></span><br>
-                                                <label><strong><i class="fa fa-phone"></i> Phone Number: </strong></label><span style="color: green"> <?php echo $SingleEnterprise->phone?></span><br>
-                                                <label><strong><i class="fa fa-user"></i> Location: </strong></label><span> <?php echo $SingleEnterprise->location?></span><br>
-                                                <a href="<?php echo base_url()?>index.php/Products/OrderProduct?ent=<?php echo $SingleEnterprise->enterprise_id?>">
-                                                    <button style="float: right" type="button" data-action="" class="btn btn-success" name="specialOrder">create special order</button></a>                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php } ?>
-                            </div>
-
-                            <div class="row items" style="margin-top: 10px">
-                                <div class="row">
-                                    <div class="col-sm-4" style="margin: 5px">
-                                        <h5><strong>Products registered to this store</strong></h5>
-                                    </div>
-                                    <div class="col-sm-3" style="margin: 5px">
-                                    </div>
-                                    <div class="col-sm-4 input-group" style="margin: 5px">
-                                        <input class="form-control" type="text" name="searchProduct" placeholder="what are you looking for ?">
-                                        <span class="input-group-addon"><a class="#"><i class="fa fa-search"></i></a></span>
-                                    </div>
-
-                                </div>
-
-                                <div class=""></div>
+                            <div class="row items" style="margin-top: 5px">
                                 <div class="col-sm-12" style="margin-top: 10px">
-                                    <?php
-                                    foreach($products->result() as $row){
-                                        ?>
-                                        <div class="col-sm-2" style="font-size: small">
-                                            <a href="#">
-                                                <h5 style="color: cornflowerblue; text-align: center"><strong><?php echo $row->ProductName?></strong></h5>
-                                                <img src="<?php echo base_url()?>/Images/productImages/<?php echo $row->product_image?>" width="100%" height="70"></a>
-                                            <p><strong>Price:</strong> <span style="color: red"> <?php echo $row->product_price?> tzs</span></p>
-                                            <button style="font-size: smaller" class="btn btn-info btn-danger"><i class="fa fa-shopping-cart"></i> Order product</button>
+                                    <div class="row">
+                                        <div class="col-sm-7" style="">
+                                            <table class="table table-striped table-bordered" style="font-size: smaller" id="enterprise">
+                                                <thead>
+                                                <tr>
+                                                    <td>NO</td>
+                                                    <th>Product Name</th>
+                                                    <th>Price</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <?php
+                                                foreach($products->result() as $product){
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $product->product_id?></td>
+                                                        <td><?php echo $product->ProductName?></td>
+                                                        <td><?php echo $product->product_price?></td>
+                                                        <td style="width: 10px">
+                                                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal<?php echo $product->product_id; ?>"><i class="fa fa-plus"></i> Add</button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <div class="modal fade" id="myModal<?php echo $product->product_id; ?>" role="dialog">
+                                                        <div class="modal-dialog">
+
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    <h4 class="modal-title" style="color: red">Add product to cart</h4>
+                                                                </div>
+                                                                <form action="<?php echo base_url()?>index.php/Products/shoppingCart?prod=<?php echo $product->product_id; ?>" method="post">
+                                                                    <div class="modal-body">
+
+                                                                        <p>Enter product quantity</p>
+
+                                                                        <div class="form-group input-group">
+                                                                            <span class="input-group-addon">Quantity</span>
+                                                                            <input class="form-control" placeholder="Product Quantity" name="quantity"
+                                                                                   type="number" title="Enter product quantity">
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <a href="<?php echo base_url()?>index.php/Products/shoppingCart?prod=<?php echo $product->product_id; ?>">
+                                                                            <button type="submit" class="btn btn-primary" name="add"><i class="fa fa-shopping-cart"></i> Add Product</button>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php } ?>
+                                                </tbody>
+                                            </table>
+
                                         </div>
-                                    <?php } ?>
+
+                                        <div class="col-sm-5" style="">
+                                            <h5 class="summary">Customer Order Information</h5>
+                                            <div class="col-sm-12" style="border: 1px solid #BDBDBD; padding: 5px; font-size: smaller; background-color: whitesmoke">
+                                                <?php if (isset($orderDetails)){
+                                                    ?>
+                                                    <div class="col-sm-6">
+                                                        <label><strong>Order name: </strong><?php echo $orderDetails->order_name;?></label><br>
+                                                        <label><strong>Date Placed: </strong><?php echo $orderDetails->order_date;?></label><br>
+                                                        <label><strong>Expected Date: </strong><?php echo $orderDetails->expected_date;?></label><br>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <label style="color: chocolate"><strong>Customer Contact</strong></label><br>
+                                                        <label style="text-transform: uppercase"><?php echo $orderDetails->full_name;?></label><br>
+                                                        <label><?php echo $orderDetails->phone;?></label><br>
+                                                         <label style="color: cornflowerblue"><?php echo $orderDetails->customer_email;?></label><br>
+                                                        <label><?php echo $orderDetails->location;?></label><br>
+                                                    </div>
+
+                                               <?php } ?>
+
+                                                <table class="table table-bordered">
+                                                    <thead style="background-color: darkslategray; color: white">
+                                                    <tr>
+                                                        <th style="color: white">Product Name</th>
+                                                        <th style="color: white">Quantity</th>
+                                                        <th style="color: white">Features</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                <?php
+                                                foreach ($singleOrder->result() as $orderDetails){
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $orderDetails->orderedProduct_name?></td>
+                                                        <td><?php echo $orderDetails->orderedProduct_quantity?></td>
+                                                        <td><?php echo $orderDetails->orderedProduct_features?></td>
+                                                    </tr>
+
+                                                <?php } ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-sm-12" style="border: 1px solid black; margin-top: 15px" id="cart_details">
+                                                <h5 style="text-align: center; font-size: small">Order processing summary</h5>
+                                                <?php
+
+                                                if (isset($cartProduct)){
+                                                    $total_cost = 0;
+                                                    ?>
+                                                <table class="table-bordered table table-stripped" style="font-size: smaller">
+                                                    <tr style="background-color: whitesmoke; color: white">
+                                                        <th>Name</th>
+                                                        <th>Quantity</th>
+                                                        <th>Price</th>
+                                                        <th>Total</th>
+                                                        <th>Remove</th>
+                                                    </tr>
+                                                    <tbody>
+
+                                                        <?php foreach ($cartProduct->result() as $cart){
+                                                            $total = ($cart->product_price) * ($cart->cart_quantity);
+                                                            $total_cost = $total_cost + ( ($cart->product_price) * ($cart->cart_quantity));
+                                                            ?>
+                                                        <tr>
+                                                            <td><?php echo $cart->ProductName?></td>
+                                                            <td><?php echo $cart->cart_quantity?></td>
+                                                            <td><?php echo $cart->product_price?></td>
+                                                            <td><?php echo number_format($total,2)?></td>
+                                                            <td>
+                                                                <?php ?>
+                                                                <a href="<?php echo base_url()?>index.php/Products/removeCart?prod=<?php echo $cart->product_id; ?>">
+                                                                <button type="button" class="btn btn-danger btn-xs">Remove</button> </a></td>
+                                                        </tr>
+                                                        <?php } ?>
+                                                        <tr>
+                                                            <td align="right" colspan="5"><strong>Total Order cost: <?php echo number_format($total_cost, 2)?> </strong><label>tzs</label></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                                <div class="" align="right" style="padding: 5px">
+                                                    <a href="<?php echo base_url()?>index.php/Products/removeCart?prod=<?php  ?>">
+                                                        <button type="button" class="btn btn-default btn-xs"><i class="fa fa-print"></i>Print</button> </a>
+                                                    <a href="<?php echo base_url()?>index.php/Products/processedOrder?ord=<?php echo $_SESSION['order']; ?>">
+                                                        <button type="button" class="btn btn-primary btn-xs">Submit</button> </a>
+                                                </div>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -399,74 +494,8 @@
             </div>
         </section>
     </section>
-
-
-
-    <!-- Bootstrap modal -->
-    <div class="modal fade" id="add_product" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Add New Product</h4>
-                </div>
-                <div class="modal-body">
-                    <form action="<?php echo base_url()?>index.php/Products/AddProducts?ent=<?php ?>" method="post" class="#" enctype="multipart/form-data">
-                        <div class="form-body">
-
-                            <div class="row">
-
-                                <div class="col-sm-6 "><label for="email" id="email">Product name:</label>
-                                    <input type="text" class="form-control" placeholder="Product name" name="product_name">
-                                </div>
-
-                                <div class="col-sm-6 "><label for="email" id="email">Quantity:</label>
-                                    <input type="number" class="form-control" placeholder="Quantity " name="quantity" title="product quantity" >
-                                </div>
-                            </div>
-
-                            <label for="category" id="category">Category:</label>
-                            <div class="form-group input-group">
-                                <span class="input-group-addon"><i class="fa fa-object-group"></i></span>
-                                <select id="category" class="form-control" name="category">
-                                    <option value="electronics" selected>Electronics</option>
-                                    <option value="construction">Construction</option>
-                                    <option value="hardware">Hardware</option>
-                                    <option value="plumbing">Plumbing</option>
-                                    <option value="furniture">Furniture</option>
-                                </select>
-                            </div>
-
-                            <label for="product_price">Price:</label>
-                            <div class="form-group input-group">
-                                <span class="input-group-addon">tzs</span>
-                                <input type="number" class="form-control" placeholder="product price" name="product_price" id="product_price" title="enter product title" >
-                                <span class="input-group-addon">@ product</span>
-                            </div>
-
-                            <div class="form-group input-group">
-                                <span class="input-group-addon"><i class="fa fa-image"></i></span>
-                                <input type="file" class="form-control" placeholder="product image" name="product_image" title="upload product image" >
-                            </div>
-
-                            <label for="email" id="email">Description:</label>
-                            <div class="form-group input-group">
-                                <span class="input-group-addon"></span>
-                                <textarea type="text" rows="5" class="form-control" placeholder="Say something about this product" name="description" ></textarea>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="submit" name="saveProduct" class="btn btn-primary">Save Product</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </form>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <!-- End Bootstrap modal -->
 </div>
+
 <!-- statics end -->
 <!-- javascripts -->
 <script src="<?php echo base_url()?>nice/js/jquery.js"></script>
@@ -510,4 +539,55 @@
 <script>
     $('#enterprise').dataTable();
 </script>
+
+<!--shopping cart script-->
+<script>
+    $(document).ready(function () {
+        $('.add_cart').click(function () {
+            var product_id = $(this).data("product_id");
+            var ProductName = $(this).data("ProductName");
+            var product_price = $(this).data("product_price");
+            var quantity = $('#' + product_id).val();
+
+            if ( quantity > 0){
+               $.ajax({
+                   url:"<?php echo base_url()?>/Products/shopping_cart",
+                   method: "POST",
+                   data:{ product_id:product_id , ProductName:ProductName, product_price:product_price, quantity:quantity },
+                   success:function (data) {
+                       alert("Product Added to cart");
+                       $('#cart_details').html(data)
+                   }
+               })
+            }else {
+                alert("Please Enter The product quantity")
+            }
+
+        })
+
+    })
+</script>
+
+<?php
+if (!empty($_SESSION['cart'])){
+    $total = 0;
+    foreach ($_SESSION['cart'] as $key => $value){
+        ?>
+        <tr>
+            <td><?php echo $value->ProductName?></td>
+            <td><?php echo $value->quantity?></td>
+            <td>$ <?php echo $value->product_price?></td>
+            <td>$ <?php echo number_format($value['quantity'] * $value['product_price'], 2)?></td>
+            <td><a href="<?php echo base_url()?>index.php/Products/DeleteProduct?prod=<?php echo $value->product_id; ?>">
+                    <button type="button" class="btn btn-danger">Remove</button></a>
+            </td>
+        </tr>
+
+        <?php $total = $total + ($value['quantity'] * $value['product_price'])?>
+    <?php } ?>
+    <tr>
+        <td align="right">Total</td>
+        <th align="right">$ <?php echo number_format($total, 2)?></th>
+    </tr>
+<?php } ?>
 </html>

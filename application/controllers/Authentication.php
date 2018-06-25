@@ -54,12 +54,14 @@ class Authentication extends CI_Controller
                 $_SESSION['full_name'] = $user->full_name;
                 $_SESSION['username'] = $user->username;
                 $_SESSION['user_id'] = $user->user_id;
+                $_SESSION['order_id'] = $user->order_id;
                 $_SESSION['phone'] = $user->phone;
                 $_SESSION['pass1'] = md5($user->pass1);
                 $_SESSION['pass2'] = md5($user->pass2);
 
 
                 //redirect user
+                $this->session->set_flashdata('success_msg', 'Welcome Mr:');
                 redirect("Products/DefaultProducts");
 
 

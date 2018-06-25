@@ -114,7 +114,7 @@ if (isset($_POST['register'])) {
 
         } else {
             $data = array(
-                'name' => $_POST['name'],
+                'full_name' => $_POST['name'],
                 'username' => $_POST['username'],
                 'email' => $_POST['email'],
                 'phone' => $_POST['phone'],
