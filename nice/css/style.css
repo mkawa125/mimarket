@@ -1174,11 +1174,11 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
     width: 200px;
 
-    height: 35px;
+    height: 38px;
 
     padding-left: 20px;
 
-    margin-top: 1px;
+    margin-top: 0;
 
 }
 

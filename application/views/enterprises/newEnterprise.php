@@ -61,6 +61,10 @@
         }
         .form-control{
             font-size: small;
+            border-radius: 0;
+        }
+        .input-group-addon{
+            border-radius: 0;
         }
         .row-enter{
             padding: 10px;
@@ -91,33 +95,17 @@
         <!--logo end-->
 
         <!--  search form start -->
-        <form class="row search-row" action="#" method="post" enctype="multipart/form-data">
-
-            <div class="col-sm-3">
-                <div class="form-group input-group">
-                    <label for="ProductName"></label>
-                    <input class="form-control" type="text" name="ProductName" id="ProductName">
-                </div>
-            </div>
-
-
-            <div class="col-sm-3">
-                <div class="form-group input-group">
-                    <select class="form-control" id="category"  name="category">
-                        <option value="electronics" selected>Electronics</option>
-                        <option value="construction">Construction</option>
-                        <option value="hardware">Hardware</option>
-                        <option value="plumbing">Plumbing</option>
-                        <option value="furniture">Furniture</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div class="form-group input-group">
-                    <select class="form-control" id="location" name="location">
+        <div class="nav search-row" id="top_menu">
+            <!--  search form start -->
+            <ul class="nav top-menu" style="margin-left: 190px">
+                <li>
+                    <form class="navbar-form" action="<?php echo base_url()?>index.php/Products/IndexSearch" method="post">
+                        <div class="col-sm-12 input-group">
+                        <span class="input-group-addon">
+                        <select class="" id="location"  name="location" style="font-size: small; padding: 3px">
+                        <option value="Arusha" selected>All regions</option>
                         <option value="Arusha">Arusha</option>
-                        <option value="Dar es salaam" selected>Dar es salaam</option>
+                        <option value="Dar es salaam">Dar es salaam</option>
                         <option value="dodoma">Dodoma</option>
                         <option value="geita">Geita</option>
                         <option value="iringa">Iringa</option>
@@ -146,16 +134,30 @@
                         <option value="zanzibar north">Zanzibar north</option>
                         <option value="zanzibar south">Zanzibar south and central</option>
                         <option value="zanzibar west">Zanzibar West</option>
-                    </select>
-                </div>
-            </div>
+                     </select>
+                     </span>
 
-            <div class="col-sm-2">
-                <div class="form-group input-group">
-                    <button class="btn btn-danger" type="submit" name="IndexSearch">Search</button>
-                </div>
-            </div>
-        </form>
+                            <span class="input-group-addon">
+                        <select class="" id="category"  name="category" style="font-size: small; padding: 3px">
+                        <option value="" selected>All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="construction">Construction</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="furniture">Furniture</option>
+                    </select>
+                    </span>
+
+                            <input class="form-control" type="text" name="product_name" placeholder="what are you looking for ?">
+                            <span class="input-group-addon" style="background-color: cornflowerblue; padding: 0">
+                        <button style="border-radius: 0" type="submit" name="search" class="btn btn-primary"><i class="fa fa-search"></i></button></span>
+
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            <!--  search form end -->
+        </div>
 
 
         <div class="top-nav notification-row" >
@@ -165,7 +167,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['username']?></span>
+                        <span class="username"><?php echo $_SESSION['full_name']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
@@ -192,25 +194,26 @@
             <!-- notificatoin dropdown end-->
         </div>
     </header>
-    <!--    header end-->
 
-    <!--    sidebar start-->
+    <!--header end-->
+
+    <!--sidebar start-->
     <aside>
         <div id="sidebar" class="nav-collapse ">
-            <!--             sidebar menu start-->
-            <ul class="sidebar-menu">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" style="margin-top: 63px">
 
                 <li class="active">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="icon_house_alt"></i> <span>Home</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Products/DefaultProducts"><i class="icon_house_alt"></i> <span>Home</span></a>
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-server" aria-hidden="true"></i>
-                        <span>My Companies</span><span class="menu-arrow arrow_carrot-right">
+                    <a href="javascript:" class=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>My Companies</span><span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-user-plus"></i>My Enterprise</a></li>
-                        <li><a class="" href="#"><i class="fa fa-home"></i>Bookmarks</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Enterprise/getEnterprises"><i class="fa fa-shopping-cart"></i>My Enterprise</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Direct/product"><i class="fa fa-bookmark"></i>Bookmarks</a></li>
                     </ul>
                 </li>
 
@@ -219,7 +222,7 @@
                         <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-envelope"></i>Send message</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>
                         <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>
                         <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>
                         <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>
@@ -231,6 +234,12 @@
                         <span>Orders</span>
                     </a>
                 </li>
+
+                <li class="sub-menu">
+                    <a href="<?php echo base_url()?>index.php/Products/storeOrderReport?u=<?php echo $_SESSION['user_id']?>" class=""><i class="fa fa-bar-chart" aria-hidden="true"></i>
+                        <span>Statistics</span>
+                    </a>
+                </li>
             </ul>
             <ul class="sidebar-menu">
                 <li class="sub">
@@ -238,7 +247,7 @@
                 </li>
 
                 <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
+                    <a class="" target="_blank" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
                 </li>
 
                 <li class="">
@@ -248,11 +257,8 @@
                 <li class="">
                     <a class="" href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a>
                 </li>
-
             </ul>
-
-
-            <!--             sidebar menu end-->
+            <!-- sidebar menu end-->
         </div>
     </aside>
     <!--    sidebar end-->
@@ -269,7 +275,7 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-11 col-sm-offset-1">
+                <div class="col-lg-8 col-sm-offset-2">
                     <h5 class="#"><i class="fa fa-home"></i><a href="#"> Home </a>  <i class="fa fa-angle-double-right"></i>
                         <span> <a href="#"> Enterprises </a>  </span><i class="fa fa-angle-double-right"></i>
                         <span> <a href="#"> New Enterprise </a>  </span>
@@ -295,6 +301,8 @@
                                         }
                                         ?>
 
+
+
                                         <?php $error = form_error('name', '<p class="error">')?>
                                         <?php echo $error?>
                                             <div class="row" >
@@ -313,6 +321,8 @@
                                                         <input class="form-control" style="color: orange" id="owner" name="owner" value="<?php echo $_SESSION['full_name']?>">
                                                     </div>
                                                 </div>
+                                                <input type="hidden" name="txtlat" id="txtlat" required value="">
+                                                <input type="hidden" name="txtlang" id="txtlang" required value="">
                                             </div>
 
                                             <div class="row">
@@ -386,6 +396,25 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label for="catalogue" ><strong>Store Catalogue:</strong></label>
+                                                <div class="form-group input-group">
+                                                    <span class="input-group-addon">pdf</span>
+                                                    <input type="file" class="form-control" id="catalogue" name="catalogue">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <?php $error = form_error('image', '<p class="error">')?>
+                                                <?php echo $error?>
+                                                <label for="image"><strong>Organizational Image:</strong></label>
+                                                <div class="form-group input-group" <?php echo $error? 'has error': '' ?>>
+                                                    <span class="input-group-addon"><i class="fa fa-image"></i></span>
+                                                    <input type="file" class="form-control" name="image" id="image" >
+                                                </div>
+                                            </div>
+                                        </div>
+
 
                                             <div class="row">
                                                 <div class="col-sm-6">
@@ -395,14 +424,10 @@
                                                     <textarea class="form-control" rows="5" name="description" id="description" <?php echo $error? 'has error': '' ?>></textarea>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <?php $error = form_error('image', '<p class="error">')?>
-                                                    <?php echo $error?>
-                                                    <label for="image"><strong>Organizational Image:</strong></label>
-                                                    <div class="form-group input-group" <?php echo $error? 'has error': '' ?>>
-                                                        <span class="input-group-addon"><i class="fa fa-image"></i></span>
-                                                        <input type="file" class="form-control" name="image" id="image" >
-                                                    </div>
+                                                    <p>Location: <span id="map"></span></p>
                                                 </div>
+
+
                                             </div>
                                         </div>
                                     </fieldset>
@@ -416,9 +441,13 @@
     </section>
 </div>
 
+<!--geo location script-->
+
 </body>
 <!-- statics end -->
 <!-- javascripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script src="<?php echo base_url()?>nice/js/jquery.js"></script>
 <script src="<?php echo base_url()?>nice/js/jquery-ui-1.10.4.min.js"></script>
 <script src="<?php echo base_url()?>nice/js/jquery-1.8.3.min.js"></script>
@@ -449,6 +478,55 @@
 <script src="<?php echo base_url()?>nice/js/scripts.js"></script>
 <script src="<?php echo base_url()?>nice/js/wysiwyg.js"></script>
 
+<script src="<?php echo base_url()?>/js/geoloc.js"></script>
 
+<script>
+    $(document).ready(function(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showLocation);
+        }else{
+            $('#map').html('Geolocation is not supported by this browser.');
+        }
+    });
+
+    function showLocation(position){
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url()?>index.php/Direct/geoLocation',
+            data:'latitude='+latitude+'&longitude='+longitude,
+            success:function(msg){
+                if(msg){
+                    $("#map").html(msg);
+                }else{
+                    $("#map").html('Not Available');
+                }
+            }
+        });
+    }
+</script>
+
+<script>
+    $(function() {
+        window.onload = getLocation;
+        var geo = navigator.geolocation;
+        function getLocation() {
+            if (geo) {
+                geo.getCurrentPosition(displayLocation);
+            } else {
+                alert("Oops, Geolocation API is not supported");
+            }
+        } function displayLocation(position) {
+            var lat = position.coords.latitude;
+            var lang = position.coords.longitude;
+            document.getElementById('txtlat').value = lat;
+            document.getElementById('txtlang').value = lang;
+        }
+    });
+
+</script>
 </html>
+
+
 

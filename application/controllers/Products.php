@@ -18,9 +18,12 @@ class Products extends CI_Controller
         $this->load->library('session','form_validation');
         $this->load->view('enterprises/newEnterprise.php');
         $this->load->model('EnterpriseModel');
+        $this->load->database();
+        $this->load->helper('download');
     }
     public function AddProducts(){
         if (isset($_POST['saveProduct'])){
+
             //Declaring variables for uploading images
             $this->load->library('upload');
             $config['upload_path'] = './Images/productImages';
@@ -76,82 +79,203 @@ class Products extends CI_Controller
         $this->load->model('EnterpriseModel');
         $data['products'] = $this->EnterpriseModel->DefaultProducts();
         $data['enterprises'] = $this->EnterpriseModel->DefaultEnterprises();
+        $data['totalOrders'] = $this->EnterpriseModel->totalOrders();
+        $data['totalRequests'] = $this->EnterpriseModel->totalRequests();
+        $data['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
+        $data['enterprises'] = $this->EnterpriseModel->DefaultEnterprises();
+        $data['enterprises'] = $this->EnterpriseModel->DefaultEnterprises();
+        $data['enterprises'] = $this->EnterpriseModel->DefaultEnterprises();
         $this->load->view('dashboard/home', $data);
     }
 
     public function OrderProduct()
     {
+        if ($this->session->userdata('user_logged')){
+            $this->load->model('EnterpriseModel');
+            $_SESSION['enterprise'] = $_GET['ent'];
+            $data['SingleEnterprise'] = $this->EnterpriseModel->customerEnterpriseDetails();
+            $data['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
+            $this->load->view('order_pages/make_order', $data);
+        }else{
+            $this->session->set_flashdata('error_order', 'Looks you have not logged in, Please login to create order to this enterprise or');
+            redirect('Products/unOrderCreationFail');
+        }
+
+    }
+    public function unOrderCreationFail()
+    {
         $this->load->model('EnterpriseModel');
-        $_SESSION['enterprise'] = $_GET['ent'];
-        $data['SingleEnterprise'] = $this->EnterpriseModel->customerEnterpriseDetails();
-        $data['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
-        $this->load->view('order_pages/make_order', $data);
+        $enterprise['SingleEnterprise'] = $this->EnterpriseModel->customerEnterpriseDetails();
+        $enterprise['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
+        $this->load->view('dashboard/un_enterprise_details', $enterprise);
     }
 
     public function ViewProductDetails(){
+        if ($this->session->userdata('user_logged')){
+            $this->load->model('EnterpriseModel');
+            $_SESSION['product'] = $_GET['prod'];
+            $product['productDetails'] = $this->EnterpriseModel->ViewProductDetails();
+            $this->db->select('*');
+            $this->db->from('ms_product_views');
+            $this->db->join('ms_products', 'ms_products.product_id = ms_product_views.product_id');
+            $this->db->where(array(
+                'product_user_address' => $this->input->ip_address(),
+                'ms_product_views.product_id' => $_SESSION['product'],
+            ));
+            $query = $this->db->get();
+            $user_address = $query->row();
+            if (isset($user_address->product_user_address)){
+                $_SESSION['product_price'] = $user_address->product_price;
+                $_SESSION['enterprise'] = $user_address->enterprise_id;
+                $this->load->view('dashboard/productDetails', $product);
+            }else{
+                $ip = $this->input->ip_address();
+                $data = array(
+                    'product_id' => $_SESSION['product'],
+                    'product_user_address' => $ip,
+                );
+                $this->db->insert('ms_product_views', $data);
+                $_SESSION['product_price'] = $user_address->product_price;
+                $this->load->view('dashboard/productDetails', $product);
+                $_SESSION['product_price'] = $user_address->product_price;
+                $_SESSION['enterprise'] = $user_address->enterprise_id;
+            }
+        }else{
+            redirect('Products/unViewProductDetails');
+        }
+    }
+    public function ownerProductDetails()
+    {
+        if ($this->session->userdata('user_logged')){
+            $this->load->model('EnterpriseModel');
+            $_SESSION['product'] = $_GET['prod'];
+            $product['productDetails'] = $this->EnterpriseModel->ViewProductDetails();
+            $this->load->view('dashboard/owner_product_details', $product);
+
+        }else{
+            redirect('Products/unViewProductDetails');
+        }
+    }
+
+    public function unViewProductDetails()
+    {
         $this->load->model('EnterpriseModel');
         $_SESSION['product'] = $_GET['prod'];
         $product['productDetails'] = $this->EnterpriseModel->ViewProductDetails();
         $this->db->select('*');
         $this->db->from('ms_product_views');
         $this->db->where(array(
-            'user_id' => $_SESSION['user_id'],
+            'product_user_address' => $this->input->ip_address(),
             'product_id' => $_SESSION['product'],
         ));
         $query = $this->db->get();
-        $user_view = $query->row();
-        if (isset($user_view->user_id)){
-            $this->load->view('dashboard/productDetails', $product);
+        $user_address = $query->row();
+        if (isset($user_address->product_user_address)){
+            $this->load->view('dashboard/un_product_details', $product);
         }else{
+            $ip = $this->input->ip_address();
             $data = array(
                 'product_id' => $_SESSION['product'],
-                'user_id' => $_SESSION['user_id'],
+                'product_user_address' => $ip,
             );
             $this->db->insert('ms_product_views', $data);
-            $this->load->view('dashboard/productDetails', $product);
+            $this->load->view('dashboard/un_product_details', $product);
         }
 
     }
+
     public function AddOrder()
     {
         if ($_SESSION['user_logged']){
             if (isset($_POST['submitOrder'])){
                 $this->load->model('EnterpriseModel');
 
-                //making counts for the number f products to be inserted
-                $orderedProducts = count($_POST['name']);
-                if ($orderedProducts > 0){
-                    $data = array(
-                        'enterprise_id' => $_SESSION['enterprise'],
-                        'user_id' => $_SESSION['user_id'],
-                        'order_date' => date('Y-m-d H:i:s'),
-                        'expected_date' => $_POST['dateOfNeed'],
-                        'customer_email' => $_POST['email'],
-                        'order_document' => $_POST['documents'],
-                        'customer_location' => $_POST['location'],
-                        'order_name' => $_POST['order_name'],
-                        'order_status' => 0,
-                    );
-                    $this->load->model('EnterpriseModel');
-                    $this->EnterpriseModel->saveOrder('ms_orders', $data);
-                    $last_id = $this->db->insert_id();
+                $this->load->library('upload');
+                $config['upload_path'] = './pdf_documents/order_documents';
+                $config['allowed_types'] = 'gif|jpg|png|pdf';
+                $document_name = 'order_' . $_SESSION['full_name'];
+                $config['file_name'] = $document_name;
 
-                    for ($num = 0; $num < $orderedProducts; $num++){
-                        $products = array(
-                            'orderedProduct_name' => $_POST['name'][$num],
-                            'orderedProduct_features' => $_POST['features'][$num],
-                            'orderedProduct_quantity' => $_POST['quantity'][$num],
-                            'order_id' => $last_id,
-                        );
-                        $this->EnterpriseModel->saveOrder('ms_ordered_products', $products);
+                $this->upload->initialize($config);
+                $this->form_validation->set_rules('order_name', 'order name', 'required');
+
+                //making counts for the number of products to be inserted
+                if ($_FILES['document']['name']){
+                    $field_name = 'document';
+                    if ($this->form_validation->run() == TRUE AND $this->upload->do_upload($field_name)){
+                        $order_document = $this->upload->data();
+                        $orderedProducts = count($_POST['name']);
+                        if ($orderedProducts > 0){
+                            $data = array(
+                                'enterprise_id' => $_SESSION['enterprise'],
+                                'user_id' => $_SESSION['user_id'],
+                                'order_date' => date('Y-m-d H:i:s'),
+                                'expected_date' => $_POST['dateOfNeed'],
+                                'customer_email' => $_POST['email'],
+                                'order_document' => $order_document['file_name'],
+                                'customer_location' => $_POST['location'],
+                                'order_name' => $_POST['order_name'],
+                                'order_status' => 0,
+                            );
+                            $this->load->model('EnterpriseModel');
+                            $this->EnterpriseModel->saveOrder('ms_orders', $data);
+                            $last_id = $this->db->insert_id();
+
+                            for ($num = 0; $num < $orderedProducts; $num++){
+                                $products = array(
+                                    'orderedProduct_name' => $_POST['name'][$num],
+                                    'orderedProduct_features' => $_POST['features'][$num],
+                                    'orderedProduct_quantity' => $_POST['quantity'][$num],
+                                    'order_id' => $last_id,
+                                );
+                                $this->EnterpriseModel->saveOrder('ms_ordered_products', $products);
+                            }
+                            $this->EnterpriseModel->updateEnterprise();
+                            $this->session->set_flashdata('success_msg', 'Your Order successfully submitted');
+                            redirect('Products/viewOrders');
+                        }else{
+                            echo "please put at least one product and submit your order request";
+                        }
+                    }else{
+                        echo 0;
                     }
-                    $this->EnterpriseModel->updateEnterprise();
-                    $this->session->set_flashdata('success_msg', 'Your Order successfully submitted');
-                    redirect('Products/viewOrders');
+
                 }else{
-                    echo "please put at least one product and submit your order request";
+                    $orderedProducts = count($_POST['name']);
+                    if ($orderedProducts > 0){
+                        $data = array(
+                            'enterprise_id' => $_SESSION['enterprise'],
+                            'user_id' => $_SESSION['user_id'],
+                            'order_date' => date('Y-m-d H:i:s'),
+                            'expected_date' => $_POST['dateOfNeed'],
+                            'customer_email' => $_POST['email'],
+                            'customer_location' => $_POST['location'],
+                            'order_name' => $_POST['order_name'],
+                            'order_status' => 0,
+                        );
+                        $this->load->model('EnterpriseModel');
+                        $this->EnterpriseModel->saveOrder('ms_orders', $data);
+                        $last_id = $this->db->insert_id();
+
+                        for ($num = 0; $num < $orderedProducts; $num++){
+                            $products = array(
+                                'orderedProduct_name' => $_POST['name'][$num],
+                                'orderedProduct_features' => $_POST['features'][$num],
+                                'orderedProduct_quantity' => $_POST['quantity'][$num],
+                                'order_id' => $last_id,
+                            );
+                            $this->EnterpriseModel->saveOrder('ms_ordered_products', $products);
+                        }
+                        $this->EnterpriseModel->updateEnterprise();
+                        $this->session->set_flashdata('success_msg', 'Your Order successfully submitted');
+                        redirect('Products/viewOrders');
+                    }else{
+                        echo "please put at least one product and submit your order request";
+                    }
                 }
 
+            }else{
+                echo 1;
             }
         }
     }
@@ -180,7 +304,8 @@ class Products extends CI_Controller
         $orders['cartProduct'] = $this->EnterpriseModel->shoppingCart();
         $this->load->view('order_pages/order_processing', $orders);
     }
-    //shopping cart function
+
+    //shopping cart functions
     public function shoppingCart()
     {
         $this->load->library("cart");
@@ -208,6 +333,38 @@ class Products extends CI_Controller
         $_SESSION['product']= $_GET['prod'];
         $this->EnterpriseModel->removeCart();
         redirect('Products/shoppingCart');
+    }
+
+    public function DirectOrders()
+    {
+        if ($this->session->userdata('user_logged')){
+            $this->load->library("cart");
+            if (isset($_POST["send_order"])){
+                $data = array(
+                    'product_quantity' => $_POST['quantity'],
+                    'product_id' => $_GET['prod'],
+                    'enterprise_id' => $_SESSION['enterprise'],
+                    'user_id' => $_SESSION['user_id'],
+                    'order_cost' => $_SESSION['product_price'] * $_POST['quantity'],
+                    'order_date' => date('Y-m-d H:i:s'),
+
+                );
+                $this->db->insert("ms_direct_orders", $data);
+            }
+            $this->load->model('EnterpriseModel');
+            $orders['orders'] = $this->EnterpriseModel->enterpriseOrders();
+            $orders['orderDetails'] = $this->EnterpriseModel->singleOrder();
+            $orders['products'] = $this->EnterpriseModel->viewProcessingProducts();
+            $orders['rowOrders'] = $this->EnterpriseModel->orderRows();
+            $this->load->view('order_pages/customer_orders', $orders);
+        }
+        else{
+            $this->session->set_flashdata('error_order', 'You have not login please login');
+            $this->load->model('EnterpriseModel');
+            $product['productDetails'] = $this->EnterpriseModel->ViewProductDetails();
+            $this->load->view('dashboard/un_product_details', $product);
+        }
+
     }
     public function processedOrder()
     {
@@ -256,5 +413,78 @@ class Products extends CI_Controller
         $this->load->model('EnterpriseModel');
         $orders['orders'] = $this->EnterpriseModel->customerOrdersRejected();
         $this->load->view('order_pages/customer_orders_rejected', $orders);
+    }
+
+
+
+    //reports generator functions
+    //query the database and generate reports and presenting them in pdf form
+    public function orderReport()
+    {
+        $this->load->library('pdf');
+        $this->load->model('EnterpriseModel');
+        $_SESSION['order'] = $_GET['ord'];
+        $orders['orders'] = $this->EnterpriseModel->enterpriseOrders();
+        $orders['orderDetails'] = $this->EnterpriseModel->singleOrder();
+        $orders['singleOrder'] = $this->EnterpriseModel->getSingleOrder();
+        $orders['products'] = $this->EnterpriseModel->viewProcessingProducts();
+        $orders['rowOrders'] = $this->EnterpriseModel->orderRows();
+        $orders['cartProduct'] = $this->EnterpriseModel->shoppingCart();
+        $this->load->view('report_views/sample', $orders);
+    }
+    public function storeOrderReport()
+    {
+        $this->load->library('pdf');
+        $this->load->model('EnterpriseModel');
+        $data['enterprises'] = $this->EnterpriseModel->DisplayEnterprises();
+        $data['productOrders'] = $this->EnterpriseModel->ProductOrders();
+        $data['orderedMost'] = $this->EnterpriseModel->OrderedProductSummary();
+        $this->load->view('report_views/storeOrderReport', $data);
+    }
+
+
+
+    //search functions
+    public function IndexSearch()
+    {
+        if (isset($_POST['search'])){
+            $inputs = array(
+                'category' => $_POST['category'],
+                'location' => $_POST['location'],
+                'user_input' => $_POST['product_name'],
+
+            );
+            $_SESSION['product_name'] = $_POST['product_name'];
+            $this->load->model('EnterpriseModel');
+            $search['searchResult'] = $this->EnterpriseModel->IndexSearchModel($inputs);
+            $search['enterprises'] = $this->EnterpriseModel->EnterpriseSearchModel($inputs);
+            $this->load->view('dashboard/IndexSearchResults', $search);
+        }
+    }
+    public function DownloadOrderDocument($fileName = null)
+    {
+        $this->load->helper('download');
+        $fileName = $_SESSION['document_name'];
+        if ($fileName) {
+            $file = realpath ( "pdf_documents/order_documents/" ) . "\\" . $fileName;
+            if (file_exists ( $file )) {
+                $data = file_get_contents ( $file );
+                force_download( $fileName, $data );
+            } else {
+                // Redirect to base url
+                redirect ( base_url () );
+            }
+        }
+        $this->session->destroy();
+    }
+    public function UpdateQuantity(){
+        if (isset($_POST['add'])){
+            $newQuantity = $_POST['quantity'];
+            $this->load->model('EnterpriseModel');
+            $product['quantity'] = $this->EnterpriseModel->UpdateQuantity($newQuantity);
+            $product['productDetails'] = $this->EnterpriseModel->ViewProductDetails();
+            $this->load->view('dashboard/owner_product_details', $product);
+        }
+
     }
 }

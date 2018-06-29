@@ -74,71 +74,70 @@
         <!--logo end-->
 
             <!--  search form start -->
-            <form class="row search-row" action="#" method="post" enctype="multipart/form-data">
 
-                <div class="col-sm-3">
-                    <div class="form-group input-group">
-                        <label for="ProductName"></label>
-                        <input class="form-control" type="text" name="ProductName" id="ProductName">
-                    </div>
-                </div>
+        <div class="nav search-row" id="top_menu">
+            <!--  search form start -->
+            <ul class="nav top-menu" style="margin-left: 190px">
+                <li>
+                    <form class="navbar-form" action="<?php echo base_url()?>index.php/Products/IndexSearch" method="post">
+                        <div class="col-sm-12 input-group">
+                        <span class="input-group-addon">
+                        <select class="" id="location"  name="location" style="font-size: small; padding: 3px">
+                        <option value="Arusha" selected>All regions</option>
+                        <option value="Arusha">Arusha</option>
+                        <option value="Dar es salaam">Dar es salaam</option>
+                        <option value="dodoma">Dodoma</option>
+                        <option value="geita">Geita</option>
+                        <option value="iringa">Iringa</option>
+                        <option value="kagera">Kagera</option>
+                        <option value="katavi">Katavi</option>
+                        <option value="kigoma">Kigoma</option>
+                        <option value="kilimanjaro">Kilimanjaro</option>
+                        <option value="lindi">Lindi</option>
+                        <option value="manyara">Manyara</option>
+                        <option value="mara">Mara</option>
+                        <option value="mbeya">Mbeya</option>
+                        <option value="morogoro">Morogoro</option>
+                        <option value="mtwara">Mtwara</option>
+                        <option value="mwanza">Mwanza</option>
+                        <option value="njombe">Njombe</option>
+                        <option value="pemba north">Pemba North</option>
+                        <option value="pemba south">Pemba South</option>
+                        <option value="pwani">Pwani</option>
+                        <option value="rukwa">Rukwa</option>
+                        <option value="ruvuma">Ruvuma</option>
+                        <option value="">Shinyanga</option>
+                        <option value="simiyu">Simiyu</option>
+                        <option value="singida">Singida</option>
+                        <option value="tabora">Tabora</option>
+                        <option value="tanga">Tanga</option>
+                        <option value="zanzibar north">Zanzibar north</option>
+                        <option value="zanzibar south">Zanzibar south and central</option>
+                        <option value="zanzibar west">Zanzibar West</option>
+                     </select>
+                     </span>
 
+                            <span class="input-group-addon">
+                        <select class="" id="category"  name="category" style="font-size: small; padding: 3px">
+                        <option value="" selected>All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="construction">Construction</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="furniture">Furniture</option>
+                    </select>
+                    </span>
 
-                <div class="col-sm-3">
-                    <div class="form-group input-group">
-                        <select class="form-control" id="category"  name="category">
-                            <option value="electronics" selected>Electronics</option>
-                            <option value="construction">Construction</option>
-                            <option value="hardware">Hardware</option>
-                            <option value="plumbing">Plumbing</option>
-                            <option value="furniture">Furniture</option>
-                        </select>
-                    </div>
-                </div>
+                            <input class="form-control" type="text" name="product_name" placeholder="what are you looking for ?">
+                            <span class="input-group-addon" style="background-color: cornflowerblue; padding: 0">
+                        <button style="border-radius: 0" type="submit" name="search" class="btn btn-primary"><i class="fa fa-search"></i></button></span>
 
-                <div class="col-sm-3">
-                    <div class="form-group input-group">
-                        <select class="form-control" id="location" name="location">
-                            <option value="Arusha">Arusha</option>
-                            <option value="Dar es salaam" selected>Dar es salaam</option>
-                            <option value="dodoma">Dodoma</option>
-                            <option value="geita">Geita</option>
-                            <option value="iringa">Iringa</option>
-                            <option value="kagera">Kagera</option>
-                            <option value="katavi">Katavi</option>
-                            <option value="kigoma">Kigoma</option>
-                            <option value="kilimanjaro">Kilimanjaro</option>
-                            <option value="lindi">Lindi</option>
-                            <option value="manyara">Manyara</option>
-                            <option value="mara">Mara</option>
-                            <option value="mbeya">Mbeya</option>
-                            <option value="morogoro">Morogoro</option>
-                            <option value="mtwara">Mtwara</option>
-                            <option value="mwanza">Mwanza</option>
-                            <option value="njombe">Njombe</option>
-                            <option value="pemba north">Pemba North</option>
-                            <option value="pemba south">Pemba South</option>
-                            <option value="pwani">Pwani</option>
-                            <option value="rukwa">Rukwa</option>
-                            <option value="ruvuma">Ruvuma</option>
-                            <option value="">Shinyanga</option>
-                            <option value="simiyu">Simiyu</option>
-                            <option value="singida">Singida</option>
-                            <option value="tabora">Tabora</option>
-                            <option value="tanga">Tanga</option>
-                            <option value="zanzibar north">Zanzibar north</option>
-                            <option value="zanzibar south">Zanzibar south and central</option>
-                            <option value="zanzibar west">Zanzibar West</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="form-group input-group">
-                        <button class="btn btn-danger" type="submit" name="IndexSearch">Search</button>
-                    </div>
-                </div>
-            </form>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            <!--  search form end -->
+        </div>
 
 
         <div class="top-nav notification-row" >
@@ -217,13 +216,7 @@
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-bell" aria-hidden="true"></i>
-                        <span>Subscriptions</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-bar-chart" aria-hidden="true"></i>
+                    <a href="<?php echo base_url()?>index.php/Products/storeOrderReport?u=<?php echo $_SESSION['user_id']?>" class=""><i class="fa fa-bar-chart" aria-hidden="true"></i>
                         <span>Statistics</span>
                     </a>
                 </li>
@@ -276,6 +269,10 @@
                     </div>
                     <section class="">
                         <div class="col-lg-11">
+
+                            <input type="hidden" name="txtlat" id="txtlat" required value="">
+                            <input type="hidden" name="txtlang" id="txtlang" required value="">
+
                             <div class="row items" >
                                 <div class="col-lg-3 col-md-6">
                                     <div class="panel panel-primary">
@@ -307,14 +304,14 @@
                                                     <i class="fa fa-shopping-cart"></i>
                                                 </div>
                                                 <div class="col-xs-9 text-right">
-                                                    <div class="huge">12</div>
-                                                    <div>Orders</div>
+                                                    <div class="huge"><?php if (isset($totalOrders)){ echo $totalOrders; } ?></div>
+                                                    <div>Completed Orders</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <a href="#">
                                             <div class="panel-footer">
-                                                <span class="pull-left">View Details</span>
+                                                <span class="pull-left"><a href="<?php echo base_url()?>index.php/Products/customerOrdersComplete">View Details</a></span>
                                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                                 <div class="clearfix"></div>
                                             </div>
@@ -329,14 +326,14 @@
                                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                                 </div>
                                                 <div class="col-xs-9 text-right">
-                                                    <div class="huge">124</div>
+                                                    <div class="huge"><?php if (isset($totalRequests)){ echo $totalRequests; } ?></div>
                                                     <div>Requests</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <a href="#">
                                             <div class="panel-footer">
-                                                <span class="pull-left">View Details</span>
+                                                <span class="pull-left"><a href="<?php echo base_url()?>index.php/Products/viewOrders">View Details</a></span>
                                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                                 <div class="clearfix"></div>
                                             </div>
@@ -351,7 +348,7 @@
                                                     <i class="fa fa-envelope fa-5x"></i>
                                                 </div>
                                                 <div class="col-xs-9 text-right">
-                                                    <div class="huge">13</div>
+                                                    <div class="huge"><?php if (isset($outOfStockProducts)){ echo $outOfStockProducts; } ?></div>
                                                     <h5>Out of stock</h5>
                                                 </div>
                                             </div>
@@ -377,6 +374,8 @@
                         <div class="col-lg-11">
                             <h4 class="#">Popular products</h4>
                             <div class="row items" >
+                                <input type="hidden" name="txtlat" id="txtlat" required value="">
+                                <input type="hidden" name="txtlang" id="txtlang" required value="">
                                 <?php foreach ($products->result() as $defaultProducts){?>
                                     <div class="col-sm-2 default">
                                         <h5 style="color: cornflowerblue"><a href="<?php echo base_url()?>index.php/Products/ViewProductDetails?prod=<?php echo $defaultProducts->product_id?>"><strong><?php echo $defaultProducts->ProductName?></strong></a></h5>
@@ -403,8 +402,12 @@
                         <div class="col-lg-11">
                             <h4 class="#">Most ordered companies</h4>
                             <div class="row items" >
+                                <input type="hidden" name="txtlat" id="txtlat" required value="">
+                                <input type="hidden" name="txtlang" id="txtlang" required value="">
                                 <?php foreach ($enterprises->result() as $defaultEnterprises){?>
                                     <div class="col-md-2 default">
+                                        <input type="hidden" name="txtlat" id="txtlat" required value="">
+                                        <input type="hidden" name="txtlang" id="txtlang" required value="">
                                         <a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><h6 style="color: cornflowerblue; padding: 5px"><strong><?php echo $defaultEnterprises->name?></strong></h6></a>
                                         <a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><img src="<?php echo base_url()?>/Images/organizationImages/<?php echo $defaultEnterprises->image_url?>" width="100%" height="70"></a>
                                         <label><strong>Category:</strong> <span><a href="#"> <?php echo $defaultEnterprises->category?></a></span>, <span><i class="fa fa-map"></i> <?php echo $defaultEnterprises->location?></span></label>
@@ -443,6 +446,7 @@
 </body>
 <!-- statics end -->
 <!-- javascripts -->
+
 <script src="<?php echo base_url()?>nice/js/jquery.js"></script>
 <script src="<?php echo base_url()?>nice/js/jquery-ui-1.10.4.min.js"></script>
 <script src="<?php echo base_url()?>nice/js/jquery-1.8.3.min.js"></script>
@@ -471,6 +475,7 @@
 <!--custome script for all page-->
 <script src="<?php echo base_url()?>nice/js/scripts.js"></script>
 <!-- custom script for this page-->
+
 
 </html>
 

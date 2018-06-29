@@ -21,6 +21,23 @@ class Authentication extends CI_Controller
 
 
     }
+
+    public function IndexPage()
+    {
+        $this->load->model('EnterpriseModel');
+        $data['products'] = $this->EnterpriseModel->DefaultProducts();
+        $data['enterprises'] = $this->EnterpriseModel->DefaultEnterprises();
+        $this->load->view('dashboard/index.php', $data);
+    }
+
+    public function Register()
+    {
+        $this->load->model('EnterpriseModel');
+        $data['products'] = $this->EnterpriseModel->DefaultProducts();
+        $data['enterprises'] = $this->EnterpriseModel->DefaultEnterprises();
+        $this->load->view('user-pages/register.php');
+    }
+
     public function login()
     {
 

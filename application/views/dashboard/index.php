@@ -59,13 +59,46 @@
             margin-left: 5px;
 
         }
+        .default{
+            padding: 5px;
+            margin: 5px 15px 5px 5px;
+            font-size: small;
+            border: 1px solid #D5D8DC;
+            background-color: whitesmoke;
+        }
+        .items{
+            border: 1px solid #D5D8DC ;
+            padding: 10px;
+            background-color: white;
+        }
         .icon_menu{
             color: black;
         }
         .front-head{
             color: #DC7633  ;
             font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif;
+            font-size: medium;
+            text-transform: uppercase;
         }
+        .form-control{
+            border-radius: 0;
+        }
+        .input-group-addon{
+            border-radius: 0;
+            padding-top: 5px;
+        }
+        .navbar-form .form-control{
+
+            width: 300px;
+
+            height: 38px;
+
+            padding-left: 20px;
+
+            margin-top: 0;
+
+        }
+
 
 
 
@@ -86,75 +119,69 @@
         <!--logo end-->
 
 
+        <div class="nav search-row" id="top_menu">
             <!--  search form start -->
+            <ul class="nav top-menu" style="margin-left: 190px">
+                <li>
+                    <form class="navbar-form" action="<?php echo base_url()?>index.php/Products/IndexSearch" method="post">
+                        <div class="col-sm-12 input-group">
+                        <span class="input-group-addon">
+                        <select class="" id="location"  name="location" style="font-size: small; padding: 3px">
+                        <option value="Arusha" selected>All regions</option>
+                        <option value="Arusha">Arusha</option>
+                        <option value="Dar es salaam">Dar es salaam</option>
+                        <option value="dodoma">Dodoma</option>
+                        <option value="geita">Geita</option>
+                        <option value="iringa">Iringa</option>
+                        <option value="kagera">Kagera</option>
+                        <option value="katavi">Katavi</option>
+                        <option value="kigoma">Kigoma</option>
+                        <option value="kilimanjaro">Kilimanjaro</option>
+                        <option value="lindi">Lindi</option>
+                        <option value="manyara">Manyara</option>
+                        <option value="mara">Mara</option>
+                        <option value="mbeya">Mbeya</option>
+                        <option value="morogoro">Morogoro</option>
+                        <option value="mtwara">Mtwara</option>
+                        <option value="mwanza">Mwanza</option>
+                        <option value="njombe">Njombe</option>
+                        <option value="pemba north">Pemba North</option>
+                        <option value="pemba south">Pemba South</option>
+                        <option value="pwani">Pwani</option>
+                        <option value="rukwa">Rukwa</option>
+                        <option value="ruvuma">Ruvuma</option>
+                        <option value="">Shinyanga</option>
+                        <option value="simiyu">Simiyu</option>
+                        <option value="singida">Singida</option>
+                        <option value="tabora">Tabora</option>
+                        <option value="tanga">Tanga</option>
+                        <option value="zanzibar north">Zanzibar north</option>
+                        <option value="zanzibar south">Zanzibar south and central</option>
+                        <option value="zanzibar west">Zanzibar West</option>
+                     </select>
+                     </span>
 
-            <form class="row search-row" action="#" method="post" enctype="multipart/form-data">
+                    <span class="input-group-addon">
+                        <select class="" id="category"  name="category" style="font-size: small; padding: 3px">
+                        <option value="" selected>All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="construction">Construction</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="furniture">Furniture</option>
+                    </select>
+                    </span>
 
-                <div class="col-sm-3">
-                    <div class="form-group input-group">
-                        <label for="ProductName"></label>
-                        <input class="form-control" type="text" name="ProductName" id="ProductName">
-                    </div>
-                </div>
+                    <input class="form-control" type="text" name="product_name" placeholder="what are you looking for ?">
+                    <span class="input-group-addon" style="background-color: cornflowerblue; padding: 0">
+                        <button style="border-radius: 0" type="submit" name="search" class="btn btn-primary"><i class="fa fa-search"></i></button></span>
 
-
-                <div class="col-sm-3">
-                    <div class="form-group input-group">
-                        <select class="form-control" id="category"  name="category">
-                            <option value="electronics" selected>Electronics</option>
-                            <option value="construction">Construction</option>
-                            <option value="hardware">Hardware</option>
-                            <option value="plumbing">Plumbing</option>
-                            <option value="furniture">Furniture</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="form-group input-group">
-                        <select class="form-control" id="location" name="location">
-                            <option value="Arusha">Arusha</option>
-                            <option value="Dar es salaam" selected>Dar es salaam</option>
-                            <option value="dodoma">Dodoma</option>
-                            <option value="geita">Geita</option>
-                            <option value="iringa">Iringa</option>
-                            <option value="kagera">Kagera</option>
-                            <option value="katavi">Katavi</option>
-                            <option value="kigoma">Kigoma</option>
-                            <option value="kilimanjaro">Kilimanjaro</option>
-                            <option value="lindi">Lindi</option>
-                            <option value="manyara">Manyara</option>
-                            <option value="mara">Mara</option>
-                            <option value="mbeya">Mbeya</option>
-                            <option value="morogoro">Morogoro</option>
-                            <option value="mtwara">Mtwara</option>
-                            <option value="mwanza">Mwanza</option>
-                            <option value="njombe">Njombe</option>
-                            <option value="pemba north">Pemba North</option>
-                            <option value="pemba south">Pemba South</option>
-                            <option value="pwani">Pwani</option>
-                            <option value="rukwa">Rukwa</option>
-                            <option value="ruvuma">Ruvuma</option>
-                            <option value="">Shinyanga</option>
-                            <option value="simiyu">Simiyu</option>
-                            <option value="singida">Singida</option>
-                            <option value="tabora">Tabora</option>
-                            <option value="tanga">Tanga</option>
-                            <option value="zanzibar north">Zanzibar north</option>
-                            <option value="zanzibar south">Zanzibar south and central</option>
-                            <option value="zanzibar west">Zanzibar West</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="form-group input-group">
-                        <button class="btn btn-danger" type="submit" name="IndexSearch">Search</button>
-                    </div>
-                </div>
-            </form>
-
+                        </div>
+                    </form>
+                </li>
+            </ul>
             <!--  search form end -->
+        </div>
 
         <div class="top-nav notification-row" style="margin-top: 25px">
             <!--drop down start-->
@@ -177,7 +204,7 @@
             <ul class="sidebar-menu">
 
                 <li class="active">
-                    <a class="" href=""><i class="icon_house_alt"></i> <span>Home</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Authentication/IndexPage""><i class="icon_house_alt"></i> <span>Home</span></a>
                 </li>
 
 
@@ -305,7 +332,20 @@
                             <h4 class="#">Popular products</h4>
                             <div class="row items" >
 
-                                popular products queries goes here
+                                <?php foreach ($products->result() as $defaultProducts){?>
+                                    <div class="col-sm-2 default">
+                                        <h5 style="color: cornflowerblue"><a href="<?php echo base_url()?>index.php/Products/unViewProductDetails?prod=<?php echo $defaultProducts->product_id?>"><strong><?php echo $defaultProducts->ProductName?></strong></a></h5>
+                                        <a href="<?php echo base_url()?>index.php/Products/unViewProductDetails?prod=<?php echo $defaultProducts->product_id?>">
+                                            <img src="<?php echo base_url()?>/Images/productImages/<?php echo $defaultProducts->product_image?>" width="100%" height="60"></a>
+                                        <div class="centered" style="position: absolute; top: 40%; left: 35%; transform: translate(-50%, -50%)">
+                                            <label><strong>Price:</strong> <span style="color: chocolate"> <?php echo $defaultProducts->product_price?> tzs</span></label>
+                                        </div>
+
+                                        <label><strong>Enterprise:</strong> <span><a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultProducts->enterprise_id?>"> <?php echo $defaultProducts->name?></a></span>, <span><?php echo $defaultProducts->location?></span></label>
+                                        <a href="<?php echo base_url()?>index.php/Products/unViewProductDetails?prod=<?php echo $defaultProducts->product_id?>"><button class="btn btn-info btn-block">More details</button></a>
+                                    </div>
+
+                                <?php }?>
 
                             </div>
                         </div>
@@ -319,7 +359,15 @@
                         <div class="col-lg-11">
                             <h4 class="#">Most ordered companies</h4>
                             <div class="row items" >
-                                most ordered companies comes here
+                                <?php foreach ($enterprises->result() as $defaultEnterprises){?>
+                                    <div class="col-md-2 default">
+                                        <a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><h6 style="color: cornflowerblue; padding: 5px"><strong><?php echo $defaultEnterprises->name?></strong></h6></a>
+                                        <a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><img src="<?php echo base_url()?>/Images/organizationImages/<?php echo $defaultEnterprises->image_url?>" width="100%" height="70"></a>
+                                        <label><strong>Category:</strong> <span><a href="#"> <?php echo $defaultEnterprises->category?></a></span>, <span> <?php echo $defaultEnterprises->location?></span></label>
+                                        <a href="<?php echo base_url()?>index.php/Enterprise/unEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><button class="btn btn-danger btn-block">More details</button></a>
+                                    </div>
+
+                                <?php }?>
                             </div>
                         </div>
                     </div>

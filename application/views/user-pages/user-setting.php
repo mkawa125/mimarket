@@ -64,7 +64,6 @@
             font-size: small;
         }
         .row-enter{
-            border-bottom: solid 1px #BDBDBD;
             padding-bottom: 10px;
         }
         .btn{
@@ -300,7 +299,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['name']?></span>
+                        <span class="username"><?php echo $_SESSION['full_name']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
@@ -403,14 +402,14 @@
 
     <section id="main-content">
         <section class="wrapper">
-            <div class="col-md-9 col-md-offset-1">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="row new" style="background-color: whitesmoke">
                     <div class="row row-enter" >
                         <div class="col-sm-9"> <h5 class="" style="color: cornflowerblue"><strong>Edit user profile</strong></h5></div>
                     </div>
 
 
-                    <form id="enterprise" action="" >
+                    <form id="enterprise" action="" style="border: 1px solid #D5D8DC">
                         <div class="tab-content cont">
                             <div id="sectionA" class="tab-pane fade in active">
                                 <div class="row">
@@ -425,7 +424,7 @@
                                         <label for="owner"><strong>Name:</strong></label>
                                         <div class="form-group input-group orm-inline">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                            <input class="form-control" style="color: orange" id="owner" value="<?php echo $_SESSION['name']?>">
+                                            <input class="form-control" style="color: orange" id="owner" value="<?php echo $_SESSION['full_name']?>">
                                         </div>
                                     </div>
                                 </div>

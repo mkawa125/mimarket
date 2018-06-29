@@ -138,34 +138,17 @@
         <a href="index.html" class="logo">MI<span class="lite">MARKET</span></a>
         <!--logo end-->
 
-        <!--  search form start -->
-        <form class="row search-row" action="#" method="post" enctype="multipart/form-data">
-
-            <div class="col-sm-3">
-                <div class="form-group input-group">
-                    <label for="ProductName"></label>
-                    <input class="form-control" type="text" name="ProductName" id="ProductName">
-                </div>
-            </div>
-
-
-            <div class="col-sm-3">
-                <div class="form-group input-group">
-                    <select class="form-control" id="category"  name="category">
-                        <option value="electronics" selected>Electronics</option>
-                        <option value="construction">Construction</option>
-                        <option value="hardware">Hardware</option>
-                        <option value="plumbing">Plumbing</option>
-                        <option value="furniture">Furniture</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div class="form-group input-group">
-                    <select class="form-control" id="location" name="location">
+        <div class="nav search-row" id="top_menu">
+            <!--  search form start -->
+            <ul class="nav top-menu" style="margin-left: 190px">
+                <li>
+                    <form class="navbar-form" action="<?php echo base_url()?>index.php/Products/IndexSearch" method="post">
+                        <div class="col-sm-12 input-group">
+                        <span class="input-group-addon">
+                        <select class="" id="location"  name="location" style="font-size: small; padding: 3px">
+                        <option value="Arusha" selected>All regions</option>
                         <option value="Arusha">Arusha</option>
-                        <option value="Dar es salaam" selected>Dar es salaam</option>
+                        <option value="Dar es salaam">Dar es salaam</option>
                         <option value="dodoma">Dodoma</option>
                         <option value="geita">Geita</option>
                         <option value="iringa">Iringa</option>
@@ -194,16 +177,30 @@
                         <option value="zanzibar north">Zanzibar north</option>
                         <option value="zanzibar south">Zanzibar south and central</option>
                         <option value="zanzibar west">Zanzibar West</option>
-                    </select>
-                </div>
-            </div>
+                     </select>
+                     </span>
 
-            <div class="col-sm-2">
-                <div class="form-group input-group">
-                    <button class="btn btn-danger" type="submit" name="IndexSearch">Search</button>
-                </div>
-            </div>
-        </form>
+                            <span class="input-group-addon">
+                        <select class="" id="category"  name="category" style="font-size: small; padding: 3px">
+                        <option value="" selected>All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="construction">Construction</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="furniture">Furniture</option>
+                    </select>
+                    </span>
+
+                            <input class="form-control" type="text" name="product_name" placeholder="what are you looking for ?">
+                            <span class="input-group-addon" style="background-color: cornflowerblue; padding: 0">
+                        <button style="border-radius: 0" type="submit" name="search" class="btn btn-primary"><i class="fa fa-search"></i></button></span>
+
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            <!--  search form end -->
+        </div>
 
 
         <div class="top-nav notification-row" >
@@ -213,7 +210,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['username']?></span>
+                        <span class="username"><?php echo $_SESSION['full_name']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
@@ -240,25 +237,26 @@
             <!-- notificatoin dropdown end-->
         </div>
     </header>
-    <!--    header end-->
 
-    <!--    sidebar start-->
+    <!--header end-->
+
+    <!--sidebar start-->
     <aside>
         <div id="sidebar" class="nav-collapse ">
-            <!--             sidebar menu start-->
-            <ul class="sidebar-menu">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" style="margin-top: 63px">
 
                 <li class="active">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="icon_house_alt"></i> <span>Home</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Products/DefaultProducts"><i class="icon_house_alt"></i> <span>Home</span></a>
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-server" aria-hidden="true"></i>
-                        <span>My Companies</span><span class="menu-arrow arrow_carrot-right">
+                    <a href="javascript:" class=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>My Companies</span><span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-user-plus"></i>My Enterprise</a></li>
-                        <li><a class="" href="#"><i class="fa fa-home"></i>Bookmarks</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Enterprise/getEnterprises"><i class="fa fa-shopping-cart"></i>My Enterprise</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Direct/product"><i class="fa fa-bookmark"></i>Bookmarks</a></li>
                     </ul>
                 </li>
 
@@ -267,7 +265,7 @@
                         <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-envelope"></i>Send message</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>
                         <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>
                         <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>
                         <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>
@@ -275,25 +273,24 @@
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-credit-card"></i>
-                        <span>Account</span><span class="menu-arrow arrow_carrot-right"></span>
+                    <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
+                        <span>Orders</span>
                     </a>
-                    <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-credit-card-alt"></i>Billing</a></li>
-                        <li><a class="" href="#"><i class="fa fa-code"></i>Developer API</a></li>
-                        <li><a class="" href="#"><i class="fa fa-cog"></i>Organizations</a></li>
-                        <li><a class="" href="#"><i class="fa fa-lock"></i>Personal settings</a></li>
-                        <li><a class="" href="#"><i class="fa fa-folder"></i>Project</a></li>
-                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="<?php echo base_url()?>index.php/Products/storeOrderReport?u=<?php echo $_SESSION['user_id']?>" class=""><i class="fa fa-bar-chart" aria-hidden="true"></i>
+                        <span>Statistics</span>
+                    </a>
                 </li>
             </ul>
             <ul class="sidebar-menu">
                 <li class="sub">
-                    <a class=""  href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
                 <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
+                    <a class="" target="_blank" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
                 </li>
 
                 <li class="">
@@ -303,11 +300,8 @@
                 <li class="">
                     <a class="" href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a>
                 </li>
-
             </ul>
-
-
-            <!--             sidebar menu end-->
+            <!-- sidebar menu end-->
         </div>
     </aside>
     <!--    sidebar end-->
@@ -339,6 +333,19 @@
                                 <?php
                             }
                             ?>
+                            <?php $error_order = $this->session->flashdata('error_order');
+                            if ($error_order){
+                                $error_order = "Looks you have not logged in, Please"
+                                ?>
+                                <div class="alert alert-danger alert-dismissible"> <?php echo $error_order?> <span><a href="<?php echo base_url()?>index.php/Direct/login"><strong>Login</strong></a> or</span>
+                                    <span><a href="<?php echo base_url()?>index.php/Direct/register"><strong>Click here to</strong> </a>create new account</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></div>
+                                <?php
+                            }
+                            ?>
+
+
                             <div class="row items" style="margin-top: 1px">
                                 <div class="col-sm-12" style="margin-top: 0px">
                                     <?php
@@ -389,7 +396,39 @@
                                             <label><strong style="color: cornflowerblue">Email:</strong> <span style="color: "> <?php echo $row->email?> </span></label><br>
                                             <label><strong style="color: cornflowerblue"> Phone number:</strong> <span style="color: "> <?php echo $row->phone?> </span></label><br>
                                             <label><strong style="color: cornflowerblue">Email:</strong> <span style="color: "> <?php echo $row->register_date?> </span></label><br>
-                                            <button style="float: right" class="btn btn-info btn-danger"><i class="fa fa-shopping-cart"></i> Order product</button>
+                                            <a href="#">
+                                                <button type="button" data-toggle="modal" data-target="#myModal<?php echo $row->product_id; ?>" style="float: right" class="btn btn-info btn-danger"><i class="fa fa-shopping-cart"></i> Order product</button>
+                                            </a>
+                                        </div>
+
+                                        <div class="modal fade" id="myModal<?php echo $row->product_id; ?>" role="dialog">
+                                            <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title" style="color: red">Add product to cart</h4>
+                                                    </div>
+                                                    <form action="<?php echo base_url()?>index.php/Products/DirectOrders?prod=<?php echo $row->product_id; ?>" method="post">
+                                                        <div class="modal-body">
+
+                                                            <p>Enter product quantity</p>
+
+                                                            <div class="form-group input-group">
+                                                                <span class="input-group-addon">Quantity</span>
+                                                                <input class="form-control" placeholder="Product Quantity" name="quantity" required
+                                                                       type="number" title="Enter product quantity">
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <a href="<?php echo base_url()?>index.php/Products/DirectOrders?prod=<?php echo $row->product_id; ?>">
+                                                                    <button type="submit" class="btn btn-primary" name="send_order"><i class="fa fa-shopping-cart"></i> Add Product</button>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
                                     <?php } ?>
                                 </div>

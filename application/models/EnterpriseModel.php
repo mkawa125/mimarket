@@ -93,12 +93,13 @@
      {
          $this->db->select('*');
          $this->db->from('ms_products');
-         $this->db->join('enterprises', 'enterprises.enterprise_id = ms_products.enterprise_id');
+         $this->db->join('enterprises', 'ms_products.enterprise_id = enterprises.enterprise_id');
          $this->db->join('user-registration', 'enterprises.user_id = user-registration.user_id');
          $this->db->where(array('product_id' => $_SESSION['product']));
          $product = $this->db->get();
          return $product;
      }
+
      //these functions are for displaying order details to customer
 
      public function customerOrders()
@@ -259,6 +260,13 @@
          $this->db->where(array('enterprise_id' => $_SESSION['enterprise']));
          $this->db->update('enterprises');
      }
+     public function UpdateQuantity($newQuantity)
+     {
+         $this->db->select('*');
+         $this->db->set('quantity', "quantity+$newQuantity", FALSE);
+         $this->db->where(array('product_id' => $_SESSION['product']));
+         $this->db->update('ms_products');
+     }
      public function updateProductViews()
      {
          $this->db->select('*');
@@ -269,4 +277,79 @@
          $this->db->where(array('product_id' => $_SESSION['product']));
          $this->db->update('ms_products_views', $data);
      }
+     public function totalOrders()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_orders');
+         $this->db->where(array('user_id' => $_SESSION['user_id'], 'order_status' => 2,));
+         $orders = $this->db->get();
+         $totalOrders = $orders->num_rows();
+         return $totalOrders;
+     }
+     public function totalRequests()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_orders');
+         $this->db->where(array('user_id' => $_SESSION['user_id'], 'order_status' => 0,));
+         $request = $this->db->get();
+         $totalRequests = $request->num_rows();
+         return $totalRequests;
+     }
+     public function outOfStock(){
+         $this->db->select('*');
+         $this->db->from('ms_products');
+         $this->db->join('enterprises', 'ms_products.enterprise_id = enterprises.enterprise_id');
+         $this->db->where(array('enterprises.user_id' => $_SESSION['user_id'], 'quantity' < 20,));
+         $outOfStock = $this->db->get();
+         $outOfStockProducts = $outOfStock->num_rows();
+         return $outOfStockProducts;
+     }
+
+     //index search function
+     public function IndexSearchModel($inputs)
+     {
+         $this->db->select('*');
+         $this->db->from('ms_products');
+         $this->db->join('enterprises', 'ms_products.enterprise_id = enterprises.enterprise_id');
+         $this->db->like('ProductName', $inputs['user_input']);
+         $result = $this->db->get();
+         return $result;
+     }
+     public function EnterpriseSearchModel($inputs)
+     {
+         $this->db->select('*');
+         $this->db->from('enterprises');
+         $this->db->join('ms_products', 'ms_products.enterprise_id = enterprises.enterprise_id');
+         $this->db->like('name', $inputs['user_input']);
+         $result = $this->db->get();
+         return $result;
+     }
+     public function getOrderDocument()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_orders');
+         $this->db->where(array('order_id' => $_SESSION['order']));
+         $singleOrder = $this->db->get();
+         $order = $singleOrder->row();
+         return $order;
+     }
+     public function productOrders()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_direct_orders');
+         $this->db->join('ms_products', 'ms_direct_orders.product_id = ms_products.product_id');
+         $this->db->where(array('user_id' => $_SESSION['user_id']));
+         $orders = $this->db->get();
+         return $orders;
+     }
+     public function OrderedProductSummary()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_products');
+         $this->db->join('ms_direct_orders', 'ms_direct_orders.product_id = ms_products.product_id');
+         $this->db->where(array('user_id' => $_SESSION['user_id']));
+         $products = $this->db->get();
+         return $products;
+     }
+
  }
