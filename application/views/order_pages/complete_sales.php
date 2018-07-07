@@ -43,35 +43,6 @@
         .icon_menu{
             color: black;
         }
-        .image-box{
-            border: 1px solid #D5D8DC;
-            padding: 5px;
-            margin: 10px;
-            border-radius: 0;
-            min-height: 150px;
-        }
-        .summary{
-            border-radius: 0;
-            padding: 10px;
-            border: 1px solid #D5D8DC;
-            background-color: cornflowerblue;
-            text-transform: capitalize;
-            text-align: center;
-        }
-        .summary-box{
-            padding: 8px;
-            margin: 10px;
-        }
-        .description{
-            font-size: small;
-            line-height: 28px;
-            color: #848484;
-        }
-        .order_row{
-            border: 1px solid #D5D8DC ;
-            padding: 5px;
-            font-size: small;
-        }
         .items{
             border: 1px solid #D5D8DC ;
             padding: 10px;
@@ -251,7 +222,7 @@
     <aside>
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
-            <ul class="sidebar-menu" style="margin-top: 63px">
+            <ul class="sidebar-menu" style="margin-top: 60px">
 
                 <li class="active">
                     <a class="" href="<?php echo base_url()?>index.php/Products/DefaultProducts"><i class="icon_house_alt"></i> <span>Home</span></a>
@@ -267,17 +238,17 @@
                     </ul>
                 </li>
 
-<!--                <li class="sub-menu">-->
-<!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
-<!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
-<!--                    </a>-->
-<!--                    <ul class="sub">-->
-<!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
+                <!--                <li class="sub-menu">-->
+                <!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
+                <!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
+                <!--                    </a>-->
+                <!--                    <ul class="sub">-->
+                <!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
+                <!--                    </ul>-->
+                <!--                </li>-->
 
                 <li class="sub-menu">
                     <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
@@ -341,54 +312,86 @@
                             }
                             ?>
                             <div class="row items" style="margin-top: 5px">
-                                    <div class="col-sm-3" style=" padding: 0; margin-right: 0; border: 1px solid #BDBDBD; border-radius: 0;">
-                                        <div style="background-color: darkslategray; padding: 5px; border: 1px solid #BDBDBD">
-                                            <h5 style="font-size: small; color: white; text-align: center">ORDER REQUESTS</h5>
+                                <div class="col-sm-12" style="margin-top: 10px">
+                                    <!--                                    <div class="row" style="margin: 5px; border: 1px solid #BDBDBD">-->
+                                    <!--                                        <div class="col-sm-6">-->
+                                    <!--                                            <h5 style="text-transform: uppercase; color: red; text-align: center; font-size: smaller">-->
+                                    <!--                                                <strong>ORDER REQUESTS</strong>-->
+                                    <!--                                            </h5>-->
+                                    <!--                                        </div>-->
+                                    <!--                                        <div class="col-sm-6" style="background-color: whitesmoke; border-left: 1px solid #BDBDBD">-->
+                                    <!--                                            <h5 style="text-transform: uppercase; color:; text-align: center">-->
+                                    <!--                                                <strong>--><?php //echo $_SESSION['full_name']?><!--</strong>-->
+                                    <!--                                            </h5>-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </div>-->
+
+                                    <div class="row" style="margin: 5px">
+
+                                        <div class="col-sm-3" style=" padding: 0; margin-right: 0; border: 1px solid #BDBDBD; border-radius: 0;">
+                                            <div style="background-color: darkslategrey; padding: 5px; border: 1px solid #BDBDBD">
+                                                <h5 style="font-size: small; color: white; text-align: center">ORDER REQUESTS</h5>
+                                            </div>
+
+                                            <div class="" style="padding: 15px; font-size: small; background-color: whitesmoke">
+                                                <a href="<?php echo base_url()?>index.php/Direct/salesCustomerDetails">
+                                                    <button style="margin-top: 5px; text-align: left" title="view new order requests" type="button" class="btn btn-default btn-block">
+                                                        <img src="<?php echo base_url()?>/Images/systemImages/new.gif"> New Orders <strong><i class="badge badge-warning" style="float: right"> 21 </i></strong></button>
+                                                </a>
+
+                                                <a href="<?php echo base_url()?>index.php/Direct/salesCustomerDetails">
+                                                    <button style="margin-top: 5px; text-align: left" title="view new order requests" type="button" class="btn btn-default btn-block">
+                                                        <i class="fa fa-shopping-cart"></i> Pending Orders<i class="badge" style="float: right"> 2 </i> </button>
+                                                </a>
+                                                <a href="<?php echo base_url()?>index.php/Direct/salesCustomerDetails">
+                                                    <button style="margin-top: 5px; text-align: left" title="view new order requests" type="button" class="btn btn-default btn-block">
+                                                        <i class="fa fa-shopping-cart"></i> Processed Orders<i class="badge" style="float: right"> 23 </i> </button>
+                                                </a>
+
+                                                <a href="<?php echo base_url()?>index.php/Direct/salesCustomerDetails" style="text-align: ">
+                                                    <button style="margin-top: 5px; text-align: left" title="view new order requests" type="button" class="btn btn-success btn-block">
+                                                        <i class="fa fa-shopping-cart"></i> Complete sales <i class="badge badge-warning" style="float: right">21 </i></button>
+                                                </a>
+
+                                                <a href="<?php echo base_url()?>index.php/Direct/salesCustomerDetails">
+                                                    <button style="margin-top: 5px; text-align: left" title="view new order requests" type="button" class="btn btn btn-block">
+                                                        <i class="fa fa-shopping-cart"></i> Rejected order <i class="badge" style="float: right"> 9 </i></button>
+                                                </a>
+
+                                            </div>
                                         </div>
-
-                                        <div class="" style="padding: 15px; font-size: small; background-color: whitesmoke">
-                                            <ol style="list-style: square">
-                                                <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/viewOrders" style="margin: 5px;">Latest sent<span>(5)</span></a>
-
-                                                </li>
-                                                <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersComplete" style="margin: 5px;">Complete Orders<span>(5)</span></a>
-
-                                                </li>
-                                                <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersPaid" style="margin: 5px;">Paid Orders<span>(5)</span></a>
-
-                                                </li>
-                                                <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersRejected" style="margin: 5px;">Rejected Orders<span>(5)</span></a>
-
-                                                </li>
-
-                                            </ol>
+                                        <div class="col-sm-9" style="">
+                                            <table class="table table-striped table-bordered" id="sales" style="font-size: smaller">
+                                                <thead>
+                                                <tr>
+                                                    <th>NO</th>
+                                                    <th>Customer Name</th>
+                                                    <th>Date</th>
+                                                    <th>Total cost </th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <?php
+                                                $num = 1;
+                                                foreach($saleDetails->result() as $row){
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $num++?></td>
+                                                        <td><?php echo $row->customer_name?></td>
+                                                        <td><?php echo $row->sales_date?></td>
+                                                        <td><?php echo $row->sales_cost?></td>
+                                                        <td>
+                                                            <a href="<?php echo base_url()?>index.php/Products/CompleteSalesDetails?ord=<?php echo $row->sales_id?>">
+                                                                <button class="btn btn-xs btn-primary"><i class="fa fa-eye"></i> View Details</button></a>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-8" style="font-size: smaller; border: 1px solid #BDBDBD; margin-left: 10px">
-                                        <div class="row">
-                                            <div style="background-color: #46bfbd; padding: 5px; border: 1px solid #BDBDBD">
-                                                <h5 style="font-size: small; color: white; text-align: center">LATEST SENT ORDER REQUESTS</h5>
-                                            </div>
-                                        <?php
-                                        foreach($orders->result() as $row){
-                                            ?>
-                                            <div class="row" style="margin: 5px; border-bottom: 1px dotted #BDBDBD; padding: 10px">
-                                                <div class="col-sm-3" style="">
-                                                    <strong style="color: blue"><?php echo $row->order_name?></strong>
-                                                </div>
-                                                <div class="col-sm-4" >
-                                                   <?php echo $row->order_name?>
-                                                </div>
-                                                <div class="col-sm-5" style="color: chocolate">
-                                                    <?php echo $row->order_date?>
-                                                </div>
-                                                <div class="col-sm-2" style="float: right">
-                                                    <a href="<?php echo base_url()?>index.php/Products/customerOrderDetails?ord=<?php echo $row->order_id?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i>view details</button></a>
-                                                </div>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -440,7 +443,7 @@
 <!-- custom script for this page-->
 
 <script>
-    $('#enterprise').dataTable();
+    $('#sales').dataTable();
 </script>
 </html>
 

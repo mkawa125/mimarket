@@ -52,166 +52,148 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="customer_orders.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders.php">
+      <file leaf-file-name="sales_processing.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/order_pages/sales_processing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="312" column="12" lean-forward="false" selection-start-line="312" selection-start-column="12" selection-end-line="312" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="customer_orders_complete.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders_complete.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="312" column="12" lean-forward="false" selection-start-line="312" selection-start-column="12" selection-end-line="312" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="customer_orders_paid.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders_paid.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="312" column="12" lean-forward="false" selection-start-line="312" selection-start-column="12" selection-end-line="312" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DATABASE/d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.SCHEMA:mimarket" pinned="false" current-in-tab="true">
-        <entry file="uml://DATABASE/d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.SCHEMA:mimarket">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>DATABASE</ID>
-              <OriginalElement>d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.SCHEMA:mimarket</OriginalElement>
-              <nodes>
-                <node x="592.5" y="461.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_enterprise_views</node>
-                <node x="579.5" y="999.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_product_views</node>
-                <node x="583.0" y="650.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_ordered_products</node>
-                <node x="1600.5" y="1025.666666666667">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_administrators</node>
-                <node x="1723.5" y="650.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_messages</node>
-                <node x="1409.0" y="101.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_bookmarks</node>
-                <node x="1375.5" y="606.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration</node>
-                <node x="277.16666666666674" y="1401.4444444444446">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products</node>
-                <node x="1016.5" y="1330.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart</node>
-                <node x="95.5" y="-20.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises</node>
-                <node x="952.0" y="584.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders</node>
-                <node x="163.0" y="817.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders</node>
-                <node x="594.5" y="1628.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
-                  <point x="-103.5" y="-0.0" />
-                  <point x="194.5" y="-0.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-                  <point x="157.0" y="-0.0" />
-                  <point x="1440.0" y="920.0" />
-                  <point x="-80.0" y="114.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
-                  <point x="0.0" y="-92.0" />
-                  <point x="0.0" y="158.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
-                  <point x="-125.5" y="-0.0" />
-                  <point x="40.0" y="1720.0" />
-                  <point x="40.0" y="160.0" />
-                  <point x="-224.5" y="-0.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-                  <point x="103.5" y="-0.0" />
-                  <point x="1480.0" y="1400.0" />
-                  <point x="-40.0" y="114.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-                  <point x="125.5" y="-0.0" />
-                  <point x="1520.0" y="1720.0" />
-                  <point x="0.0" y="114.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
-                  <point x="0.0" y="103.0" />
-                  <point x="320.0" y="1400.0" />
-                  <point x="-194.5" y="-0.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
-                  <point x="0.0" y="-136.0" />
-                  <point x="1120.0" y="200.0" />
-                  <point x="224.5" y="40.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
-                  <point x="0.0" y="-103.0" />
-                  <point x="0.0" y="180.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_product_views" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
-                  <point x="0.0" y="81.0" />
-                  <point x="0.0" y="-158.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_ordered_products" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders">
-                  <point x="137.0" y="-0.0" />
-                  <point x="-168.0" y="-0.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-                  <point x="168.0" y="-0.0" />
-                  <point x="-144.5" y="-0.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_bookmarks" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-                  <point x="0.0" y="59.0" />
-                  <point x="0.0" y="-114.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_enterprise_views" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
-                  <point x="0.0" y="-59.0" />
-                  <point x="720.0" y="240.0" />
-                  <point x="224.5" y="80.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_messages" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-                  <point x="-116.5" y="-0.0" />
-                  <point x="144.5" y="-0.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders">
-                  <point x="0.0" y="-70.0" />
-                  <point x="0.0" y="136.0" />
-                </edge>
-                <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_bookmarks" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
-                  <point x="-111.0" y="-0.0" />
-                  <point x="224.5" y="-0.0" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="1.8000000000000003" x="440.6111111111111" y="1728.6666666666665" />
-              <SelectedNodes>
-                <node>d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products</node>
-              </SelectedNodes>
-              <Categories>
-                <Category>Key columns</Category>
-                <Category>Columns</Category>
-              </Categories>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="customer_orders_rejected.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders_rejected.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="312" column="12" lean-forward="false" selection-start-line="312" selection-start-column="12" selection-end-line="312" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="make_order.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/order_pages/make_order.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="302" column="12" lean-forward="false" selection-start-line="302" selection-start-column="12" selection-end-line="302" selection-end-column="12" />
+            <state relative-caret-position="119">
+              <caret line="442" column="98" lean-forward="false" selection-start-line="442" selection-start-column="98" selection-end-line="442" selection-end-column="98" />
               <folding>
-                <marker date="1530236387993" expanded="true" signature="15912:15968" ph="..." />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Products.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Products.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2175">
+              <caret line="575" column="1" lean-forward="true" selection-start-line="575" selection-start-column="1" selection-end-line="575" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnterpriseModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/EnterpriseModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="213" column="71" lean-forward="false" selection-start-line="213" selection-start-column="71" selection-end-line="213" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="complete_sales.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/order_pages/complete_sales.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="384" column="131" lean-forward="false" selection-start-line="384" selection-start-column="131" selection-end-line="384" selection-end-column="131" />
+              <folding>
+                <element signature="n#style#0;n#ul#0;n#div#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#strong#0;n#button#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#1;n#button#0;n#a#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#1;n#button#0;n#a#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#1;n#button#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#4;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#1;n#button#0;n#a#4;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="complete_sales_details.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/order_pages/complete_sales_details.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="350" column="112" lean-forward="false" selection-start-line="350" selection-start-column="112" selection-end-line="350" selection-end-column="112" />
+              <folding>
+                <element signature="n#style#0;n#ul#0;n#div#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#strong#0;n#button#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#1;n#button#0;n#a#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#1;n#button#0;n#a#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#1;n#button#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#4;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#1;n#button#0;n#a#4;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_orders.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/order_pages/view_orders.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-882">
+              <caret line="367" column="124" lean-forward="false" selection-start-line="367" selection-start-column="124" selection-end-line="367" selection-end-column="124" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order_details.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/order_pages/order_details.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="440" column="58" lean-forward="true" selection-start-line="435" selection-start-column="52" selection-end-line="440" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="enterprise_details.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/enterprises/enterprise_details.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="403" column="48" lean-forward="true" selection-start-line="401" selection-start-column="44" selection-end-line="403" selection-end-column="48" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#a#1;n#div#1;n#div#2;n#div#2;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#2;n#div#1;n#div#2;n#div#2;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Authentication.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Authentication.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-180">
+              <caret line="44" column="47" lean-forward="false" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/user-pages/signup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2383">
+              <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -238,8 +220,15 @@
       <find>navbar</find>
       <find>navbar-form</find>
       <find>orderDet</find>
-      <find>update</find>
       <find>order</find>
+      <find>sidebar</find>
+      <find>sid</find>
+      <find>orderProc</find>
+      <find>shoppi</find>
+      <find>complete</find>
+      <find>view</find>
+      <find>update</find>
+      <find>viewEnterpriseorders</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -253,27 +242,19 @@
         <option value="$PROJECT_DIR$/application/controllers/geoLocation.php" />
         <option value="$PROJECT_DIR$/application/libraries/pdf.php" />
         <option value="$PROJECT_DIR$/application/views/report_views/sample.php" />
-        <option value="$PROJECT_DIR$/nice/css/style.css" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
-        <option value="$PROJECT_DIR$/application/views/dashboard/index.php" />
         <option value="$PROJECT_DIR$/application/views/user-pages/signup.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Direct.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Authentication.php" />
         <option value="$PROJECT_DIR$/application/views/user-pages/register.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard/IndexSearchResults.php" />
         <option value="$PROJECT_DIR$/application/views/user-pages/user-setting.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard/un_enterprise_details.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard/un_product_details.php" />
         <option value="$PROJECT_DIR$/application/controllers/Enterprise.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Products.php" />
-        <option value="$PROJECT_DIR$/application/models/EnterpriseModel.php" />
         <option value="$PROJECT_DIR$/application/views/report_views/storeOrderReport.php" />
-        <option value="$PROJECT_DIR$/application/views/dashboard/home.php" />
-        <option value="$PROJECT_DIR$/application/views/dashboard/productDetails.php" />
+        <option value="$PROJECT_DIR$/application/views/dashboard/index.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard/owner_product_details.php" />
+        <option value="$PROJECT_DIR$/application/views/dashboard/productDetails.php" />
         <option value="$PROJECT_DIR$/application/views/enterprises/edit_enterprise.php" />
-        <option value="$PROJECT_DIR$/application/views/enterprises/enterprise_details.php" />
-        <option value="$PROJECT_DIR$/application/views/enterprises/individual_enterprises.php" />
         <option value="$PROJECT_DIR$/application/views/enterprises/newEnterprise.php" />
         <option value="$PROJECT_DIR$/application/views/enterprises/user_enterprise_view.php" />
         <option value="$PROJECT_DIR$/application/views/order_pages/customer_orders.php" />
@@ -284,7 +265,21 @@
         <option value="$PROJECT_DIR$/application/views/order_pages/order_details.php" />
         <option value="$PROJECT_DIR$/application/views/order_pages/order_details_customer.php" />
         <option value="$PROJECT_DIR$/application/views/order_pages/order_processing.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Authentication.php" />
+        <option value="$PROJECT_DIR$/application/views/user-pages/userLogin.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
+        <option value="$PROJECT_DIR$/application/views/enterprises/individual_enterprises.php" />
+        <option value="$PROJECT_DIR$/application/views/dashboard/home.php" />
+        <option value="$PROJECT_DIR$/nice/css/style.css" />
+        <option value="$PROJECT_DIR$/application/controllers/Direct.php" />
+        <option value="$PROJECT_DIR$/application/views/order_pages/sales_customer_details.php" />
+        <option value="$PROJECT_DIR$/application/views/order_pages/sales_processing.php" />
         <option value="$PROJECT_DIR$/application/views/order_pages/view_orders.php" />
+        <option value="$PROJECT_DIR$/application/views/enterprises/enterprise_details.php" />
+        <option value="$PROJECT_DIR$/application/views/order_pages/complete_sales.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Products.php" />
+        <option value="$PROJECT_DIR$/application/models/EnterpriseModel.php" />
+        <option value="$PROJECT_DIR$/application/views/order_pages/complete_sales_details.php" />
       </list>
     </option>
   </component>
@@ -329,67 +324,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="mimarket-master">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="mimarket-master">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="nice">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="mimarket-master">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="nice">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="css">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="mimarket-master">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="application">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -452,7 +386,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="report_views" />
+              <option name="myItemId" value="user-pages" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -492,21 +426,96 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mimarket-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mimarket-master" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="mimarket-master">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="mimarket-master">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="nice">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="mimarket-master">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="nice">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="css">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="mimarket-master">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="application">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/fyp pictures" />
+    <property name="last_opened_file_path" value="E:/" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
@@ -618,12 +627,19 @@
       <workItem from="1529821651846" duration="91556000" />
       <workItem from="1530002485971" duration="87974000" />
       <workItem from="1530174203771" duration="12468000" />
-      <workItem from="1530195361562" duration="36658000" />
+      <workItem from="1530195361562" duration="37608000" />
+      <workItem from="1530252449282" duration="92000" />
+      <workItem from="1530260487234" duration="612000" />
+      <workItem from="1530261146174" duration="4855000" />
+      <workItem from="1530517093558" duration="733000" />
+      <workItem from="1530651338146" duration="1789000" />
+      <workItem from="1530720850728" duration="4917000" />
+      <workItem from="1530789713924" duration="37694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="422418000" />
+    <option name="totallyTimeSpent" value="474060000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -636,13 +652,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3440703" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1762481" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="7.320644E-4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.027987897" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -655,8 +669,29 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1170" height="544" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1170" height="544" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19742814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.027987897" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -669,109 +704,100 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/libraries/pdf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="40" lean-forward="false" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/libraries/TCPDF/examples/example_001.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="97" column="24" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/libraries/TCPDF/examples/example_003.php">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d4f50599-7bd3-4c71-8fda-b31d91a5d9c3/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/libraries/TCPDF/examples/example_005.php">
+    <entry file="file://$PROJECT_DIR$/application/views/user-pages/PrivacyTerms.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="153" column="20" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/libraries/TCPDF/examples/config/tcpdf_config_alt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3050">
+        <state relative-caret-position="-2592">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/libraries/TCPDF/config/tcpdf_config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3140">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/libraries/TCPDF/include/tcpdf_images.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3564">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/AuthModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nice/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="1176" column="14" lean-forward="false" selection-start-line="1176" selection-start-column="14" selection-end-line="1176" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php" />
-    <entry file="file://$PROJECT_DIR$/application/models/index.html">
+    <entry file="file://$PROJECT_DIR$/application/views/user-pages/validateLogin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Direct.php">
+    <entry file="file://$PROJECT_DIR$/application/views/user-pages/validation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" column="32" lean-forward="false" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="1998">
+          <caret line="116" column="22" lean-forward="false" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/user-pages/register.php">
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5274">
-          <caret line="298" column="122" lean-forward="false" selection-start-line="298" selection-start-column="122" selection-end-line="298" selection-end-column="122" />
-          <folding />
+        <state relative-caret-position="429">
+          <caret line="51" column="56" lean-forward="false" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/user-pages/signup.php">
+    <entry file="file://$PROJECT_DIR$/application/views/report_views/sample.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-          <folding>
-            <element signature="e#6#94#0#PHP" expanded="false" />
-          </folding>
+        <state relative-caret-position="324">
+          <caret line="156" column="64" lean-forward="true" selection-start-line="156" selection-start-column="64" selection-end-line="156" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Authentication.php">
+    <entry file="file://$PROJECT_DIR$/application/views/user-pages/user-setting.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="36" column="76" lean-forward="false" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
-          <folding />
+        <state relative-caret-position="102">
+          <caret line="210" column="82" lean-forward="false" selection-start-line="210" selection-start-column="82" selection-end-line="210" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/report_views/storeOrderReport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-494">
+          <caret line="144" column="1" lean-forward="true" selection-start-line="144" selection-start-column="1" selection-end-line="144" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/enterprises/all_enterprises.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="82" column="9" lean-forward="false" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Messages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/SendEmail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises</OriginalElement>
+          <nodes>
+            <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="226.0" y="181.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -783,70 +809,55 @@
           <nodes>
             <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_enterprise_views</node>
             <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_product_views</node>
+            <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_ordered_products</node>
+            <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_administrators</node>
+            <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_messages</node>
             <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_bookmarks</node>
             <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration</node>
-            <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_ordered_products</node>
             <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products</node>
             <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart</node>
             <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises</node>
             <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders</node>
+            <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders</node>
+            <node x="" y="">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales</node>
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="0.5191793041926851" x="898.6864261168384" y="310.5" />
+          <settings layout="Hierarchic Group" zoom="0.4579732914375491" x="1036.0" y="627.0" />
           <SelectedNodes />
           <Categories>
-            <Category>Key columns</Category>
             <Category>Columns</Category>
+            <Category>Key columns</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d4f50599-7bd3-4c71-8fda-b31d91a5d9c3/console.sql">
+    <entry file="file://$PROJECT_DIR$/application/views/enterprises/newEnterprise.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="254">
+          <caret line="229" column="25" lean-forward="false" selection-start-line="219" selection-start-column="20" selection-end-line="229" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/IndexSearchResults.php">
+    <entry file="file://$PROJECT_DIR$/application/views/enterprises/user_enterprise_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="328" column="0" lean-forward="false" selection-start-line="325" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="434">
+          <caret line="270" column="0" lean-forward="false" selection-start-line="259" selection-start-column="20" selection-end-line="270" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/user-pages/PrivacyTerms.php">
+    <entry file="file://$PROJECT_DIR$/application/views/enterprises/edit_enterprise.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2592">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="362">
+          <caret line="218" column="25" lean-forward="false" selection-start-line="208" selection-start-column="20" selection-end-line="218" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/user-pages/validateLogin.php">
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/un_product_details.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/user-pages/validation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1998">
-          <caret line="116" column="22" lean-forward="false" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="51" column="56" lean-forward="false" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
-          <folding />
+        <state relative-caret-position="3602">
+          <caret line="394" column="46" lean-forward="true" selection-start-line="361" selection-start-column="44" selection-end-line="394" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -854,271 +865,202 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
           <caret line="374" column="115" lean-forward="false" selection-start-line="374" selection-start-column="115" selection-end-line="374" selection-end-column="115" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#a#1;n#div#0;n#div#2;n#div#3;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/un_product_details.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="394" column="46" lean-forward="true" selection-start-line="361" selection-start-column="44" selection-end-line="394" selection-end-column="46" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#div#0;n#div#2;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/report_views/sample.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="156" column="64" lean-forward="true" selection-start-line="156" selection-start-column="64" selection-end-line="156" selection-end-column="64" />
-          <folding>
-            <marker date="1530041583828" expanded="true" signature="2607:2623" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="2924:2959" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="2960:3640" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="2961:3621" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="2961:3634" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="2961:3640" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="3772:3786" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="3842:3867" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="3868:4167" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="3897:3922" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="3959:3984" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="4030:4055" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="4098:4123" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="4291:4300" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="4301:4710" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="4326:4365" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="4407:4446" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="4509:4548" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="4615:4654" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="4967:4980" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="5026:5054" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="5055:5396" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="5084:5109" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="5146:5171" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="5210:5235" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="5278:5303" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="5343:5368" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="5621:5630" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="5631:6106" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="5656:5695" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="5737:5776" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="5829:5868" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="5918:5957" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="6012:6051" ph="..." />
-            <marker date="1530041583828" expanded="true" signature="6125:6328" ph="..." />
-            <marker date="1530041583828" expanded="false" signature="6150:6189" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/user-pages/user-setting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="210" column="82" lean-forward="false" selection-start-line="210" selection-start-column="82" selection-end-line="210" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Enterprise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="95" column="5" lean-forward="true" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Products.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="440" column="26" lean-forward="false" selection-start-line="440" selection-start-column="26" selection-end-line="440" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/EnterpriseModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="348" column="42" lean-forward="false" selection-start-line="348" selection-start-column="42" selection-end-line="348" selection-end-column="42" />
-          <folding>
-            <marker date="1530235537705" expanded="true" signature="906:927" ph="SELECT * FRO... enterprises" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/report_views/storeOrderReport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-494">
-          <caret line="144" column="1" lean-forward="true" selection-start-line="144" selection-start-column="1" selection-end-line="144" selection-end-column="1" />
-          <folding>
-            <marker date="1530235682966" expanded="true" signature="2613:2629" ph="..." />
-            <marker date="1530235682966" expanded="false" signature="2954:2989" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="2990:3404" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="3536:3550" ph="..." />
-            <marker date="1530235682966" expanded="false" signature="3606:3631" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="3632:3879" ph="..." />
-            <marker date="1530235682966" expanded="false" signature="3661:3686" ph="..." />
-            <marker date="1530235682966" expanded="false" signature="3723:3748" ph="..." />
-            <marker date="1530235682966" expanded="false" signature="3794:3819" ph="..." />
-            <marker date="1530235682966" expanded="false" signature="4003:4012" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="4013:4418" ph="..." />
-            <marker date="1530235682966" expanded="false" signature="4038:4077" ph="..." />
-            <marker date="1530235682966" expanded="false" signature="4119:4158" ph="..." />
-            <marker date="1530235682966" expanded="false" signature="4221:4260" ph="..." />
-            <marker date="1530235682966" expanded="false" signature="4322:4361" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="4675:4688" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="4734:4762" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="4763:5114" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="4792:4817" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="4854:4879" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="4918:4943" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="4986:5011" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="5052:5077" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="5216:5225" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="5226:5307" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="5226:5728" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="5251:5290" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="5332:5371" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="5424:5463" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="5531:5570" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="5636:5675" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="5747:5950" ph="..." />
-            <marker date="1530235682966" expanded="true" signature="5772:5811" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="120" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="183" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="242" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dashboard/productDetails.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="305" column="12" lean-forward="false" selection-start-line="305" selection-start-column="12" selection-end-line="305" selection-end-column="12" />
-          <folding />
+        <state relative-caret-position="308">
+          <caret line="272" column="25" lean-forward="false" selection-start-line="262" selection-start-column="20" selection-end-line="272" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dashboard/owner_product_details.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="306" column="12" lean-forward="false" selection-start-line="306" selection-start-column="12" selection-end-line="306" selection-end-column="12" />
+        <state relative-caret-position="288">
+          <caret line="273" column="25" lean-forward="false" selection-start-line="263" selection-start-column="20" selection-end-line="273" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/IndexSearchResults.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="328" column="0" lean-forward="false" selection-start-line="325" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3078">
+          <caret line="176" column="39" lean-forward="false" selection-start-line="176" selection-start-column="39" selection-end-line="176" selection-end-column="39" />
           <folding>
-            <element signature="n#style#0;n#strong#0;n#h4#0;n#div#0;n#div#0;n#div#2;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#2;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#2;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#2;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#2;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#td#1;n#tr#6;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#2;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#div#0;n#div#2;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#6#94#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/enterprises/all_enterprises.php">
+    <entry file="uml://DATABASE/d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.SCHEMA:mimarket">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.SCHEMA:mimarket</OriginalElement>
+          <nodes>
+            <node x="1377.238888888889" y="549.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_enterprise_views</node>
+            <node x="826.3333333333333" y="848.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_product_views</node>
+            <node x="305.5833333333333" y="66.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration</node>
+            <node x="261.33333333333337" y="859.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_ordered_products</node>
+            <node x="723.7083333333333" y="450.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products</node>
+            <node x="34.33333333333337" y="859.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart</node>
+            <node x="774.0833333333333" y="0.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises</node>
+            <node x="122.75" y="472.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders</node>
+            <node x="1127.3333333333333" y="826.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders</node>
+            <node x="555.3333333333333" y="837.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
+              <point x="69.0" y="-70.0" />
+              <point x="206.83333333333337" y="796.0" />
+              <point x="772.3333333333333" y="796.0" />
+              <point x="-145.875" y="158.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
+              <point x="83.66666666666663" y="-92.0" />
+              <point x="764.5" y="806.0" />
+              <point x="869.5833333333333" y="806.0" />
+              <point x="-48.625" y="158.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
+              <point x="0.0" y="-103.0" />
+              <point x="1284.3333333333333" y="806.0" />
+              <point x="1331.1666666666665" y="806.0" />
+              <point x="1331.1666666666665" y="400.0" />
+              <point x="558.4583333333333" y="400.0" />
+              <point x="108.37499999999994" y="114.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
+              <point x="0.0" y="-92.0" />
+              <point x="680.8333333333333" y="786.0" />
+              <point x="644.5" y="786.0" />
+              <point x="644.5" y="430.0" />
+              <point x="942.4583333333333" y="430.0" />
+              <point x="-56.125" y="180.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
+              <point x="-69.0" y="-70.0" />
+              <point x="68.83333333333337" y="806.0" />
+              <point x="45.5" y="806.0" />
+              <point x="45.5" y="400.0" />
+              <point x="341.7083333333333" y="400.0" />
+              <point x="-108.375" y="114.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
+              <point x="-83.66666666666674" y="-92.0" />
+              <point x="597.1666666666665" y="786.0" />
+              <point x="582.4166666666667" y="786.0" />
+              <point x="582.4166666666667" y="410.0" />
+              <point x="486.2083333333333" y="410.0" />
+              <point x="36.125" y="114.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
+              <point x="-104.66666666666674" y="-103.0" />
+              <point x="1179.6666666666665" y="806.0" />
+              <point x="1064.0833333333333" y="806.0" />
+              <point x="145.875" y="158.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
+              <point x="84.0" y="-136.0" />
+              <point x="374.75" y="420.0" />
+              <point x="830.2083333333333" y="420.0" />
+              <point x="-168.375" y="180.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
+              <point x="104.6666666666668" y="-103.0" />
+              <point x="1389.0" y="806.0" />
+              <point x="1366.738888888889" y="806.0" />
+              <point x="1366.738888888889" y="390.0" />
+              <point x="1054.7083333333333" y="390.0" />
+              <point x="56.125" y="180.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
+              <point x="-84.0" y="-136.0" />
+              <point x="206.75" y="410.0" />
+              <point x="413.9583333333333" y="410.0" />
+              <point x="-36.125" y="114.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_ordered_products" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders">
+              <point x="0.0" y="-70.0" />
+              <point x="398.33333333333337" y="786.0" />
+              <point x="374.75" y="786.0" />
+              <point x="84.0" y="136.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_product_views" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
+              <point x="0.0" y="-81.0" />
+              <point x="48.625" y="158.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_enterprise_views" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
+              <point x="0.0" y="-59.0" />
+              <point x="1504.738888888889" y="380.0" />
+              <point x="1166.9583333333333" y="380.0" />
+              <point x="168.375" y="180.0" />
+            </edge>
+            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders">
+              <point x="0.0" y="-70.0" />
+              <point x="137.83333333333337" y="786.0" />
+              <point x="206.75" y="786.0" />
+              <point x="-84.0" y="136.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.9" x="512.0" y="998.0" />
+          <SelectedNodes>
+            <node>d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Enterprise.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="82" column="9" lean-forward="false" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+        <state relative-caret-position="2808">
+          <caret line="156" column="5" lean-forward="false" selection-start-line="156" selection-start-column="5" selection-end-line="156" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/enterprises/edit_enterprise.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="251" column="12" lean-forward="false" selection-start-line="251" selection-start-column="12" selection-end-line="251" selection-end-column="12" />
-          <folding />
+        <state relative-caret-position="306">
+          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding>
+            <element signature="e#6#87#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/enterprises/enterprise_details.php">
+    <entry file="file://$PROJECT_DIR$/nice/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="297" column="12" lean-forward="false" selection-start-line="297" selection-start-column="12" selection-end-line="297" selection-end-column="12" />
+        <state relative-caret-position="204">
+          <caret line="501" column="21" lean-forward="false" selection-start-line="501" selection-start-column="21" selection-end-line="501" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/enterprises/individual_enterprises.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="292" column="12" lean-forward="false" selection-start-line="292" selection-start-column="12" selection-end-line="292" selection-end-column="12" />
+        <state relative-caret-position="6318">
+          <caret line="356" column="0" lean-forward="false" selection-start-line="356" selection-start-column="0" selection-end-line="356" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/enterprises/newEnterprise.php">
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="262" column="12" lean-forward="false" selection-start-line="262" selection-start-column="12" selection-end-line="262" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/enterprises/user_enterprise_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="302" column="12" lean-forward="false" selection-start-line="302" selection-start-column="12" selection-end-line="302" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="312" column="12" lean-forward="false" selection-start-line="312" selection-start-column="12" selection-end-line="312" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders_complete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="312" column="12" lean-forward="false" selection-start-line="312" selection-start-column="12" selection-end-line="312" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders_rejected.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="312" column="12" lean-forward="false" selection-start-line="312" selection-start-column="12" selection-end-line="312" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/order_pages/view_orders.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="307" column="12" lean-forward="false" selection-start-line="307" selection-start-column="12" selection-end-line="307" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/order_pages/order_processing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="307" column="12" lean-forward="false" selection-start-line="307" selection-start-column="12" selection-end-line="307" selection-end-column="12" />
+        <state relative-caret-position="3222">
+          <caret line="184" column="36" lean-forward="false" selection-start-line="184" selection-start-column="36" selection-end-line="184" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1133,147 +1075,233 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/order_pages/order_details_customer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="307" column="12" lean-forward="false" selection-start-line="307" selection-start-column="12" selection-end-line="307" selection-end-column="12" />
+        <state relative-caret-position="366">
+          <caret line="275" column="0" lean-forward="false" selection-start-line="264" selection-start-column="20" selection-end-line="275" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/order_pages/make_order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="269" column="25" lean-forward="false" selection-start-line="259" selection-start-column="20" selection-end-line="269" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders_rejected.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="279" column="25" lean-forward="false" selection-start-line="269" selection-start-column="20" selection-end-line="279" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders_paid.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="279" column="25" lean-forward="false" selection-start-line="269" selection-start-column="20" selection-end-line="279" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders_complete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="280" column="0" lean-forward="false" selection-start-line="269" selection-start-column="20" selection-end-line="280" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="279" column="25" lean-forward="false" selection-start-line="269" selection-start-column="20" selection-end-line="279" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/order_pages/order_processing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="274" column="28" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="594" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/user-pages/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="59" column="48" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Direct.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="26" column="61" lean-forward="false" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/user-pages/userLogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1689">
+          <caret line="296" column="68" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="384" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/user-pages/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="324" column="74" lean-forward="false" selection-start-line="324" selection-start-column="74" selection-end-line="324" selection-end-column="74" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/order_pages/sales_customer_details.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="318" column="83" lean-forward="true" selection-start-line="318" selection-start-column="83" selection-end-line="318" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/user-pages/signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2383">
+          <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Authentication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="44" column="47" lean-forward="false" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/order_pages/sales_processing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="442" column="98" lean-forward="false" selection-start-line="442" selection-start-column="98" selection-end-line="442" selection-end-column="98" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/order_pages/view_orders.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-882">
+          <caret line="367" column="124" lean-forward="false" selection-start-line="367" selection-start-column="124" selection-end-line="367" selection-end-column="124" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/enterprises/enterprise_details.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="403" column="48" lean-forward="true" selection-start-line="401" selection-start-column="44" selection-end-line="403" selection-end-column="48" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#a#1;n#div#1;n#div#2;n#div#2;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#2;n#div#1;n#div#2;n#div#2;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/EnterpriseModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="213" column="71" lean-forward="false" selection-start-line="213" selection-start-column="71" selection-end-line="213" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/order_pages/order_details.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="307" column="12" lean-forward="false" selection-start-line="307" selection-start-column="12" selection-end-line="307" selection-end-column="12" />
-          <folding>
-            <marker date="1530236388132" expanded="true" signature="17504:17571" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/order_pages/make_order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="302" column="12" lean-forward="false" selection-start-line="302" selection-start-column="12" selection-end-line="302" selection-end-column="12" />
-          <folding>
-            <marker date="1530236387993" expanded="true" signature="15912:15968" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/order_pages/customer_orders_paid.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="312" column="12" lean-forward="false" selection-start-line="312" selection-start-column="12" selection-end-line="312" selection-end-column="12" />
+        <state relative-caret-position="434">
+          <caret line="440" column="58" lean-forward="true" selection-start-line="435" selection-start-column="52" selection-end-line="440" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="uml://DATABASE/d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.SCHEMA:mimarket">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.SCHEMA:mimarket</OriginalElement>
-          <nodes>
-            <node x="592.5" y="461.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_enterprise_views</node>
-            <node x="579.5" y="999.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_product_views</node>
-            <node x="583.0" y="650.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_ordered_products</node>
-            <node x="1600.5" y="1025.666666666667">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_administrators</node>
-            <node x="1723.5" y="650.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_messages</node>
-            <node x="1409.0" y="101.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_bookmarks</node>
-            <node x="1375.5" y="606.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration</node>
-            <node x="277.16666666666674" y="1401.4444444444446">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products</node>
-            <node x="1016.5" y="1330.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart</node>
-            <node x="95.5" y="-20.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises</node>
-            <node x="952.0" y="584.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders</node>
-            <node x="163.0" y="817.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders</node>
-            <node x="594.5" y="1628.0">d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
-              <point x="-103.5" y="-0.0" />
-              <point x="194.5" y="-0.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-              <point x="157.0" y="-0.0" />
-              <point x="1440.0" y="920.0" />
-              <point x="-80.0" y="114.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
-              <point x="0.0" y="-92.0" />
-              <point x="0.0" y="158.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
-              <point x="-125.5" y="-0.0" />
-              <point x="40.0" y="1720.0" />
-              <point x="40.0" y="160.0" />
-              <point x="-224.5" y="-0.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-              <point x="103.5" y="-0.0" />
-              <point x="1480.0" y="1400.0" />
-              <point x="-40.0" y="114.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_sales" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-              <point x="125.5" y="-0.0" />
-              <point x="1520.0" y="1720.0" />
-              <point x="0.0" y="114.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
-              <point x="0.0" y="103.0" />
-              <point x="320.0" y="1400.0" />
-              <point x="-194.5" y="-0.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
-              <point x="0.0" y="-136.0" />
-              <point x="1120.0" y="200.0" />
-              <point x="224.5" y="40.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_direct_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
-              <point x="0.0" y="-103.0" />
-              <point x="0.0" y="180.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_product_views" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products">
-              <point x="0.0" y="81.0" />
-              <point x="0.0" y="-158.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_ordered_products" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders">
-              <point x="137.0" y="-0.0" />
-              <point x="-168.0" y="-0.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-              <point x="168.0" y="-0.0" />
-              <point x="-144.5" y="-0.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_bookmarks" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-              <point x="0.0" y="59.0" />
-              <point x="0.0" y="-114.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_enterprise_views" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
-              <point x="0.0" y="-59.0" />
-              <point x="720.0" y="240.0" />
-              <point x="224.5" y="80.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_messages" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.user-registration">
-              <point x="-116.5" y="-0.0" />
-              <point x="144.5" y="-0.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_shoppingcart" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_orders">
-              <point x="0.0" y="-70.0" />
-              <point x="0.0" y="136.0" />
-            </edge>
-            <edge source="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_bookmarks" target="d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.enterprises">
-              <point x="-111.0" y="-0.0" />
-              <point x="224.5" y="-0.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.8000000000000003" x="440.6111111111111" y="1728.6666666666665" />
-          <SelectedNodes>
-            <node>d4f50599-7bd3-4c71-8fda-b31d91a5d9c3.TABLE:mimarket.ms_products</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
+    <entry file="file://$PROJECT_DIR$/application/views/order_pages/complete_sales.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="384" column="131" lean-forward="false" selection-start-line="384" selection-start-column="131" selection-end-line="384" selection-end-column="131" />
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#div#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#strong#0;n#button#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#1;n#button#0;n#a#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#1;n#button#0;n#a#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#1;n#button#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#4;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#1;n#button#0;n#a#4;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/order_pages/complete_sales_details.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="350" column="112" lean-forward="false" selection-start-line="350" selection-start-column="112" selection-end-line="350" selection-end-column="112" />
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#div#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#strong#0;n#button#0;n#a#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#1;n#button#0;n#a#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#1;n#button#0;n#a#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#1;n#button#0;n#a#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#4;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#1;n#button#0;n#a#4;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#section#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Products.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2175">
+          <caret line="575" column="1" lean-forward="true" selection-start-line="575" selection-start-column="1" selection-end-line="575" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -61,6 +61,9 @@
             padding: 5px;
             margin: 10px;
         }
+        .btn{
+            border-radius: 0;
+        }
         .items{
             border: 1px solid #D5D8DC ;
             padding: 10px;
@@ -236,7 +239,7 @@
     <aside>
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
-            <ul class="sidebar-menu" style="margin-top: 63px">
+            <ul class="sidebar-menu" style="margin-top: 60px">
 
                 <li class="active">
                     <a class="" href="<?php echo base_url()?>index.php/Products/DefaultProducts"><i class="icon_house_alt"></i> <span>Home</span></a>
@@ -252,17 +255,17 @@
                     </ul>
                 </li>
 
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>
-                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>
-                    </a>
-                    <ul class="sub">
-                        <li><a class="" href="<?php echo base_url()?>index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>
-                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>
-                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>
-                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>
-                    </ul>
-                </li>
+<!--                <li class="sub-menu">-->
+<!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
+<!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
+<!--                    </a>-->
+<!--                    <ul class="sub">-->
+<!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
+<!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
+<!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
+<!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
 
                 <li class="sub-menu">
                     <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
@@ -334,7 +337,9 @@
                                     <h5 style="color: #da8241; text-transform: uppercase;"><a href="#" style="color: #da8241"><strong><?php echo $SingleEnterprise->name?></strong></a></h5>
                                 </div>
                                 <div class="col-lg-2">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_product">Add Product</button>
+                                    <?php
+                                    echo date('Y-m-d');
+                                    ?>
                                 </div>
 
                                 <div class="col-sm-12" style="border-top: 1px dotted #D5D8DC ; font-size: small">
@@ -351,7 +356,7 @@
 
                                     <div class="col-sm-5" style="margin: 10px">
                                         <div style="background-color: cadetblue; padding: 5px; border: 1px solid #BDBDBD">
-                                            <h5 style="font-size: small; color: white; text-align: center">Store Summary</h5>
+                                            <h5 style="font-size: small; color: white; text-align: center">Store Details</h5>
                                         </div>
                                         <div class="col-sm-12" style="border: 1px solid #BDBDBD; padding: 5px; font-size: small; background-color: whitesmoke">
                                             <?php if (isset($SingleEnterprise)){
@@ -361,9 +366,9 @@
                                                     <label><strong>Products: </strong></label><span> <?php echo $SingleEnterprise->category?></span><br>
                                                     <label><strong>Date registered: </strong></label><span> <?php echo $SingleEnterprise->register_date?></span><br>
                                                     <label><strong>User phone: </strong></label><span> <?php echo $SingleEnterprise->phone?></span><br>
-                                                    <label><strong>Store catalogue: </strong></label><a href="#"> <span style="color: red"> Download</span> <i class="fa fa-download"></i></a> <br>
+<!--                                                    <label><strong>Store catalogue: </strong></label><a href="#"> <span style="color: red"> Download</span> <i class="fa fa-download"></i></a> <br>-->
                                                     <a href="<?php echo base_url()?>index.php/Enterprise/editEnterprise?ent=<?php echo $SingleEnterprise->enterprise_id?>" >
-                                                        <button type="button" class="btn btn-success">Edit store details</button>
+                                                        <i class="fa fa-edit"></i> Edit store details
                                                     </a>
 
                                                 </div>
@@ -389,14 +394,19 @@
                                                 <li style="padding: 5px"><a href="" style="margin: 5px;">Total Orders<span> <strong><?php echo $SingleEnterprise->total_products?></strong></span></a>
 
                                                 </li>
-                                                <li style="padding: 5px"><a href="" style="margin: 5px;">Rejected Orders<span> <strong><?php echo $SingleEnterprise->total_products?></strong></span></a>
-
-                                                </li>
 
                                             </ol>
                                             <a href="<?php echo base_url()?>index.php/Products/viewEnterpriseOrders?ent=<?php echo $SingleEnterprise->enterprise_id?>">
-                                                <button title="view new order requests" type="button" class="btn btn-warning btn-block">View Orders</button>
+                                                <button title="view new order requests" type="button" class="btn btn btn-block">Store Orders</button>
                                             </a>
+                                            <a href="<?php echo base_url()?>index.php/Direct/salesCustomerDetails">
+                                                <button style="margin-top: 5px" title="view new order requests" type="button" class="btn btn btn-block"><i class="fa fa-credit-card"></i> make sells</button>
+                                            </a>
+                                            <a href="<?php echo base_url()?>index.php/Products/CompleteSales">
+                                                <button style="margin-top: 5px" title="view new order requests" type="button" class="btn btn-success btn-block"><i class="fa fa-credit-card"></i> complete sales</button>
+                                            </a>
+
+
                                         </div>
                                     </div>
                                 <?php }?>
@@ -404,7 +414,16 @@
                             </div>
 
                             <div class="row items" style="margin-top: 10px">
-                                <h5><strong>Products registered to this store</strong></h5>
+                                <div class="row" style="background-color: whitesmoke; margin: 5px">
+                                    <div class="col-lg-10" style="padding: 10px">
+                                        <h5 style="text-transform: uppercase;"><strong>Products registered to this store</strong></h5>
+                                    </div>
+                                    <div class="col-lg-2" style="padding: 5px">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_product"><i class="fa fa-plus"></i> Add Product</button>
+
+                                    </div>
+                                </div>
+
                                 <div class="col-sm-12" style="margin-top: 10px">
                                     <table  class="table table-striped table-bordered" id="enterprise" style="font-size: small">
                                         <thead>

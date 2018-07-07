@@ -22,10 +22,14 @@ class Direct extends CI_Controller
     {
         redirect('Authentication/Register');
     }
+    public function salesCustomerDetails()
+    {
+        $this->load->view('order_pages/sales_customer_details');
+    }
 
     public function login()
     {
-        $this->load->view('user-pages/login.php');
+        redirect('Authentication/userLogin');
     }
 
     public function dashboard()

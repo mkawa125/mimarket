@@ -260,17 +260,17 @@
                     </ul>
                 </li>
 
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>
-                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>
-                    </a>
-                    <ul class="sub">
-                        <li><a class="" href="<?php echo base_url()?>index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>
-                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>
-                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>
-                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>
-                    </ul>
-                </li>
+<!--                <li class="sub-menu">-->
+<!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
+<!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
+<!--                    </a>-->
+<!--                    <ul class="sub">-->
+<!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
+<!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
+<!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
+<!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
 
                 <li class="sub-menu">
                     <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>

@@ -135,7 +135,6 @@ class Products extends CI_Controller
                     'product_user_address' => $ip,
                 );
                 $this->db->insert('ms_product_views', $data);
-                $_SESSION['product_price'] = $user_address->product_price;
                 $this->load->view('dashboard/productDetails', $product);
                 $_SESSION['product_price'] = $user_address->product_price;
                 $_SESSION['enterprise'] = $user_address->enterprise_id;
@@ -334,6 +333,13 @@ class Products extends CI_Controller
         $this->EnterpriseModel->removeCart();
         redirect('Products/shoppingCart');
     }
+    public function removeSaleItem()
+    {
+        $this->load->model('EnterpriseModel');
+        $_SESSION['product']= $_GET['prod'];
+        $this->EnterpriseModel->removeSaleItem();
+        redirect('Products/salesCartProcessing');
+    }
 
     public function DirectOrders()
     {
@@ -487,4 +493,84 @@ class Products extends CI_Controller
         }
 
     }
+    public function SalesProcessing()
+    {
+        if ($_SESSION['user_logged']){
+            $this->load->model('EnterpriseModel');
+            $orders['orders'] = $this->EnterpriseModel->enterpriseOrders();
+            $orders['orderDetails'] = $this->EnterpriseModel->singleOrder();
+            $orders['products'] = $this->EnterpriseModel->viewProcessingProducts();
+            $orders['rowOrders'] = $this->EnterpriseModel->orderRows();
+            $this->load->view('order_pages/sales_processing', $orders);
+        }
+    }
+    public function salesCartProcessing()
+    {
+        $this->load->library("cart");
+        if (isset($_POST["add"])){
+            $data = array(
+                'cart_quantity' => $_POST['quantity'],
+                'product_id' => $_GET['prod'],
+                'sales_id' => $_SESSION['sale'],
+            );
+            $this->db->insert("ms_sales_cart", $data);
+        }
+        $this->load->model('EnterpriseModel');
+        $orders['orderDetails'] = $this->EnterpriseModel->singleOrder();
+        $orders['singleOrder'] = $this->EnterpriseModel->getSingleSale();
+        $orders['products'] = $this->EnterpriseModel->viewProcessingProducts();
+        $orders['rowOrders'] = $this->EnterpriseModel->orderRows();
+        $orders['cartProduct'] = $this->EnterpriseModel->salesCart();
+        $this->load->view('order_pages/sales_processing', $orders);
+    }
+    public function AddSales()
+    {
+        if ($_SESSION['user_logged']){
+            if (isset($_POST['next'])){
+                $data = array(
+                    "customer_name" => $_POST['name'],
+                    "customer_email" => $_POST['email'],
+                    "customer_phone" => $_POST['phone'],
+                    "user_id" => $_SESSION['user_id'],
+                    "enterprise_id" => $_SESSION['enterprise'],
+                    "sales_cost" => 0,
+                    "sales_date" => date('Y-m-d H:i:s'),
+                );
+                $this->load->model('EnterpriseModel');
+                $this->EnterpriseModel->saveSale('ms_sales', $data);
+                $last_sale = $this->db->insert_id();
+                echo $last_sale;
+                //setting session variables
+                $_SESSION['customer_name'] = $_POST['name'];
+                $_SESSION['customer_email'] = $_POST['email'];
+                $_SESSION['customer_phone'] = $_POST['phone'];
+                $_SESSION['sale'] = $last_sale;
+
+                //redirecting to the sales page
+                redirect('Products/salesProcessing');
+            }
+        }
+    }
+    public function ConfirmSale()
+    {
+        $total_cost = $_SESSION['total_cost'];
+        $this->load->model('EnterpriseModel');
+        $product['total_cost'] = $this->EnterpriseModel->ConfirmSale($total_cost);
+        redirect('Products/CompleteSales');
+    }
+    public function CompleteSales()
+    {
+        $this->load->model('EnterpriseModel');
+        $orders['saleDetails'] = $this->EnterpriseModel->singleSale();
+        $this->load->view('order_pages/complete_sales', $orders);
+    }
+    public function CompleteSalesDetails()
+    {
+        $this->load->model('EnterpriseModel');
+        $_SESSION['order'] = $_GET['ord'];
+        $orders['SingleSaleDetails'] = $this->EnterpriseModel->singleSaleDetails();
+        $orders['salesProducts'] = $this->EnterpriseModel->singleSaleProducts();
+        $this->load->view('order_pages/complete_sales_details', $orders);
+    }
+
 }

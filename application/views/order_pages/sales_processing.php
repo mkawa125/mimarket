@@ -2,10 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: mkawa
- * Date: 6/18/2018
- * Time: 11:25 AM
- */?>
-
+ * Date: 6/23/2018
+ * Time: 11:38 PM
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +54,7 @@
             border-radius: 0;
             padding: 10px;
             border: 1px solid #D5D8DC;
-            background-color: cornflowerblue;
+            background-color: whitesmoke;
             text-transform: capitalize;
             text-align: center;
         }
@@ -66,11 +66,6 @@
             font-size: small;
             line-height: 28px;
             color: #848484;
-        }
-        .order_row{
-            border: 1px solid #D5D8DC ;
-            padding: 5px;
-            font-size: small;
         }
         .items{
             border: 1px solid #D5D8DC ;
@@ -267,17 +262,17 @@
                     </ul>
                 </li>
 
-<!--                <li class="sub-menu">-->
-<!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
-<!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
-<!--                    </a>-->
-<!--                    <ul class="sub">-->
-<!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
+                <!--                <li class="sub-menu">-->
+                <!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
+                <!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
+                <!--                    </a>-->
+                <!--                    <ul class="sub">-->
+                <!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
+                <!--                    </ul>-->
+                <!--                </li>-->
 
                 <li class="sub-menu">
                     <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
@@ -341,54 +336,141 @@
                             }
                             ?>
                             <div class="row items" style="margin-top: 5px">
-                                    <div class="col-sm-3" style=" padding: 0; margin-right: 0; border: 1px solid #BDBDBD; border-radius: 0;">
-                                        <div style="background-color: darkslategray; padding: 5px; border: 1px solid #BDBDBD">
-                                            <h5 style="font-size: small; color: white; text-align: center">ORDER REQUESTS</h5>
+                                <div class="col-sm-12" style="margin-top: 10px">
+                                    <div class="row">
+                                        <div class="col-sm-7" style="">
+                                            <table class="table table-striped table-bordered" style="font-size: smaller" id="enterprise">
+                                                <thead>
+                                                <tr>
+                                                    <td>NO</td>
+                                                    <th>Product Name</th>
+                                                    <th>Price</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <?php
+                                                $num = 1;
+                                                foreach($products->result() as $product){
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $num++?></td>
+                                                        <td><?php echo $product->ProductName?></td>
+                                                        <td><?php echo $product->product_price?></td>
+                                                        <td style="width: 10px">
+                                                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal<?php echo $product->product_id; ?>"><i class="fa fa-plus"></i> Add</button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <div class="modal fade" id="myModal<?php echo $product->product_id; ?>" role="dialog">
+                                                        <div class="modal-dialog">
+
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    <h4 class="modal-title" style="color: red">Add product to cart</h4>
+                                                                </div>
+                                                                <form action="<?php echo base_url()?>index.php/Products/salesCartProcessing?prod=<?php echo $product->product_id; ?>" method="post">
+                                                                    <div class="modal-body">
+
+                                                                        <p>Enter product quantity</p>
+
+                                                                        <div class="form-group input-group">
+                                                                            <span class="input-group-addon">Quantity</span>
+                                                                            <input class="form-control" placeholder="Product Quantity" name="quantity"
+                                                                                   type="number" title="Enter product quantity">
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <a href="<?php echo base_url()?>index.php/Products/salesCartProcessing?prod=<?php echo $product->product_id; ?>">
+                                                                                <button type="submit" class="btn btn-primary" name="add"><i class="fa fa-shopping-cart"></i> Add Product</button>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php } ?>
+                                                </tbody>
+                                            </table>
+
                                         </div>
 
-                                        <div class="" style="padding: 15px; font-size: small; background-color: whitesmoke">
-                                            <ol style="list-style: square">
-                                                <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/viewOrders" style="margin: 5px;">Latest sent<span>(5)</span></a>
+                                        <div class="col-sm-5" style="">
+<!--                                            <h5 class="summary" style="background-color: chocolate; color: white ">Customer Order Information</h5>-->
+                                            <div class="col-sm-12" style="border: 1px solid #BDBDBD; padding: 5px; font-size: smaller; background-color: whitesmoke">
 
-                                                </li>
-                                                <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersComplete" style="margin: 5px;">Complete Orders<span>(5)</span></a>
+                                                <div class="col-sm-12">
+                                                    <label style="color: chocolate"><strong>Customer Contact</strong></label><br>
+                                                    <form class="#" action="#" method="post">
+                                                        <div class="form-group input-group" >
+                                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                                            <input style="font-size: small" value="<?php echo $_SESSION['customer_name']?>" class="form-control" type="text" name="name" id="name" placeholder="Customer name">
+                                                        </div>
+                                                        <div class="form-group input-group">
+                                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                                            <input style="font-size: small" value="<?php echo $_SESSION['customer_phone']?>" class="form-control" type="text" name="phone" id="phone" placeholder="phone number">
+                                                        </div>
+                                                        <div class="form-group input-group">
+                                                            <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                                                            <input style="font-size: small" value="<?php echo $_SESSION['customer_email']?>" class="form-control" type="text" name="name" id="email" placeholder="Customer email">
+                                                        </div>
+                                                    </form>
+                                                </div>
 
-                                                </li>
-                                                <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersPaid" style="margin: 5px;">Paid Orders<span>(5)</span></a>
+                                            </div>
+                                            <div class="col-sm-12" style="border: 1px solid #BDBDBD; margin-top: 15px" id="cart_details">
+                                                <h5 style="text-align: center; font-size: small">Order processing summary</h5>
+                                                <?php
 
-                                                </li>
-                                                <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersRejected" style="margin: 5px;">Rejected Orders<span>(5)</span></a>
+                                                if (isset($cartProduct)){
+                                                    $total_cost = 0;
+                                                    ?>
+                                                    <table class="table-bordered table table-stripped" style="font-size: smaller">
+                                                        <tr style="background-color: whitesmoke; color: white">
+                                                            <th>Name</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+                                                            <th>Total</th>
+                                                            <th>Remove</th>
+                                                        </tr>
+                                                        <tbody>
 
-                                                </li>
+                                                        <?php foreach ($cartProduct->result() as $cart){
+                                                            $total = ($cart->product_price) * ($cart->cart_quantity);
+                                                            $total_cost = $total_cost + ( ($cart->product_price) * ($cart->cart_quantity));
+                                                            $_SESSION['total_cost'] = $total_cost;
+                                                            ?>
+                                                            <tr>
+                                                                <td><?php echo $cart->ProductName?></td>
+                                                                <td><?php echo $cart->cart_quantity?></td>
+                                                                <td><?php echo $cart->product_price?></td>
+                                                                <td><?php echo number_format($total,2)?></td>
+                                                                <td>
+                                                                    <?php ?>
+                                                                    <a href="<?php echo base_url()?>index.php/Products/removeSaleItem?prod=<?php echo $cart->product_id; ?>">
+                                                                        <button type="button" class="btn btn-danger btn-xs">Remove</button> </a></td>
+                                                            </tr>
+                                                        <?php } ?>
+                                                        <tr>
+                                                            <td align="right" colspan="5"><strong>Total Order cost: <?php echo number_format($total_cost, 2)?> </strong><label>tzs</label></td>
+                                                        </tr>
 
-                                            </ol>
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="" align="right" style="padding: 5px">
+                                                        <a href="<?php echo base_url()?>index.php/Products/orderReport?ord=<?php echo $_SESSION['sale']?>">
+                                                            <button type="button" class="btn btn-default btn-xs"><i class="fa fa-print"></i>Print</button> </a>
+                                                        <a href="<?php echo base_url()?>index.php/Products/ConfirmSale?ord=<?php echo $_SESSION['sale']; ?>">
+                                                            <button type="button" class="btn btn-primary btn-xs">Confirm sale</button> </a>
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
                                         </div>
+
                                     </div>
 
-                                    <div class="col-sm-8" style="font-size: smaller; border: 1px solid #BDBDBD; margin-left: 10px">
-                                        <div class="row">
-                                            <div style="background-color: #46bfbd; padding: 5px; border: 1px solid #BDBDBD">
-                                                <h5 style="font-size: small; color: white; text-align: center">LATEST SENT ORDER REQUESTS</h5>
-                                            </div>
-                                        <?php
-                                        foreach($orders->result() as $row){
-                                            ?>
-                                            <div class="row" style="margin: 5px; border-bottom: 1px dotted #BDBDBD; padding: 10px">
-                                                <div class="col-sm-3" style="">
-                                                    <strong style="color: blue"><?php echo $row->order_name?></strong>
-                                                </div>
-                                                <div class="col-sm-4" >
-                                                   <?php echo $row->order_name?>
-                                                </div>
-                                                <div class="col-sm-5" style="color: chocolate">
-                                                    <?php echo $row->order_date?>
-                                                </div>
-                                                <div class="col-sm-2" style="float: right">
-                                                    <a href="<?php echo base_url()?>index.php/Products/customerOrderDetails?ord=<?php echo $row->order_id?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i>view details</button></a>
-                                                </div>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -442,6 +524,55 @@
 <script>
     $('#enterprise').dataTable();
 </script>
+
+<!--shopping cart script-->
+<script>
+    $(document).ready(function () {
+        $('.add_cart').click(function () {
+            var product_id = $(this).data("product_id");
+            var ProductName = $(this).data("ProductName");
+            var product_price = $(this).data("product_price");
+            var quantity = $('#' + product_id).val();
+
+            if ( quantity > 0){
+                $.ajax({
+                    url:"<?php echo base_url()?>/Products/shopping_cart",
+                    method: "POST",
+                    data:{ product_id:product_id , ProductName:ProductName, product_price:product_price, quantity:quantity },
+                    success:function (data) {
+                        alert("Product Added to cart");
+                        $('#cart_details').html(data)
+                    }
+                })
+            }else {
+                alert("Please Enter The product quantity")
+            }
+
+        })
+
+    })
+</script>
+
+<?php
+if (!empty($_SESSION['cart'])){
+    $total = 0;
+    foreach ($_SESSION['cart'] as $key => $value){
+        ?>
+        <tr>
+            <td><?php echo $value->ProductName?></td>
+            <td><?php echo $value->quantity?></td>
+            <td>$ <?php echo $value->product_price?></td>
+            <td>$ <?php echo number_format($value['quantity'] * $value['product_price'], 2)?></td>
+            <td><a href="<?php echo base_url()?>index.php/Products/DeleteProduct?prod=<?php echo $value->product_id; ?>">
+                    <button type="button" class="btn btn-danger">Remove</button></a>
+            </td>
+        </tr>
+
+        <?php $total = $total + ($value['quantity'] * $value['product_price'])?>
+    <?php } ?>
+    <tr>
+        <td align="right">Total</td>
+        <th align="right">$ <?php echo number_format($total, 2)?></th>
+    </tr>
+<?php } ?>
 </html>
-
-

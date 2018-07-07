@@ -257,17 +257,17 @@
                     </ul>
                 </li>
 
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>
-                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>
-                    </a>
-                    <ul class="sub">
-                        <li><a class="" href="<?php echo base_url()?>index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>
-                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>
-                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>
-                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>
-                    </ul>
-                </li>
+<!--                <li class="sub-menu">-->
+<!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
+<!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
+<!--                    </a>-->
+<!--                    <ul class="sub">-->
+<!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
+<!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
+<!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
+<!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
 
                 <li class="sub-menu">
                     <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
@@ -363,7 +363,6 @@
                                                 <h5><strong>Enterprise Descriptions</strong></h5>
                                                 <div class="description" style="border: solid 1px #D5D8DC; padding: 10px; background-color: white">
                                                     <p><?php echo $SingleEnterprise->description?></p>
-                                                    <p>Please click here to <a href="#"> Download product the enterprise/catalogue <i class="fa fa-download" style="color:red;"></i></a></p>
                                                 </div>
 
                                                 <p style="margin-top: 10px"><strong style="color: chocolate">Contact Details</strong></p>

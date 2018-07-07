@@ -184,6 +184,39 @@
          $orderDetails = $singleOrder->row();
          return $orderDetails;
      }
+     public function singleSale()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_sales');
+         $this->db->join('user-registration', 'ms_sales.user_id = user-registration.user_id');
+         $this->db->where(array('ms_sales.enterprise_id' => $_SESSION['enterprise']));
+         $this->db->order_by('ms_sales.sales_date', 'desc');
+         $saleDetails = $this->db->get();
+         return $saleDetails;
+     }
+     public function singleSaleDetails()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_sales');
+         $this->db->join('ms_sales_cart', 'ms_sales.sales_id = ms_sales_cart.sales_id');
+         $this->db->where(array('ms_sales.sales_id' => $_SESSION['order']));
+         $this->db->order_by('ms_sales.sales_date', 'desc');
+         $singleSaleDetails = $this->db->get();
+         $singleSaleDetails = $singleSaleDetails->row();
+         return $singleSaleDetails;
+     }
+     public function singleSaleProducts()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_sales');
+         $this->db->join('ms_sales_cart', 'ms_sales.sales_id = ms_sales_cart.sales_id');
+         $this->db->join('ms_products', 'ms_products.product_id = ms_sales_cart.product_id');
+         $this->db->where(array('ms_sales.sales_id' => $_SESSION['order']));
+         $this->db->order_by('ms_sales.sales_date', 'desc');
+         $salesProducts = $this->db->get();;
+         return $salesProducts;
+     }
+
      public function orderRows()
      {
          $this->db->select('*');
@@ -202,6 +235,13 @@
          $last_id = $this->db->insert_id('ms_orders');
          return $last_id;
      }
+     public function saveSale($table, $data)
+     {
+         $this->db->insert($table, $data);
+         $last_sale = $this->db->insert_id('ms_sales');
+         return $last_sale;
+     }
+
      public function viewProcessingProducts()
      {
          $this->db->select('*');
@@ -217,6 +257,15 @@
          $this->db->from('ms_orders');
          $this->db->join('ms_ordered_products', 'ms_orders.order_id = ms_ordered_products.order_id');
          $this->db->where(array('ms_orders.order_id' => $_SESSION['order']));
+         $singleOrder = $this->db->get();
+         return $singleOrder;
+     }
+     public function getSingleSale()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_sales');
+         $this->db->join('ms_sales_cart', 'ms_sales.sales_id = ms_sales_cart.sales_id');
+         $this->db->where(array('ms_sales.sales_id' => $_SESSION['sale']));
          $singleOrder = $this->db->get();
          return $singleOrder;
      }
@@ -239,11 +288,30 @@
          $cartProduct = $this->db->get();
              return $cartProduct;
      }
+
+     public function salesCart()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_sales_cart');
+         $this->db->join('ms_products', 'ms_products.product_id = ms_sales_cart.product_id');
+         $this->db->join('ms_sales', 'ms_sales.sales_id = ms_sales_cart.sales_id');
+         $this->db->where(array('ms_sales_cart.sales_id' => $_SESSION['sale']));
+         $cartProduct = $this->db->get();
+         return $cartProduct;
+     }
+
      public function removeCart()
      {
          $this->db->where('product_id', $_SESSION['product']);
          $this->db->delete('ms_shoppingcart');
      }
+
+     public function removeSaleItem()
+     {
+         $this->db->where('product_id', $_SESSION['product']);
+         $this->db->delete('ms_sales_cart');
+     }
+
      public function processedOrders()
      {
          $data = array(
@@ -350,6 +418,17 @@
          $this->db->where(array('user_id' => $_SESSION['user_id']));
          $products = $this->db->get();
          return $products;
+     }
+     public function ConfirmSale($total_cost)
+     {
+         $this->db->select('*');
+         $data = array(
+             'sales_cost' => "$total_cost",
+             'sales_status' => 1,
+         );
+         $this->db->set($data, FALSE);
+         $this->db->where(array('sales_id' => $_SESSION['sale']));
+         $this->db->update('ms_sales', $data);
      }
 
  }
