@@ -16,6 +16,7 @@ class Direct extends CI_Controller
         //loading teh files
         $this->load->helper('url');
         $this->load->library('session');
+        $this->load->model('AdminModel');
     }
 
     public function register()
@@ -53,9 +54,21 @@ class Direct extends CI_Controller
         $this->load->view('enterprises/newEnterprise.php');
     }
     public function UserSetting(){
-        $this->load->view('user-pages/user-setting');
+        $this->load->model('AdminModel');
+        $data['summary'] = $this->AdminModel->dashboardSummary();
+        $data['allCategory'] = $this->AdminModel->getAllCategory();
+        $data['allStore'] = $this->AdminModel->getAllStore();
+        $data['newStore'] = $this->AdminModel->getNewStore();
+        $data['verifiedStore'] = $this->AdminModel->getVerifiedStore();
+        $data['suspendedStore'] = $this->AdminModel->getSuspendedStore();
+        $data['allStoreDetails'] = $this->AdminModel->getAllStoreDetails();
+        $data['newStoreDetails'] = $this->AdminModel->getNewStoreDetails();
+        $data['verifiedStoreDetails'] = $this->AdminModel->getVerifiedStoreDetails();
+        $data['suspendedStoreDetails'] = $this->AdminModel->getSuspendedStoreDetails();
+        $this->load->view('user-pages/user-setting', $data);
     }
     public function PrivacyTerms(){
+
         $this->load->view("user-pages/PrivacyTerms");
 
     }

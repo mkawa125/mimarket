@@ -167,7 +167,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['full_name']?></span>
+                        <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
@@ -175,18 +175,9 @@
                             <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-envelope"></i> My Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                        </li>
-                        <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
 
-                        <li>
-                            <a href="#"><i class="fa fa-question-circle"></i> Documentation</a>
-                        </li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -247,14 +238,6 @@
                 </li>
 
                 <li class="">
-                    <a class="" target="_blank" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="fa fa-question"></i> <span>Help & feedback</span></a>
-                </li>
-
-                <li class="">
                     <a class="" href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a>
                 </li>
             </ul>
@@ -300,8 +283,6 @@
                                             <?php
                                         }
                                         ?>
-
-
 
                                         <?php $error = form_error('name', '<p class="error">')?>
                                         <?php echo $error?>
@@ -405,30 +386,15 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <?php $error = form_error('image', '<p class="error">')?>
+                                                <?php $error = form_error('description', '<p class="error">')?>
                                                 <?php echo $error?>
-                                                <label for="image"><strong>Organizational Image:</strong></label>
-                                                <div class="form-group input-group" <?php echo $error? 'has error': '' ?>>
-                                                    <span class="input-group-addon"><i class="fa fa-image"></i></span>
-                                                    <input type="file" class="form-control" name="image" id="image" >
-                                                </div>
+                                                <label for="description"><strong>Descriptions:</strong></label>
+                                                <textarea class="form-control" rows="5" name="description" id="description" <?php echo $error? 'has error': '' ?>></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>Location: <span id="map"></span></p>
                                             </div>
                                         </div>
-
-
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <?php $error = form_error('description', '<p class="error">')?>
-                                                    <?php echo $error?>
-                                                    <label for="description"><strong>Descriptions:</strong></label>
-                                                    <textarea class="form-control" rows="5" name="description" id="description" <?php echo $error? 'has error': '' ?>></textarea>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <p>Location: <span id="map"></span></p>
-                                                </div>
-
-
-                                            </div>
                                         </div>
                                     </fieldset>
                                 </form>

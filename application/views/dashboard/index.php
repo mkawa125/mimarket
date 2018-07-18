@@ -235,40 +235,6 @@
             </ul>
 
 
-            <ul class="sidebar-menu">
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-cog"></i>
-                        <span>System</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-cogs"></i>
-                        <span>Privacy policies</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-server"></i>
-                        <span>About us</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-phone"></i>
-                        <span>Contact us</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-question-circle"></i>
-                        <span>Help</span>
-                    </a>
-                </li>
-
-            </ul>
-
 
             <!-- sidebar menu end-->
 
@@ -279,11 +245,11 @@
     <section id="main-content">
         <section class="wrapper">
             <div class="row">
-                <div class="col-lg-3">
-                    <h5 class="#"><i class="fa fa-home"></i> Home</h5>
-                </div>
-                <div class="col-lg-8">
+                <div class="col-lg-2">
 
+                </div>
+                <div class="col-lg-8" style="margin: 10px 0 10px 0">
+                    <h4 style="color: chocolate"><strong>welcome to Mimarket online marketing system to meet with number of suppliers</strong></h4>
                 </div>
             </div>
 
@@ -302,13 +268,13 @@
                                     <!-- Wrapper for carousel items -->
                                     <div class="carousel-inner" style="height: 200px">
                                         <div class="item active">
-                                            <img src="<?php echo base_url()?>/Images/systemImages/body.jpg" width="100%"  alt="First Slide">
+                                            <img src="<?php echo base_url()?>/Images/systemImages/bunnerc1.jpg" width="100%"  alt="First Slide">
                                         </div>
                                         <div class="item">
-                                            <img src="<?php echo base_url()?>/Images/systemImages/toi2.jpg" width="100%"  alt="Second Slide">
+                                            <img src="<?php echo base_url()?>/Images/systemImages/bunnerc2.jpg" width="100%"  alt="Second Slide">
                                         </div>
                                         <div class="item">
-                                            <img src="<?php echo base_url()?>/Images/systemImages/body2.jpg" width="100%" alt="Third Slide">
+                                            <img src="<?php echo base_url()?>/Images/systemImages/electricalBunner1.jpg" width="100%" alt="Third Slide">
                                         </div>
                                     </div>
                                     <!-- Carousel controls -->

@@ -188,26 +188,18 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['full_name']?></span>
+                        <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
                             <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-envelope"></i> My Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                        </li>
+
                         <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
 
-                        <li>
-                            <a href="#"><i class="fa fa-question-circle"></i> Documentation</a>
-                        </li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -265,14 +257,6 @@
             <ul class="sidebar-menu">
                 <li class="sub">
                     <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" target="_blank" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="fa fa-question"></i> <span>Help & feedback</span></a>
                 </li>
 
                 <li class="">

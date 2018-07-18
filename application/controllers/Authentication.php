@@ -100,7 +100,7 @@ class Authentication extends CI_Controller
 
     public function logout()
     {
-        $this->session->sess_destroy();
+        $this->session->sess_destroy('Admin/login');
         redirect('Direct/login', 'refresh');
     }
 

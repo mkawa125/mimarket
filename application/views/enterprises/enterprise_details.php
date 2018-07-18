@@ -38,6 +38,8 @@
     <link href="<?php echo base_url()?>/DataTables/css/dataTables.bootstrap.min.css" rel=" stylesheet">
     <link href="<?php echo base_url()?>nice/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.17/datatables.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 
     <!--custom style sheet-->
     <style>
@@ -205,7 +207,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['full_name']?></span>
+                        <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
@@ -213,18 +215,9 @@
                             <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-envelope"></i> My Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                        </li>
-                        <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
 
-                        <li>
-                            <a href="#"><i class="fa fa-question-circle"></i> Documentation</a>
-                        </li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -273,23 +266,10 @@
                     </a>
                 </li>
 
-                <li class="sub-menu">
-                    <a href="<?php echo base_url()?>index.php/Products/storeOrderReport?u=<?php echo $_SESSION['user_id']?>" class=""><i class="fa fa-bar-chart" aria-hidden="true"></i>
-                        <span>Statistics</span>
-                    </a>
-                </li>
             </ul>
             <ul class="sidebar-menu">
                 <li class="sub">
                     <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" target="_blank" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="fa fa-question"></i> <span>Help & feedback</span></a>
                 </li>
 
                 <li class="">
@@ -344,13 +324,40 @@
 
                                 <div class="col-sm-12" style="border-top: 1px dotted #D5D8DC ; font-size: small">
                                     <div class="col-sm-3 image-box">
-                                        <img width="100%" height="150" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
-                                        <label>Other images</label><br>
-                                        <img  style="margin-top: 3px" width="20%" height="50" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
-                                        <img  style="margin-top: 3px" width="20%" height="50" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
-                                        <img  style="margin-top: 3px" width="20%" height="50" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
-                                        <img  style="margin-top: 3px" width="20%" height="50" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
+                                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                            <!-- Carousel indicators -->
+                                            <ol class="carousel-indicators">
+                                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                            </ol>
+                                            <!-- Wrapper for carousel items -->
+                                            <div class="carousel-inner" style="height: 200px">
+                                                <?php foreach ($images->result() as $image){?>
+                                                <div class="item active">
+                                                    <img width="100%" height="100%" src="<?php echo base_url("Images/organizationImages/".$image->enterprise_image) ?>" alt="No image">
+                                                </div>
+                                                <div class="item">
+                                                    <img width="100%" height="100%" src="<?php echo base_url()?>/Images/systemImages/toi2.jpg"   alt="Second Slide">
+                                                </div>
+                                                <?php } ?>
+                                            </div>
+                                            <!-- Carousel controls -->
+                                            <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                            </a>
+                                            <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                            </a>
+                                        </div>
 
+
+                                        <div>
+                                            <form role="form" action="<?php echo base_url()?>index.php/Enterprise/AddImages?ent=<?php echo $SingleEnterprise->enterprise_id?>" method="POST" enctype="multipart/form-data">
+                                                <input type="file" name="image" id="image">
+                                                <button name="addImage" type="submit" class="btn btn-primary btn-xs" style="float: right; margin-top:"><i class="fa fa-plus"></i> Add Image</button>
+                                            </form>
+                                        </div><br>
 
                                     </div>
 
@@ -361,7 +368,7 @@
                                         <div class="col-sm-12" style="border: 1px solid #BDBDBD; padding: 5px; font-size: small; background-color: whitesmoke">
                                             <?php if (isset($SingleEnterprise)){
                                                 ?>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-12">
                                                     <label><strong>Store name: </strong></label><span> <?php echo $SingleEnterprise->name?></span><br>
                                                     <label><strong>Products: </strong></label><span> <?php echo $SingleEnterprise->category?></span><br>
                                                     <label><strong>Date registered: </strong></label><span> <?php echo $SingleEnterprise->register_date?></span><br>
@@ -369,6 +376,10 @@
 <!--                                                    <label><strong>Store catalogue: </strong></label><a href="#"> <span style="color: red"> Download</span> <i class="fa fa-download"></i></a> <br>-->
                                                     <a href="<?php echo base_url()?>index.php/Enterprise/editEnterprise?ent=<?php echo $SingleEnterprise->enterprise_id?>" >
                                                         <i class="fa fa-edit"></i> Edit store details
+                                                    </a>
+
+                                                    <a href="<?php echo base_url()?>index.php/Products/enterpriseReports?ent=<?php echo $SingleEnterprise->enterprise_id ?>">
+                                                        <button style="margin-top: 80px" title="view enterprise reports" type="button" class="btn btn-danger btn-block"><i class="fa  fa-file-pdf-o"></i> View Store reports</button>
                                                     </a>
 
                                                 </div>

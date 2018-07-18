@@ -211,26 +211,18 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['full_name']?></span>
+                        <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
                             <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-envelope"></i> My Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                        </li>
+
                         <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
 
-                        <li>
-                            <a href="#"><i class="fa fa-question-circle"></i> Documentation</a>
-                        </li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -288,14 +280,6 @@
             <ul class="sidebar-menu">
                 <li class="sub">
                     <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" target="_blank" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="fa fa-question"></i> <span>Help & feedback</span></a>
                 </li>
 
                 <li class="">
@@ -442,7 +426,7 @@
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                         <h4 class="modal-title" style="color: cornflowerblue"><i class="fa fa-edit"></i> Edit product details</h4>
                                                     </div>
-                                                    <form action="<?php echo base_url()?>index.php/Products/DirectOrders?prod=<?php echo $row->product_id; ?>" method="post">
+                                                    <form action="<?php echo base_url()?>index.php/Products/updateProduct?prod=<?php echo $row->product_id; ?>" method="post">
                                                         <div class="modal-body">
 
 
@@ -454,23 +438,21 @@
                                                             <div class="form-group input-group">
                                                                 <span class="input-group-addon">price</span>
                                                                 <input class="form-control" placeholder="Product Quantity" name="price" required
-                                                                       type="number" title="Enter product price">
+                                                                       type="number" title="Enter product price" value="<?php echo $_SESSION['product_price']?>">
                                                             </div>
                                                             <div class="form-group input-group">
                                                                 <span class="input-group-addon">Quantity</span>
                                                                 <input class="form-control" placeholder="Product Quantity" name="quantity" required
-                                                                       type="number" title="Enter product quantity">
+                                                                       type="number" title="Enter product quantity" value="<?php echo $_SESSION['product_quantity']?>">
                                                             </div>
                                                             <div class="form-group input-group">
                                                                 <span class="input-group-addon">Details</span>
-                                                                <input class="form-control" placeholder="Product Quantity" name="description" required
-                                                                       type="number" title="Enter product descriptions">
+                                                                <input class="form-control" placeholder="Product Description" name="description" required
+                                                                       type="text" title="Enter product descriptions" value="<?php echo $_SESSION['product_details']?>">
                                                             </div>
 
                                                             <div class="modal-footer">
-                                                                <a href="<?php echo base_url()?>index.php/Products/DirectOrders?prod=<?php echo $row->product_id; ?>">
-                                                                    <button type="submit" class="btn btn-primary" name="send_order">Save Changes</button>
-                                                                </a>
+                                                               <button type="submit" class="btn btn-primary" name="update">Save Changes</button>
                                                             </div>
                                                         </div>
                                                     </form>

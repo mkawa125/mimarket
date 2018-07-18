@@ -197,26 +197,18 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['full_name']?></span>
+                        <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
                             <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-envelope"></i> My Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                        </li>
+
                         <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
 
-                        <li>
-                            <a href="#"><i class="fa fa-question-circle"></i> Documentation</a>
-                        </li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -243,7 +235,6 @@
                     </a>
                     <ul class="sub">
                         <li><a class="" href="<?php echo base_url()?>index.php/Enterprise/getEnterprises"><i class="fa fa-shopping-cart"></i>My Enterprise</a></li>
-                        <li><a class="" href="<?php echo base_url()?>index.php/Direct/product"><i class="fa fa-bookmark"></i>Bookmarks</a></li>
                     </ul>
                 </li>
 
@@ -265,24 +256,12 @@
                     </a>
                 </li>
 
-                <li class="sub-menu">
-                    <a href="<?php echo base_url()?>index.php/Products/storeOrderReport?u=<?php echo $_SESSION['user_id']?>" class=""><i class="fa fa-bar-chart" aria-hidden="true"></i>
-                        <span>Statistics</span>
-                    </a>
-                </li>
             </ul>
             <ul class="sidebar-menu">
                 <li class="sub">
                     <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
-                <li class="">
-                    <a class="" target="_blank" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="fa fa-question"></i> <span>Help & feedback</span></a>
-                </li>
 
                 <li class="">
                     <a class="" href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a>
@@ -335,6 +314,7 @@
                                             <th>NO</th>
                                             <th>Enterprise Name</th>
                                             <th>Location</th>
+                                            <th>Status</th>
                                             <th>Image</th>
                                             <th>Date Registered</th>
                                             <th width="80">Action</th>
@@ -351,6 +331,20 @@
                                                 <td><?php echo $row->location; ?></td>
                                                 <td>
                                                     <img width="50" height="30" src="<?php echo base_url("Images/organizationImages/".$row->image_url) ?>" alt="No image">
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                    $status = $row->enterprise_status;
+                                                    if ($status == 0){?>
+                                                        <badge class="btn btn-info btn-xs"> Not verified </badge>
+                                                    <?php } elseif($status == 1){?>
+                                                        <badge class="btn btn-success btn-xs">Active</badge>
+                                                    <?php } elseif($status == 2){?>
+                                                        <badge class="btn btn-danger btn-xs">Denied</badge>
+                                                    <?php }elseif($status == 3){?>
+                                                        <badge class="btn btn-warning btn-xs">Suspended</badge>
+                                                    <?php }
+                                                    ?>
                                                 </td>
                                                 <td style="color: cornflowerblue"><?php echo $row->register_date ?></td>
                                                 <td>

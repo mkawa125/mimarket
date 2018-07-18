@@ -42,7 +42,7 @@
     <!--custom style sheet-->
     <style>
         .dark-bg{
-            background-color: whitesmoke;
+            background-color: white;
         }
         .icon_menu{
             color: black;
@@ -80,21 +80,18 @@
             <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
         </div>
 
-        <!--        logo start-->
+        <!--logo start-->
         <a href="index.html" class="logo">MI<span class="lite">MARKET</span></a>
-        <!--        logo end-->
+        <!--logo end-->
+
+        <!--  search form start -->
 
         <div class="nav search-row" id="top_menu">
-            <!--              search form start -->
-            <ul class="nav top-menu">
-                <li>
-                    <form class="navbar-form">
-                        <input class="form-control" placeholder="Search" type="text">
-                    </form>
-                </li>
-            </ul>
-            <!--              search form end -->
+            <!--  search form start -->
+            <h4 style="margin-left: 250px">ONLINE MARKETING SYSTEM ADMINISTRATION</h4>
+            <!--  search form end -->
         </div>
+
 
         <div class="top-nav notification-row">
             <!--             notificatoin dropdown start-->
@@ -104,273 +101,121 @@
                 <li id="task_notificatoin_bar" class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="icon-task-l"></i>
-                        <span class="badge bg-important">6</span>
+                        <span class="badge bg-important"><?php foreach ($newStore as $new) echo $new['total']?></span>
                     </a>
                     <ul class="dropdown-menu extended tasks-bar">
                         <li>
-                            <p class="blue">You have 6 pending letter</p>
+                            <p class="blue">New/Unverified stores</p>
                         </li>
                         <li>
                             <a href="#">
                                 <div class="task-info">
-                                    <div class="desc">Design PSD </div>
-                                    <div class="percent">90%</div>
+                                    <div class="desc">New Stores</div>
                                 </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                                        <span class="sr-only">90% Complete (success)</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">
-                                        Project 1
-                                    </div>
-                                    <div class="percent">30%</div>
-                                </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-                                        <span class="sr-only">30% Complete (warning)</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">Digital Marketing</div>
-                                    <div class="percent">80%</div>
-                                </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                        <span class="sr-only">80% Complete</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">Logo Designing</div>
-                                    <div class="percent">78%</div>
-                                </div>
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%">
-                                        <span class="sr-only">78% Complete (danger)</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">Mobile App</div>
-                                    <div class="percent">50%</div>
-                                </div>
-                                <div class="progress progress-striped active">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                                        <span class="sr-only">50% Complete</span>
-                                    </div>
+                                <div class="">
+                                    <p class="">You have 8 new stores</p>
                                 </div>
 
                             </a>
                         </li>
                         <li class="external">
-                            <a href="#">See All Tasks</a>
+                            <a href="<?php echo base_url()?>index.php/Admin/getNewStoreDetails">See All new stores</a>
                         </li>
                     </ul>
                 </li>
-                <!--                 task notificatoin end -->
-                <!--                 inbox notificatoin start-->
-                <li id="mail_notificatoin_bar" class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-envelope-l"></i>
-                        <span class="badge bg-important">5</span>
-                    </a>
-                    <ul class="dropdown-menu extended inbox">
-                        <li>
-                            <p class="blue">You have 5 new messages</p>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="photo"><img alt="avatar" src="./img/avatar-mini.jpg"></span>
-                                <span class="subject">
-                                    <span class="from">Greg  Martin</span>
-                                    <span class="time">1 min</span>
-                                    </span>
-                                <span class="message">
-                                        I really like this admin panel.
-                                    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="photo"><img alt="avatar" src="./img/avatar-mini2.jpg"></span>
-                                <span class="subject">
-                                    <span class="from">Bob   Mckenzie</span>
-                                    <span class="time">5 mins</span>
-                                    </span>
-                                <span class="message">
-                                     Hi, What is next project plan?
-                                    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="photo"><img alt="avatar" src="./img/avatar-mini3.jpg"></span>
-                                <span class="subject">
-                                    <span class="from">Phillip   Park</span>
-                                    <span class="time">2 hrs</span>
-                                    </span>
-                                <span class="message">
-                                        I am like to buy this Admin Template.
-                                    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="photo"><img alt="avatar" src="./img/avatar-mini4.jpg"></span>
-                                <span class="subject">
-                                    <span class="from">Ray   Munoz</span>
-                                    <span class="time">1 day</span>
-                                    </span>
-                                <span class="message">
-                                        Icon fonts are great.
-                                    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">See all messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <!--                 inbox notificatoin end -->
-                <!--                 alert notification start-->
-                <li id="alert_notificatoin_bar" class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
-                        <i class="icon-bell-l"></i>
-                        <span class="badge bg-important">7</span>
-                    </a>
-                    <ul class="dropdown-menu extended notification">
-                        <li>
-                            <p class="blue">You have 4 new notifications</p>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="label label-primary"><i class="icon_profile"></i></span>
-                                Friend Request
-                                <span class="small italic pull-right">5 mins</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="label label-warning"><i class="icon_pin"></i></span>
-                                John location.
-                                <span class="small italic pull-right">50 mins</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="label label-danger"><i class="icon_book_alt"></i></span>
-                                Project 3 Completed.
-                                <span class="small italic pull-right">1 hr</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="label label-success"><i class="icon_like"></i></span>
-                                Mick appreciated your work.
-                                <span class="small italic pull-right"> Today</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">See all notifications</a>
-                        </li>
-                    </ul>
-                </li>
-                <!--                 alert notification end-->
-                <!--                 user login dropdown start-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
+                        <span class="profile-ava">
+                                <img alt="" src="<?php echo base_url()?>/Images/systemImages/default_user.png" width="30" height="30" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['full_name']?></span>
+                        <span class="username"><?php echo $_SESSION['admin_name']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
-                            <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="icon_profile"></i> My Profile</a>
+                            <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="icon_key_alt"></i> Log Out</a>
-                        </li>
-
-                        <li>
-                            <a href="documentation.html"><i class=""></i> Documentation</a>
+                            <a href="<?php echo base_url()?>index.php/Admin/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
-                <!--                 user login dropdown end -->
+                <!-- user login dropdown end -->
             </ul>
-            <!--             notificatoin dropdown end-->
+            <!-- notificatoin dropdown end-->
         </div>
     </header>
-    <!--    header end-->
 
-    <!--    sidebar start-->
+    <!--header end-->
+
+    <!--sidebar start-->
     <aside>
         <div id="sidebar" class="nav-collapse ">
-            <!--             sidebar menu start-->
+            <!-- sidebar menu start-->
             <ul class="sidebar-menu">
 
                 <li class="active">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="icon_house_alt"></i> <span>Home</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Admin/home"><i class="icon_house_alt"></i> <span>Home</span></a>
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-server" aria-hidden="true"></i>
-                        <span>My Companies</span><span class="menu-arrow arrow_carrot-right">
+                    <a href="javascript:" class=""><i class="fa fa-plus" aria-hidden="true"></i>
+                        <span>Companies</span><span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-user-plus"></i>My Enterprise</a></li>
-                        <li><a class="" href="#"><i class="fa fa-home"></i>Bookmarks</a></li>
+                        <li><a class=" " href="<?php echo base_url()?>index.php/Admin/EnterprisesView">
+                                <i class="fa fa-angle-double-right"></i>All stores (<?php foreach ($allStore as $store) echo $store['total']?>) </a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Admin/getNewStoreDetails">
+                                <i class="fa fa-angle-double-right"></i>New stores (<?php foreach ($newStore as $new) echo $new['total']?>)</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Admin/getVerifiedStoreDetails">
+                                <i class="fa fa-angle-double-right"></i>Verified stores (<?php foreach ($verifiedStore as $verified) echo $verified['total']?>)</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Admin/getSuspendedStoreDetails">
+                                <i class="fa fa-angle-double-right"></i>Suspended stores (<?php foreach ($suspendedStore as $suspended) echo $suspended['total']?>)</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/Admin/getDeniedStores"><i class="fa fa-angle-double-right"></i>Denied stores</a></li>
                     </ul>
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>
+                    <a href="javascript:" class=""><i class="fa fa-plus" aria-hidden="true"></i>
                         <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-envelope"></i>Send message</a></li>
-                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>
-                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>
-                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>
+                        <li><a class="" href="<?php echo base_url()?>index.php/messages/validate"><i class="fa fa-angle-double-right"></i>Send message</a></li>
+                        <li><a class="" href="#"><i class="fa fa-angle-double-right"></i>Conversations</a></li>
+                        <li><a class="" href="#"><i class="fa fa-angle-double-right"></i>Incoming</a></li>
+                        <li><a class="" href="#"><i class="fa fa-angle-double-right"></i>Sent messages</a></li>
                     </ul>
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-credit-card"></i>
-                        <span>Account</span><span class="menu-arrow arrow_carrot-right"></span>
+                    <a href="javascript:" class=""><i class="fa fa-plus" aria-hidden="true"></i>
+                        <span>Categories</span><span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="#"><i class="fa fa-credit-card-alt"></i>Billing</a></li>
-                        <li><a class="" href="#"><i class="fa fa-code"></i>Developer API</a></li>
-                        <li><a class="" href="#"><i class="fa fa-cog"></i>Organizations</a></li>
-                        <li><a class="" href="#"><i class="fa fa-lock"></i>Personal settings</a></li>
-                        <li><a class="" href="#"><i class="fa fa-folder"></i>Project</a></li>
+                        <?php
+                        foreach ($allCategory as $category){?>
+                            <li><a class="" href="#"><i class="fa fa-angle-double-right"></i><?php echo $category['category']?> <span> ( <?php echo $category['total']?> )</span></a></li>
+                        <?php }?>
                     </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="<?php echo base_url()?>index.php/Admin/getAllCustomers" class=""><i class="fa fa-plus"></i>
+                        <span>Customers</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="<?php echo base_url()?>index.php/Admin/getAllAdministrators" class=""><i class="fa fa-plus"></i>
+                        <span>Administrators</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="<?php echo base_url()?>index.php/Products/storeOrderReport?u=<?php echo $_SESSION['admin_id']?>" class=""><i class="fa fa-plus" aria-hidden="true"></i>
+                        <span>Statistics</span>
+                    </a>
                 </li>
             </ul>
             <ul class="sidebar-menu">
@@ -378,22 +223,12 @@
                     <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
-                <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
-                </li>
 
                 <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="fa fa-question"></i> <span>Help & feedback</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Admin/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a>
                 </li>
-
-                <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a>
-                </li>
-
             </ul>
-
-
-            <!--             sidebar menu end-->
+            <!-- sidebar menu end-->
         </div>
     </aside>
     <!--    sidebar end-->
@@ -408,76 +243,110 @@
                         <div class="col-sm-9"> <h5 class="" style="color: cornflowerblue"><strong>Edit user profile</strong></h5></div>
                     </div>
 
+                    <form id="enterprise" action="<?php echo base_url()?>index.php/Admin/EditProfile?u=<?php echo $_SESSION['admin_id']?>" style="border: 2px solid #D5D8DC" method="post">
+                        <fieldset>
 
-                    <form id="enterprise" action="" style="border: 1px solid #D5D8DC">
-                        <div class="tab-content cont">
-                            <div id="sectionA" class="tab-pane fade in active">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <label for="username"><strong>Username:</strong></label>
-                                        <div class="form-group input-group form-inline">
-                                            <span class="input-group-addon"><i class="fa fa-folder"></i></span>
-                                            <input type="text" class="form-control" value="<?php echo $_SESSION["username"]?>" id="username" >
+                            <div class="col-lg-12" style="background-color: #A4A4A4; padding: 10px; border-radius: 0;">
+                                <div class="col-lg-9">
+                                    <h5 style="color: white"><i class="fa fa-edit"></i> Edit Acount</h5>
+                                </div>
+                                <div class="col-lg-3">
+                                </div>
+                            </div>
+
+
+                            <div class="tab-content cont" style="border: 1px solid #A4A4A4; margin-top: 40px">
+
+                                <?php $error_msg = $this->session->flashdata('error_msg');
+                                if ($error_msg){?>
+                                    <div class="alert alert-danger alert-dismissible"><?php echo $error_msg?>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></div>
+                                    <?php
+                                }
+                                ?>
+
+                                <div class="row" >
+                                    <div class="col-sm-6" >
+                                        <label for="name"><strong>Admin name:</strong>
+                                            <span>
+                                                        <?php $error = form_error('name', '<p class="error">')?>
+                                                        <?php echo $error?>
+                                                    </span>
+                                        </label>
+                                        <div class="form-group input-group" <?php echo $error? 'has error': '' ?>>
+                                            <span class="input-group-addon"><i class="fa fa-user-o"></i></span>
+                                            <input type="text" class="form-control" placeholder="Enterprise name" name="name" id="name" value="<?php echo $_SESSION['admin_name']?>">
                                         </div>
                                     </div>
+
                                     <div class="col-sm-6">
-                                        <label for="owner"><strong>Name:</strong></label>
-                                        <div class="form-group input-group orm-inline">
+                                        <label for="username"><strong>Username:</strong></label>
+                                        <?php $error = form_error('username', '<p class="error">')?>
+                                        <?php echo $error?>
+                                        <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                            <input class="form-control" style="color: orange" id="owner" value="<?php echo $_SESSION['full_name']?>">
+                                            <input class="form-control" style="color: orange" id="username" name="username" placeholder="enter admin username" value="<?php echo $_SESSION['admin_username']?>">
                                         </div>
                                     </div>
                                 </div>
 
-
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <label for="email" id="email"><strong>Email Address:</strong></label>
+                                        <label for="email" ><strong>Email Address:</strong></label>
+                                        <?php $error = form_error('email', '<p class="error">')?>
+                                        <?php echo $error?>
                                         <div class="form-group input-group">
                                             <span class="input-group-addon">@</span>
-                                            <input class="form-control" id="email" value="<?php echo $_SESSION["email"]?>" >
+                                            <input class="form-control" id="email" name="email" placeholder="e.g. admin@gmail.com" value="<?php echo $_SESSION['admin_email']?>">
                                         </div>
                                     </div>
 
                                     <div class="col-sm-6">
                                         <label for="phone"><strong>Phone Number:</strong></label>
+                                        <?php $error = form_error('phone', '<p class="error">')?>
+                                        <?php echo $error?>
                                         <div class="form-group input-group form-horizontal">
                                             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                            <input id="phone" type="text" style="color: red" class="form-control" value="<?php echo $_SESSION['phone']?>">
+                                            <input name="phone" id="phone" style="color: red" class="form-control" placeholder="admin phone" value="<?php echo $_SESSION['admin_phone']?>">
                                         </div>
+                                    </div>
+
                                 </div>
-                            </div>
 
                                 <div class="row">
-                                    <h5 style="margin: 15px"><strong>Change password:</strong></h5>
-                                    <div class="col-sm-6">
-                                        <label for="email" id="email" style="color: cornflowerblue"><strong>Enter Password:</strong></label>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                            <input type="password" class="form-control" id="email" placeholder="Enter password" >
-                                        </div>
-                                    </div>
+                                    <div class="col-sm-12"> <h5 style="color: cornflowerblue"><i class="fa fa-key"></i> Administrator Login Passwords</h5>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label for="pass1" ><strong>Enter password:</strong></label>
+                                                <?php $error = form_error('pass1', '<p class="error">')?>
+                                                <?php echo $error?>
+                                                <div class="form-group input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                    <input type="text" class="form-control" id="pass1" name="pass1" placeholder="enter password">
+                                                </div>
+                                            </div>
 
-                                    <div class="col-sm-6">
-                                        <label for="phone" style="color: cornflowerblue"><strong>Confirm password:</strong></label>
-                                        <div class="form-group input-group form-horizontal">
-                                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                            <input id="phone" type="password" class="form-control" placeholder="Confirm password">
+                                            <div class="col-sm-6">
+                                                <label for="pass2"><strong>Confirm password:</strong></label>
+                                                <?php $error = form_error('pass2', '<p class="error">')?>
+                                                <?php echo $error?>
+                                                <div class="form-group input-group form-horizontal">
+                                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                    <input type="text" name="pass2" id="pass2" class="form-control" placeholder="re-enter password" >
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <label for="email" id="email"><strong>Change image:</strong></label>
-                                    <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="fa fa-image"></i></span>
-                                    <input type="file" class="form-control" placeholder="Username or email" name="email" id="email" >
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-primary" style="float: right" name="saveChanges"> Save changes</button>
+                                    </div>
                                 </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-9"></div>
-                            <div class="col-sm-3"><button type="submit" class="btn btn-primary" style="margin-top: 5px"><strong>Save Changes</strong></button> </div>
-                        </div>
+                            </div>
+                        </fieldset>
                     </form>
                 </div>
         </section>

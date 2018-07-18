@@ -141,16 +141,85 @@
         </div>
 
 
-        <div class="top-nav notification-row" >
-            <ul>
-                <li class="dropdown">
+        <div class="top-nav notification-row">
+            <!--             notificatoin dropdown start-->
+            <ul class="nav pull-right top-menu">
+
+                <!--                 task notificatoin start -->
+                <li id="task_notificatoin_bar" class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
-                            </span>
-                        <span class="username"><?php echo $_SESSION['full_name']?></span>
-                        <b class="caret"></b>
+                        <i class="icon-task-l"></i>
+                        <span class="badge bg-important">0</span>
                     </a>
+                    <ul class="dropdown-menu extended tasks-bar">
+                        <li>
+                            <p class="blue">New Orders</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">New orders</div>
+                                </div>
+                                <div class="">
+                                    <p class="">You have 8 new orders</p>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="external">
+                            <a href="<?php echo base_url()?>index.php/Admin/getNewStoreDetails">See All new stores</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="alert_notificatoin_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                        <i class="icon-bell-l"></i>
+                        <span class="badge bg-important">7</span>
+                    </a>
+                    <ul class="dropdown-menu extended notification">
+                        <li>
+                            <p class="blue">You have 4 new notifications</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-primary"><i class="icon_profile"></i></span>
+                                Friend Request
+                                <span class="small italic pull-right">5 mins</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-warning"><i class="icon_pin"></i></span>
+                                John location.
+                                <span class="small italic pull-right">50 mins</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-danger"><i class="icon_book_alt"></i></span>
+                                Project 3 Completed.
+                                <span class="small italic pull-right">1 hr</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-success"><i class="icon_like"></i></span>
+                                Mick appreciated your work.
+                                <span class="small italic pull-right"> Today</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">See all notifications</a>
+                        </li>
+                    </ul>
+                </li>
+
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <span class="username"><?php echo $_SESSION['username']?></span>
+                    <b class="caret"></b>
+                </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
                             <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
@@ -179,10 +248,10 @@
     <!--header end-->
 
     <!--sidebar start-->
-    <aside>
-        <div id="sidebar" class="nav-collapse ">
+    <aside >
+        <div id="sidebar" class="nav-collapse " >
             <!-- sidebar menu start-->
-            <ul class="sidebar-menu">
+            <ul class="sidebar-menu" style="margin-top: 71px">
 
                 <li class="active">
                     <a class="" href="<?php echo base_url()?>index.php/Products/DefaultProducts"><i class="icon_house_alt"></i> <span>Home</span></a>
@@ -228,14 +297,6 @@
                 </li>
 
                 <li class="">
-                    <a class="" target="_blank" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="fa fa-question"></i> <span>Help & feedback</span></a>
-                </li>
-
-                <li class="">
                     <a class="" href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a>
                 </li>
             </ul>
@@ -275,93 +336,32 @@
                             <input type="hidden" name="txtlang" id="txtlang" required value="">
 
                             <div class="row items" >
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <i class="fa fa-envelope fa-5x"></i>
-                                                </div>
-                                                <div class="col-xs-9 text-right">
-                                                    <div class="huge">26</div>
-                                                    <h5>messages!</h5>
-                                                </div>
-                                            </div>
+                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                    <!-- Carousel indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                                    </ol>
+                                    <!-- Wrapper for carousel items -->
+                                    <div class="carousel-inner" style="height: 200px">
+                                        <div class="item active">
+                                            <img src="<?php echo base_url()?>/Images/systemImages/bunnerc1.jpg" width="100%"  alt="First Slide">
                                         </div>
-                                        <a href="#">
-                                            <div class="panel-footer">
-                                                <span class="pull-left">View Details</span>
-                                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="panel panel-green">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </div>
-                                                <div class="col-xs-9 text-right">
-                                                    <div class="huge"><?php if (isset($totalOrders)){ echo $totalOrders; } ?></div>
-                                                    <div>Completed Orders</div>
-                                                </div>
-                                            </div>
+                                        <div class="item">
+                                            <img src="<?php echo base_url()?>/Images/systemImages/bunnerc2.jpg" width="100%"  alt="Second Slide">
                                         </div>
-                                        <a href="#">
-                                            <div class="panel-footer">
-                                                <span class="pull-left"><a href="<?php echo base_url()?>index.php/Products/customerOrdersComplete">View Details</a></span>
-                                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="panel panel-yellow">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <i class="fa fa-shopping-cart fa-5x"></i>
-                                                </div>
-                                                <div class="col-xs-9 text-right">
-                                                    <div class="huge"><?php if (isset($totalRequests)){ echo $totalRequests; } ?></div>
-                                                    <div>Requests</div>
-                                                </div>
-                                            </div>
+                                        <div class="item">
+                                            <img src="<?php echo base_url()?>/Images/systemImages/electricalBunner1.jpg" width="100%" alt="Third Slide">
                                         </div>
-                                        <a href="#">
-                                            <div class="panel-footer">
-                                                <span class="pull-left"><a href="<?php echo base_url()?>index.php/Products/viewOrders">View Details</a></span>
-                                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </a>
                                     </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="panel panel-red">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <i class="fa fa-envelope fa-5x"></i>
-                                                </div>
-                                                <div class="col-xs-9 text-right">
-                                                    <div class="huge"><?php if (isset($outOfStockProducts)){ echo $outOfStockProducts; } ?></div>
-                                                    <h5>Out of stock</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a href="#">
-                                            <div class="panel-footer">
-                                                <span class="pull-left">View Details</span>
-                                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </a>
-                                    </div>
+                                    <!-- Carousel controls -->
+                                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -424,26 +424,26 @@
     </section>
 </div>
 
-<footer  class="footer" style="background-color: #e75225">
-    <section id="main-content">
-        <section class="wrapper">
-            <div class="row">
-                <div class="col-lg-4">
-                    links goes here
-                </div>
-
-                <div class="col-lg-4">
-                    links goes here
-                </div>
-
-                <div class="col-lg-4">
-                    links goes here
-                </div>
-
-            </div>
-        </section>
-    </section>
-</footer>
+<!--<footer  class="footer" style="background-color: #e75225">-->
+<!--    <section id="main-content">-->
+<!--        <section class="wrapper">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-4">-->
+<!--                    links goes here-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-lg-4">-->
+<!--                    links goes here-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-lg-4">-->
+<!--                    links goes here-->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
+<!--        </section>-->
+<!--    </section>-->
+<!--</footer>-->
 </body>
 <!-- statics end -->
 <!-- javascripts -->

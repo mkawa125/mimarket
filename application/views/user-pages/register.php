@@ -59,6 +59,10 @@
             margin-left: 5px;
 
         }
+        .error{
+            color: red;
+            font-size: smaller;
+        }
         .default{
             padding: 5px;
             margin: 5px 15px 5px 5px;
@@ -240,42 +244,6 @@ require 'validation.php';
 
             <ul class="sidebar-menu">
 
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-cog"></i>
-                        <span>System</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-cogs"></i>
-                        <span>Privacy policies</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-server"></i>
-                        <span>About us</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-phone"></i>
-                        <span>Contact us</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-question-circle"></i>
-                        <span>Help</span>
-                    </a>
-                </li>
-
-            </ul>
-
-
-            <!-- sidebar menu end-->
-
-        </div>
     </aside>
     <!--sidebar end-->
 

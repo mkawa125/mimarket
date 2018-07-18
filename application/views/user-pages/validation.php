@@ -121,7 +121,7 @@ if (isset($_POST['register'])) {
                 'pass1' => md5($_POST['pass1']),
                 'pass2' => md5($_POST['pass2']),
                 'location' => $_POST['location'],
-                'register-date' => date('Y-m-d H:i:s'),
+                'user_register_date' => date('Y-m-d H:i:s'),
             );
             //email existence check
             $this->db->select('*');

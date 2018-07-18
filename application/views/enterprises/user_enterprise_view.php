@@ -207,26 +207,18 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['full_name']?></span>
+                        <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
                             <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-envelope"></i> My Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                        </li>
+
                         <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
 
-                        <li>
-                            <a href="#"><i class="fa fa-question-circle"></i> Documentation</a>
-                        </li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -286,13 +278,6 @@
                     <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
-                <li class="">
-                    <a class="" target="_blank" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="fa fa-question"></i> <span>Help & feedback</span></a>
-                </li>
 
                 <li class="">
                     <a class="" href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a>
@@ -345,8 +330,33 @@
                                     ?>
                                 <div class="col-sm-12" style="font-size: small">
                                     <div class="col-sm-3 image-box">
-                                        <img width="100%" height="200" src="<?php echo base_url("Images/organizationImages/".$SingleEnterprise->image_url) ?>" alt="No image">
-                                        <div class="col-sm-11 image-box">
+                                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                            <!-- Carousel indicators -->
+                                            <ol class="carousel-indicators">
+                                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                            </ol>
+                                            <!-- Wrapper for carousel items -->
+                                            <div class="carousel-inner" style="height: 200px">
+                                                <?php foreach ($images->result() as $image){?>
+                                                    <div class="item active">
+                                                        <img width="100%" height="100%" src="<?php echo base_url("Images/organizationImages/".$image->enterprise_image) ?>" alt="No image">
+                                                    </div>
+                                                    <div class="item">
+                                                        <img width="100%" height="100%" src="<?php echo base_url()?>/Images/systemImages/toi2.jpg"   alt="Second Slide">
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
+                                            <!-- Carousel controls -->
+                                            <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                            </a>
+                                            <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-11">
                                             <div>
                                                 <h5><strong>Enterprise location</strong></h5>
                                                 <?php echo $SingleEnterprise->location?>
@@ -363,6 +373,15 @@
                                                 <h5><strong>Enterprise Descriptions</strong></h5>
                                                 <div class="description" style="border: solid 1px #D5D8DC; padding: 10px; background-color: white">
                                                     <p><?php echo $SingleEnterprise->description?></p>
+                                                    <p>
+                                                        <?php
+                                                        if ($SingleEnterprise->store_catalogue != NULL){
+                                                            $_SESSION['file_name'] = $SingleEnterprise->store_catalogue;
+                                                            ?>
+                                                            <a href="<?php echo base_url()?>index.php/Admin/DownloadStoreDocument">Click here to download store  document</a>
+                                                        <?php } ?>
+
+                                                    </p>
                                                 </div>
 
                                                 <p style="margin-top: 10px"><strong style="color: chocolate">Contact Details</strong></p>
@@ -429,9 +448,9 @@
                                                                        type="number" title="Enter product quantity">
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <a href="<?php echo base_url()?>index.php/Products/DirectOrders?prod=<?php echo $row->product_id; ?>">
+
                                                                     <button style="font-size: small" type="submit" class="btn btn-primary" name="send_order"><i class="fa fa-shopping-cart"></i> Add Product</button>
-                                                                </a>
+
                                                             </div>
                                                         </div>
                                                     </form>

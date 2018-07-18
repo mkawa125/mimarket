@@ -233,41 +233,6 @@
             </ul>
 
 
-            <ul class="sidebar-menu">
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-cog"></i>
-                        <span>System</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-cogs"></i>
-                        <span>Privacy policies</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-server"></i>
-                        <span>About us</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-phone"></i>
-                        <span>Contact us</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:" class=""><i class="fa fa-question-circle"></i>
-                        <span>Help</span>
-                    </a>
-                </li>
-
-            </ul>
-
-
             <!-- sidebar menu end-->
 
         </div>
@@ -278,7 +243,7 @@
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-3">
-                    <h5 class="#"><i class="fa fa-home"></i> Home</h5>
+
                 </div>
                 <div class="col-lg-8">
 
@@ -325,7 +290,31 @@
 
                                     <?php }?>
                                 </div>
-                                <?php } ?>
+                                <?php } else{?>
+                                    <h5 class="#">Search Results for:  <span><strong style="color: red"><?php echo $_SESSION['product_name']?></strong></span></h5>
+                                    <p>Total of <strong>"<?php echo $enterprises->num_rows() ?>"</strong> results found</p>
+                                    <div class="row items">
+                                        <div class="col-md-12" style="min-height: 100px">
+                                            <p>No such item please make sure you type the spelling correctly</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row items" style="margin-top: 10px">
+                                        <div class="col-md-12" style="min-height: 150px">
+                                            <p><strong>Suggested stores</strong></p>
+                                            <?php foreach ($defaultSearch->result() as $defaultEnterprises){?>
+                                                <div class="col-md-2 default">
+                                                    <a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><h6 style="color: cornflowerblue; padding: 5px"><strong><?php echo $defaultEnterprises->name?></strong></h6></a>
+                                                    <a href="<?php echo base_url()?>index.php/Enterprise/customerEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><img src="<?php echo base_url()?>/Images/organizationImages/<?php echo $defaultEnterprises->image_url?>" width="100%" height="70"></a>
+                                                    <label><strong>Category:</strong> <span><a href="#"> <?php echo $defaultEnterprises->category?></a></span>, <span> <?php echo $defaultEnterprises->location?></span></label>
+                                                    <a href="<?php echo base_url()?>index.php/Enterprise/unEnterpriseDetails?ent=<?php echo $defaultEnterprises->enterprise_id?>"><button class="btn btn-danger btn-block">More details</button></a>
+                                                </div>
+
+                                            <?php }?>
+                                        </div>
+                                    </div>
+                                <?php }
+                                ?>
                             <?php } ?>
                         </div>
                     </section>

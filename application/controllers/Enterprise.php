@@ -29,34 +29,31 @@ class Enterprise extends CI_Controller{
     {
         if (isset($_POST['add'])) {
             //Declaring variables for uploading images
+
             $this->load->library('upload');
-            $config['upload_path'] = './Images/organizationImages';
-            $config['allowed_types'] = 'gif|jpg|png';
-            $image_name = 'store_' . time();
+            $config['upload_path'] = './pdf_documents/enterprise_documents';
+            $config['allowed_types'] = 'gif|jpg|png|pdf';
+            $image_name = 'store_' . $_SESSION['full_name'];
             $config['file_name'] = $image_name;
 
-            $this->load->library('upload');
-            $store['upload_path'] = './pdf_files/enterprise_documents';
-            $store['allowed_types'] = 'pdf';
-            $document_name = 'document_' . time();
-            $store['file_name'] = $document_name;
 
             //setting validation rules
+            $this->upload->initialize($config);
             $this->form_validation->set_rules('name', 'Enterprise name', 'required');
             $this->form_validation->set_rules('description', 'Description', 'required');
 
-            $this->upload->initialize($config, $store);
-            if ($_FILES['image']['name'] && $_FILES['catalogue']['name']) {
-                $field_name = 'image';
+            $this->upload->initialize($config);
+            if ($_FILES['catalogue']['name']) {
+                $field_name = 'catalogue';
                 if ($this->form_validation->run() == TRUE AND $this->upload->do_upload($field_name)) {
-                    $store_image = $this->upload->data();
+                    $store_document = $this->upload->data();
                     $data = array(
                         'name' => $_POST['name'],
                         'description' => $_POST['description'],
                         'location' => $_POST['location'],
                         'category' => $_POST['category'],
                         'phone' => $_SESSION['phone'],
-                        'image_url' => $store_image['file_name'],
+                        'store_catalogue' => $store_document['file_name'],
                         'user_id' => $_SESSION['user_id'],
                         'latitude'  => $_REQUEST['txtlat'],
                         'longitude' => $_REQUEST['txtlang'],
@@ -75,6 +72,31 @@ class Enterprise extends CI_Controller{
                 }
             }
             $this->load->view('enterprises/newEnterprise');
+        }
+    }
+    public function AddImages()
+    {
+        if (isset($_POST['addImage'])){
+            $this->load->library('upload');
+            $config['upload_path'] = './Images/organizationImages';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $image_name = 'store_' . time();
+            $config['file_name'] = $image_name;
+
+            $this->upload->initialize($config);
+            if ($_FILES['image']['name']){
+                $field_name = 'image';
+                if ($this->upload->do_upload($field_name)){
+                    $store_image = $this->upload->data();
+                    $data = array(
+                        'enterprise_image' => $store_image['file_name'],
+                        'enterprise_id' => $_SESSION['enterprise'],
+                        'date_added' => date('Y-m-d H:i:s'),
+                    );
+                    $this->db->insert("ms_enterprise_images", $data);
+                    redirect('Enterprise/enterpriseDetails');
+                }
+            }
         }
     }
     public function getEnterprises()
@@ -98,6 +120,15 @@ class Enterprise extends CI_Controller{
         $_SESSION['enterprise'] = $_GET['ent'];
         $data['SingleEnterprise'] = $this->EnterpriseModel->ViewEnterpriseDetails();
         $data['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
+        $data['images'] = $this->EnterpriseModel-> ViewEnterpriseImages();
+        $this->load->view('enterprises/enterprise_details', $data);
+    }
+    public function enterpriseDetails()
+    {
+        $this->load->model('EnterpriseModel');
+        $data['SingleEnterprise'] = $this->EnterpriseModel->ViewEnterpriseDetails();
+        $data['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
+        $data['images'] = $this->EnterpriseModel-> ViewEnterpriseImages();
         $this->load->view('enterprises/enterprise_details', $data);
     }
 
@@ -106,6 +137,7 @@ class Enterprise extends CI_Controller{
         $this->load->model('EnterpriseModel');
         $data['SingleEnterprise'] = $this->EnterpriseModel->ViewEnterpriseDetails();
         $data['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
+        $data['images'] = $this->EnterpriseModel-> ViewEnterpriseImages();
         $this->load->view('enterprises/enterprise_details', $data);
     }
     public function customerEnterpriseDetails()
@@ -114,6 +146,7 @@ class Enterprise extends CI_Controller{
         $_SESSION['enterprise'] = $_GET['ent'];
         $enterprise['SingleEnterprise'] = $this->EnterpriseModel->customerEnterpriseDetails();
         $enterprise['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
+        $enterprise['images'] = $this->EnterpriseModel-> ViewEnterpriseImages();
         $this->db->select('*');
         $this->db->from('ms_enterprise_views');
         $this->db->where(array(

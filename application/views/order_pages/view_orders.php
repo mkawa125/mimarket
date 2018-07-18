@@ -212,26 +212,18 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['full_name']?></span>
+                        <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
                             <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-envelope"></i> My Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                        </li>
+
                         <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
 
-                        <li>
-                            <a href="#"><i class="fa fa-question-circle"></i> Documentation</a>
-                        </li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -292,14 +284,6 @@
                 </li>
 
                 <li class="">
-                    <a class="" target="_blank" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="fa fa-question"></i> <span>Help & feedback</span></a>
-                </li>
-
-                <li class="">
                     <a class="" href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a>
                 </li>
             </ul>
@@ -354,49 +338,56 @@
 
                                         <div class="col-sm-3" style=" padding: 0; margin-right: 0; border: 1px solid #BDBDBD; border-radius: 0;">
                                            <div style="background-color: #BDBDBD; padding: 5px; border: 1px solid #BDBDBD">
-                                               <h5 style="font-size: small; color: white; text-align: center">ORDER REQUESTS</h5>
+                                               <h5 style="font-size: small; color: white; text-align: center; text-transform: capitalize"><strong>Quick links</strong></h5>
                                            </div>
 
                                             <div class="" style="padding: 15px; font-size: small; background-color: whitesmoke">
-                                                <ol style="list-style: square">
-                                                    <li style="padding: 5px"><a href="#" style="margin: 5px;">New Orders<span>(5)</span></a>
+                                                <ol style="list-style: disc">
+                                                    <li style="padding: 8px; background-color: #BDBDBD; border-radius: 4px">
+                                                        <a href="<?php echo base_url()?>index.php/Products/viewEnterpriseOrders?ent=<?php echo $_SESSION['enterprise']?>" style="margin: 5px;">New Orders<span> (<?php foreach ($countNewOrders as $store) echo $store['total']?>) </span></a>
 
                                                     </li>
-                                                    <li style="padding: 5px"><a href="#" style="margin: 5px;">Processed Orders<span>(5)</span></a>
+                                                    <li style="padding: 5px">
+                                                        <a href="<?php echo base_url()?>index.php/Products/storeOrdersProcessed?ent=<?php echo $_SESSION['enterprise']?>" style="margin: 5px;">Processed Orders<span> (<?php foreach ($countProcessedOrders as $store) echo $store['total']?>) </span></a>
 
                                                     </li>
-                                                    <li style="padding: 5px"><a href="#" style="margin: 5px;">Complete Sales<span>(5)</span></a>
+                                                    <li style="padding: 5px">
+                                                        <a href="<?php echo base_url()?>index.php/Products/storeOrdersComplete?ent=<?php echo $_SESSION['enterprise']?>" style="margin: 5px;">Complete Sales<span> (<?php foreach ($countCompleteOrders as $store) echo $store['total']?>) </span></a>
 
                                                     </li>
-                                                    <li style="padding: 5px"><a href="#" style="margin: 5px;">Pending Orders<span>(5)</span></a>
-
-                                                    </li>
-                                                    <li style="padding: 5px"><a href="#" style="margin: 5px;">Rejected Orders<span>(5)</span></a>
+                                                    <li style="padding: 5px">
+                                                        <a href="<?php echo base_url()?>index.php/Products/storeOrdersRejected?ent=<?php echo $_SESSION['enterprise']?>" style="margin: 5px;">Rejected Orders<span> (<?php foreach ($countRejectedOrders as $store) echo $store['total']?>) </span></a>
 
                                                     </li>
 
                                                 </ol>
                                             </div>
                                         </div>
-                                        <div class="col-sm-9" style="">
-                                            <table class="table table-striped table-bordered" style="font-size: smaller">
+                                        <div class="col-sm-9">
+                                            <div style="background-color: cadetblue; padding: 5px; border: 1px solid #BDBDBD">
+                                                <h5 style="font-size: small; color: white; text-align: center; text-transform: uppercase">
+                                                    <strong>order requests</strong></h5>
+                                            </div>
+                                            <div class="col-sm-12" style="border: solid 1px">
+
+                                            <table class="table table-striped table-bordered" style="font-size: smaller" id="enterprise">
                                                 <thead>
                                                 <tr>
                                                     <th>NO</th>
                                                     <th>Order Name</th>
-                                                    <th>Status</th>
-                                                    <th>date</th>
+                                                    <th>customer name</th>
+                                                    <th>order date</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <?php
-                                                foreach($orders->result() as $row){
+                                                foreach($storeOrders->result() as $row){
                                                     ?>
                                                     <tr>
                                                         <td><?php echo $row->order_id?></td>
                                                         <td><?php echo $row->order_name?></td>
-                                                        <td>status</td>
+                                                        <td><?php echo $row->full_name?></td>
                                                         <td><?php echo $row->expected_date?></td>
                                                         <td>
                                                             <a href="<?php echo base_url()?>index.php/Products/orderProcessing?ord=<?php echo $row->order_id?>"><button class="btn btn-xs btn-primary"><i class="fa fa-spinner"></i></button></a>
@@ -407,6 +398,7 @@
                                                 <?php } ?>
                                                 </tbody>
                                             </table>
+                                        </div>
                                         </div>
                                     </div>
 

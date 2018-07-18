@@ -217,7 +217,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
                             </span>
-                        <span class="username"><?php echo $_SESSION['full_name']?></span>
+                        <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
@@ -225,18 +225,9 @@
                             <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-envelope"></i> My Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                        </li>
-                        <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
 
-                        <li>
-                            <a href="#"><i class="fa fa-question-circle"></i> Documentation</a>
-                        </li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -251,7 +242,7 @@
     <aside>
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
-            <ul class="sidebar-menu" style="margin-top: 63px">
+            <ul class="sidebar-menu" style="margin-top: 60px">
 
                 <li class="active">
                     <a class="" href="<?php echo base_url()?>index.php/Products/DefaultProducts"><i class="icon_house_alt"></i> <span>Home</span></a>
@@ -267,17 +258,17 @@
                     </ul>
                 </li>
 
-<!--                <li class="sub-menu">-->
-<!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
-<!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
-<!--                    </a>-->
-<!--                    <ul class="sub">-->
-<!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
+                <!--                <li class="sub-menu">-->
+                <!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
+                <!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
+                <!--                    </a>-->
+                <!--                    <ul class="sub">-->
+                <!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
+                <!--                    </ul>-->
+                <!--                </li>-->
 
                 <li class="sub-menu">
                     <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
@@ -296,13 +287,6 @@
                     <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
-                <li class="">
-                    <a class="" target="_blank" href="<?php echo base_url()?>index.php/Direct/PrivacyTerms"><i class="fa fa-lock"></i> <span>Terms and privacy policy</span></a>
-                </li>
-
-                <li class="">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/home"><i class="fa fa-question"></i> <span>Help & feedback</span></a>
-                </li>
 
                 <li class="">
                     <a class="" href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> <span>Logout</span></a>
@@ -348,16 +332,19 @@
 
                                     <div class="" style="padding: 15px; font-size: small; background-color: whitesmoke">
                                         <ol style="list-style: square">
-                                            <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/viewOrders" style="margin: 5px;">Latest sent<span>(5)</span></a>
+                                            <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/viewOrders" style="margin: 5px;">Latest sent<span> (<?php foreach ($orderCount as $orders) echo $orders['total']?>)</span></a>
 
                                             </li>
-                                            <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersComplete" style="margin: 5px;">Complete Orders<span>(5)</span></a>
+                                            <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersComplete" style="margin: 5px;">Complete Orders<span> (<?php foreach ($completeCount as $complete) echo $complete['total']?>)</span></a>
 
                                             </li>
-                                            <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersPaid" style="margin: 5px;">Paid Orders<span>(5)</span></a>
+                                            <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersPaid" style="margin: 5px;">Paid Orders<span> (<?php foreach ($paidCount as $paid) echo $paid['total']?>)</span></a>
 
                                             </li>
-                                            <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersRejected" style="margin: 5px;">Rejected Orders<span>(5)</span></a>
+                                            <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerDirect" style="margin: 5px;">Direct Orders<span> (<?php foreach ($paidCount as $paid) echo $paid['total']?>)</span></a>
+
+                                            </li>
+                                            <li style="padding: 5px; background-color: #BDBDBD; border-radius: 4px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersRejected" style="margin: 5px;">Rejected Orders<span> (<?php foreach ($rejectedCount as $rejected) echo $rejected['total']?>)</span></a>
 
                                             </li>
 
@@ -367,24 +354,29 @@
 
                                 <div class="col-sm-8" style="font-size: smaller; border: 1px solid #BDBDBD; margin-left: 10px">
                                     <div class="row">
-                                        <div style="background-color: red; padding: 5px; border: 1px solid #BDBDBD">
-                                            <h5 style="font-size: small; color: white; text-align: center">REJECTED ORDER REQUESTS</h5>
+                                        <div style="background-color: #46bfbd; padding: 5px; border: 1px solid #BDBDBD">
+                                            <h5 style="font-size: small; color: white; text-align: center">LATEST SENT ORDER REQUESTS</h5>
                                         </div>
                                         <?php
-                                        foreach($orders->result() as $row){
+                                        $num = 1;
+                                        foreach($orderDetails->result() as $row){
+                                            $date = strtotime($row->order_date);
                                             ?>
-                                            <div class="row" style="margin: 5px; border-bottom: 1px dotted #BDBDBD; padding: 10px">
+                                            <div class="row" style="margin: 5px; border: 1px solid #BDBDBD; padding: 10px; background-color: whitesmoke">
+                                                <div class="col-sm-1" style="">
+                                                    <strong style="color: "><?php echo $num++.'.'?></strong>
+                                                </div>
                                                 <div class="col-sm-3" style="">
-                                                    <strong style="color: blue"><?php echo $row->order_name?></strong>
+                                                    <strong style="color: cornflowerblue"><?php echo $row->order_name?></strong>
                                                 </div>
                                                 <div class="col-sm-4" >
-                                                    <?php echo $row->order_name?>
+                                                    <?php echo $row->name?>
                                                 </div>
-                                                <div class="col-sm-5" style="color: chocolate">
-                                                    <?php echo $row->order_date?>
+                                                <div class="col-sm-4" style="color: chocolate">
+                                                    <?php echo date('M, d, Y', $date)?>
                                                 </div>
                                                 <div class="col-sm-2" style="float: right">
-                                                    <a href="<?php echo base_url()?>index.php/Products/customerOrderDetails?ord=<?php echo $row->order_id?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i>view details</button></a>
+                                                    <a href="<?php echo base_url()?>index.php/Products/customerOrderDetails?ord=<?php echo $row->order_id?>"><button style="float: right" class="btn btn-xs btn-default"><i class="fa fa-eye"></i> Details</button></a>
                                                 </div>
                                             </div>
                                         <?php } ?>
