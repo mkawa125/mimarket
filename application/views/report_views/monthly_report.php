@@ -198,50 +198,25 @@
         </div>
 
 
-        <div class="top-nav notification-row">
-            <!--             notificatoin dropdown start-->
-            <ul class="nav pull-right top-menu">
-
-                <!--                 task notificatoin start -->
-                <li id="task_notificatoin_bar" class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-task-l"></i>
-                        <span class="badge bg-important"> <?php foreach ($countNewOrders as $store) echo $store['total']?> </span>
-                    </a>
-                    <ul class="dropdown-menu extended tasks-bar">
-                        <li>
-                            <p class="blue">New Orders</p>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="task-info">
-                                    <div class="desc">New orders</div>
-                                </div>
-                                <div class="">
-                                    <p class="">You have 8 new orders</p>
-                                </div>
-
-                            </a>
-                        </li>
-                        <li class="external">
-                            <p href="<?php echo base_url()?>index.php/Admin/getNewStoreDetails">navigate to companies</p>
-                        </li>
-                    </ul>
-                </li>
-
+        <div class="top-nav notification-row" >
+            <ul>
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
+                            </span>
                         <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
-                            <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
+                            <a href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
 
                         <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
+
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -253,8 +228,8 @@
     <!--header end-->
 
     <!--sidebar start-->
-    <aside >
-        <div id="sidebar" class="nav-collapse " >
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" style="margin-top: 60px">
 
@@ -272,17 +247,33 @@
                     </ul>
                 </li>
 
+                <!--                <li class="sub-menu">-->
+                <!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
+                <!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
+                <!--                    </a>-->
+                <!--                    <ul class="sub">-->
+                <!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
+                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
+                <!--                    </ul>-->
+                <!--                </li>-->
 
                 <li class="sub-menu">
                     <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
-                        <span>Orders</span>
+                        <span>Orders <label class="badge">74</label></span>
                     </a>
                 </li>
 
+                <li class="sub-menu">
+                    <a href="<?php echo base_url()?>index.php/Products/storeOrderReport?u=<?php echo $_SESSION['user_id']?>" class=""><i class="fa fa-bar-chart" aria-hidden="true"></i>
+                        <span>Statistics</span>
+                    </a>
+                </li>
             </ul>
             <ul class="sidebar-menu">
-                <li class="sub">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                <li class="eborder-top">
+                    <a href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-user"></i> My Profile</a>
                 </li>
 
                 <li class="">
@@ -324,112 +315,114 @@
                             <div class="row items" >
                                 <?php
                                 if (isset($SingleEnterprise)){
+                                $total_cost = 0;
+                                $num = 1;
                                 ?>
 
                                 <div class="col-sm-12" style="font-size: small">
-                                    <div class="col-sm-4" style="margin: 10px">
-                                        <div style="background-color: cadetblue; padding: 5px; border: 1px solid #BDBDBD">
-                                            <h5 style="color: #da8241; text-transform: uppercase;"><a href="#" style="color: white"><strong><?php echo $SingleEnterprise->name?></strong></a></h5>
-                                        </div>
-                                        <div class="col-sm-12" style="border: 1px solid #BDBDBD; padding: 5px; font-size: small; background-color: whitesmoke">
-                                            <?php if (isset($SingleEnterprise)){
-                                                ?>
-                                                <div class="col-sm-12">
-                                                    <ol style="padding: 20px; list-style: circle">
-                                                        <li>
-                                                            <label><strong>Store name: </strong></label><span> <?php echo $SingleEnterprise->name?></span><br>
-                                                        </li>
-
-                                                        <li>
-                                                            <label><strong>Products: </strong></label><span> <?php echo $SingleEnterprise->category?></span><br>
-                                                        </li>
-
-                                                        <li>
-                                                            <label><strong>Date registered: </strong></label><span> <?php echo $SingleEnterprise->register_date?></span><br>
-                                                        </li>
-
-                                                        <li>
-                                                            <label><strong>User phone: </strong></label><span> <?php echo $SingleEnterprise->phone?></span><br>
-                                                        </li>
-
-                                                    </ol>
-                                                </div>
-
-                                            <?php } ?>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="col-sm-7" style=" padding: 0; margin: 10px; border: 1px solid #BDBDBD; border-radius: 0;">
+                                    <div class="col-sm-12" style=" padding: 0; margin: 10px; border-radius: 0;">
                                         <div style="background-color: darkslategray; padding: 5px; border: 1px solid #BDBDBD">
-                                            <h5 style="font-size: small; color: white; text-align: center">Store Summary</h5>
+                                            <h5 style="font-size: small; text-transform: uppercase; color: white; text-align: center"><?php echo $SingleEnterprise->name?> MONTHLY REPORT</h5>
                                         </div>
 
-                                        <div class="" style="padding: 30px; font-size: small; background-color: white">
-                                                <div class="form-group input-group" style="width: 400px;  border: 1px solid #BDBDBD; border-radius: 0; padding: 15px; background-color: whitesmoke">
-                                                    <a href="<?php echo base_url()?>index.php/Products/enterpriseReportsInner">
-                                                        <label>Click here to view today's report <strong style="color: chocolate"><?php echo date('d,M Y')?></strong></label>
-                                                    </a>
-                                                </div>
+                                        <div class="" style="padding: 10px; font-size: small; background-color: white">
+                                            <h5 style="color: #da8241;  text-align: center; text-transform: uppercase;"><a href="#" style="color: "><strong>general sales report</strong></a></h5>
+                                            <table  class="table table-striped table-bordered" id="monthly" style="font-size: small">
+                                                <tr style="background-color: whitesmoke; color: white">
+                                                    <th>Sales ID</th>
+                                                    <th>Date</th>
+                                                    <th>Customer Name</th>
+                                                    <th>Customer Email</th>
+                                                    <th>Sales Cost</th>
+                                                </tr>
+                                                <tbody>
 
-                                                <div class="form-group input-group" style="width: 400px;  border: 1px solid #BDBDBD; border-radius: 0; padding: 15px; background-color: whitesmoke">
+                                                <?php foreach ($monthlyReport->result() as $report){
+                                                    $date = strtotime($report->sales_date);
+                                                    $total = $report->sales_cost;
+                                                    $total_cost = $total_cost + $total;
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $report->sales_id?></td>
+                                                        <td><?php echo date('M d, Y', $date)?></td>
+                                                        <td><?php echo $report->customer_name?></td>
+                                                        <td><?php echo $report->customer_email?></td>
+                                                        <td><?php echo number_format($report->sales_cost,2)?></td>
+                                                    </tr>
+                                                <?php } ?>
+                                                <tr>
+                                                    <td align="right" colspan="6"><strong>Total Order cost: <?php echo number_format($total_cost, 2)?> </strong><label>TZS</label></td>
+                                                </tr>
 
-                                                    <a href="<?php echo base_url()?>index.php/Products/MonthlyReport">
-                                                        <label>Click here to view report for this month from <strong style="color: chocolate"><?php echo date('M,Y',strtotime("-30 days"));?></strong> to <strong style="color: chocolate"><?php echo date('M,Y')?></strong></label>
-                                                    </a>
-                                                </div>
+                                                </tbody>
+                                            </table>
 
-                                                <h5 style="text-align: center">CUSTOM REPORT GENERATION</h5>
-                                            <form class="#" action="<?php echo base_url()?>index.php/Products/customReport" method="post">
-                                                <div class="form-group input-group" style="width: 400px;  border: 1px solid #BDBDBD; border-radius: 0; padding: 15px; background-color: whitesmoke">
-                                                    <label for="custom"><strong>select the year:</strong></label>
-                                                    <div class="input-group">
-                                                        <label for="year"></label>
-                                                        <select id="year" name="year">
-                                                            <option value="2018">2018</option>
-                                                            <option value="2017">2017</option>
-                                                            <option value="2016">2016</option>
-                                                            <option value="2015">2015</option>
-                                                            <option value="2014">2014</option>
-                                                            <option value="2013">2013</option>
-                                                            <option value="2012">2012</option>
-                                                            <option value="2011">2011</option>
-                                                            <option value="2010">2010</option>
-                                                            <option value="2009">2009</option>
-                                                            <option value="2008">2008</option>
-                                                            <option value="2007">2007</option>
-                                                            <option value="2006">2006</option>
-                                                            <option value="2005">2005</option>
-                                                            <option value="2004">2004</option>
-                                                            <option value="2003">2003</option>
-                                                            <option value="2002">2002</option>
-                                                            <option value="2001">2001</option>
-                                                            <option value="2000">2000</option>
-                                                        </select>
+                                            <h6 style="color: #da8241; text-align: center; text-transform: uppercase;"><a href="#" style="color: "><strong>Product sold</strong></a></h6>
+                                            <table class="table-bordered table table-stripped" style="font-size: small" id="monthly">
+                                                <tr style="background-color: whitesmoke; color: white">
+                                                    <th>NO</th>
+                                                    <th>Date</th>
+                                                    <th>Product Name</th>
+                                                    <th>Total items sold</th>
+                                                </tr>
+                                                <tbody>
 
-                                                        <label for="month"></label>
-                                                        <select id="month" name="month">
-                                                            <option value = "1">January</option>
-                                                            <option value = "2">February</option>
-                                                            <option value = "3">March</option>
-                                                            <option value = "4">April</option>
-                                                            <option value = "5">May</option>
-                                                            <option value = "6">June</option>
-                                                            <option value = "7">July</option>
-                                                            <option value = "8">August</option>
-                                                            <option value = "9">September</option>
-                                                            <option value = "10">October</option>
-                                                            <option value = "11">November</option>
-                                                            <option value = "12">December</option>
-                                                        </select>
-                                                        <span class="input-group-addon" style="padding: 0">
-                                                            <button type="submit" name="custom" class="btn btn-primary" style="padding: 5px">search</button>
-                                                        </span>
-                                                    </div>
-                                                </div>
+                                                <?php
+                                                $num = 1;
+                                                $total_items = 0;
+                                                foreach ($monthlySoldProducts as $report){
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $num++?></td>
+                                                        <td><?php echo $report['sales_date']?></td>
+                                                        <td><?php echo $report['ProductName']?></td>
+                                                        <td><?php echo $report['total']?></td>
 
-                                            </form>
+                                                    </tr>
+                                                    <?php $total_items = $total_items+$report['total']?>
+                                                <?php } ?>
+                                                <tr>
+                                                    <td align="right" colspan="6"><strong>Total Products Sold: <?php echo number_format($total_items, 0)?> </strong><label></label></td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                            <h6 style="color: #da8241; text-align: center; text-transform: uppercase;"><a href="#" style="color: "><strong>Ordered products for <?php echo $SingleEnterprise->name?></strong></a></h6>
+                                            <table class="table-bordered table table-stripped" id="monthly" style="font-size: small" >
+                                                <tr style="background-color: whitesmoke; color: white">
+                                                    <th>NO</th>
+                                                    <th>Order date Date</th>
+                                                    <th>Product Name</th>
+                                                    <th>Total items ordered</th>
+                                                </tr>
+                                                <tbody>
+
+                                                <?php
+                                                $num = 1;
+                                                $total_items = 0;
+                                                foreach ($monthlyProductsOrdered as $report){
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $num++?></td>
+                                                        <td><?php echo $report['order_date']?></td>
+                                                        <td><?php echo $report['ProductName']?></td>
+                                                        <td><?php echo $report['total']?></td>
+
+                                                    </tr>
+                                                    <?php $total_items = $total_items+$report['total']?>
+                                                <?php } ?>
+                                                <tr>
+                                                    <td align="right" colspan="6"><strong>Total Ordered Products: <?php echo number_format($total_items, 0)?> </strong><label></label></td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
                                         </div>
+                                        <a href="<?php echo base_url()?>index.php/Products/MonthlyReportPdf">
+                                            <button class="btn btn-default" style="float: right; margin: 10px"><i class="fa fa-print"></i> Print</button>
+                                        </a>
+
                                     </div>
                                     <?php }?>
                                 </div>
@@ -483,6 +476,6 @@
 <!-- custom script for this page-->
 
 <script>
-    $('#enterprise').dataTable();
+    $('#monthly').dataTable();
 </script>
 </html>

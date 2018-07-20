@@ -126,8 +126,8 @@
                     <form class="navbar-form" action="">
                         <div class="col-sm-12 input-group">
                         <span class="input-group-addon">
-                        <select class="" id="category"  name="category" style="font-size: small; padding: 3px">
-                        <option value="Arusha" selected>All regions</option>
+                        <select class="" id="category"  name="location" style="font-size: small; padding: 3px">
+                        <option value="<?php echo $_SESSION['location'] ?>" selected><?php echo $_SESSION['location'] ?></option>
                         <option value="Arusha">Arusha</option>
                         <option value="Dar es salaam">Dar es salaam</option>
                         <option value="dodoma">Dodoma</option>
@@ -162,7 +162,7 @@
                             </span>
                             <span class="input-group-addon">
                                 <select class="" id="category"  name="category" style="font-size: small; padding: 3px">
-                                <option value="" selected>All Categories</option>
+                                <option value="<?php echo $_SESSION['category'] ?>" selected><?php echo $_SESSION['category'] ?></option>
                                 <option value="electronics">Electronics</option>
                                 <option value="construction">Construction</option>
                                 <option value="hardware">Hardware</option>
@@ -170,7 +170,7 @@
                                 <option value="furniture">Furniture</option>
                             </select>
                             </span>
-                            <input class="form-control" type="text" name="searchProduct" placeholder="what are you looking for ?">
+                            <input value="<?php echo $_SESSION['product_name']?>" class="form-control" type="text" name="searchProduct" placeholder="what are you looking for ?">
                             <span class="input-group-addon" style="background-color: cornflowerblue">
                                 <a class="#"><i class="fa fa-search" style="color: white"></i></a></span>
 
@@ -274,9 +274,9 @@
                                 <?php }?>
                             </div>
 
-                            <?php }else{?>
+                            <?php }else{ ?>
 
-                                <?php if ($enterprises->num_rows() > 0){?>
+                                <?php if ($enterprises->num_rows() > 0){ ?>
                                     <h5 class="#">Search Results for:  <span><strong><?php echo $_SESSION['product_name']?></strong></span></h5>
                                     <p>Total of <strong>"<?php echo $enterprises->num_rows() ?>"</strong> results found</p>
                                 <div class="row items">

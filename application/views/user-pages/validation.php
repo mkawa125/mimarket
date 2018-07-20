@@ -120,7 +120,7 @@ if (isset($_POST['register'])) {
                 'phone' => $_POST['phone'],
                 'pass1' => md5($_POST['pass1']),
                 'pass2' => md5($_POST['pass2']),
-                'location' => $_POST['location'],
+                'user_location' => $_POST['location'],
                 'user_register_date' => date('Y-m-d H:i:s'),
             );
             //email existence check

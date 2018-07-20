@@ -82,9 +82,7 @@ class Products extends CI_Controller
         $data['totalOrders'] = $this->EnterpriseModel->totalOrders();
         $data['totalRequests'] = $this->EnterpriseModel->totalRequests();
         $data['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
-        $data['enterprises'] = $this->EnterpriseModel->DefaultEnterprises();
-        $data['enterprises'] = $this->EnterpriseModel->DefaultEnterprises();
-        $data['enterprises'] = $this->EnterpriseModel->DefaultEnterprises();
+        $data['countNewOrders'] = $this->EnterpriseModel->countStoreOrdersDefault();
         $this->load->view('dashboard/home', $data);
     }
 
@@ -115,12 +113,17 @@ class Products extends CI_Controller
             $this->load->model('EnterpriseModel');
             $_SESSION['product'] = $_GET['prod'];
             $product['productDetails'] = $this->EnterpriseModel->ViewProductDetails();
+            $product['totalOrders'] = $this->EnterpriseModel->totalOrders();
+            $product['totalRequests'] = $this->EnterpriseModel->totalRequests();
+            $product['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
+            $product['countNewOrders'] = $this->EnterpriseModel->countStoreOrdersDefault();
             $this->db->select('*');
             $this->db->from('ms_product_views');
             $this->db->join('ms_products', 'ms_products.product_id = ms_product_views.product_id');
+            $this->db->join('enterprises', 'enterprises.enterprise_id = ms_products.enterprise_id');
             $this->db->where(array(
                 'product_user_address' => $this->input->ip_address(),
-                'ms_product_views.product_id' => $_SESSION['product'],
+                'ms_products.product_id' => $_SESSION['product'],
             ));
             $query = $this->db->get();
             $user_address = $query->row();
@@ -146,8 +149,12 @@ class Products extends CI_Controller
         if ($this->session->userdata('user_logged')){
             $this->load->model('EnterpriseModel');
             $_SESSION['product'] = $_GET['prod'];
-            $product['productDetails'] = $this->EnterpriseModel->ViewProductDetails();
-            $this->load->view('dashboard/owner_product_details', $product);
+            $data['productDetails'] = $this->EnterpriseModel->ViewProductDetails();
+            $data['totalOrders'] = $this->EnterpriseModel->totalOrders();
+            $data['totalRequests'] = $this->EnterpriseModel->totalRequests();
+            $data['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
+            $data['countNewOrders'] = $this->EnterpriseModel->countStoreOrdersDefault();
+            $this->load->view('dashboard/owner_product_details', $data);
 
         }else{
             redirect('Products/unViewProductDetails');
@@ -282,6 +289,7 @@ class Products extends CI_Controller
         $orders['rejectedCount'] = $this->EnterpriseModel->countRejectedOrders();
         $orders['paidCount'] = $this->EnterpriseModel->countPaidOrders();
         $orders['orderCount'] = $this->EnterpriseModel->countCustomerOrders();
+        $orders['countDirect'] = $this->EnterpriseModel->countDirectOrders();
         $orders['orderDetails'] = $this->EnterpriseModel->customerOrders();
         $this->load->view('order_pages/customer_orders', $orders);
     }
@@ -373,6 +381,7 @@ class Products extends CI_Controller
             $orders['rejectedCount'] = $this->EnterpriseModel->countRejectedOrders();
             $orders['paidCount'] = $this->EnterpriseModel->countPaidOrders();
             $orders['directOrders'] = $this->EnterpriseModel->directOrders();
+            $orders['countDirect'] = $this->EnterpriseModel->countDirectOrders();
             $this->load->view('order_pages/directOrders', $orders);
         }
         else{
@@ -385,26 +394,60 @@ class Products extends CI_Controller
     }
     public function customerDirect()
     {
-        $this->load->model('EnterpriseModel');
-        $orders['orders'] = $this->EnterpriseModel->enterpriseOrders();
-        $orders['orderDetails'] = $this->EnterpriseModel->singleOrder();
-        $orders['products'] = $this->EnterpriseModel->viewProcessingProducts();
-        $orders['rowOrders'] = $this->EnterpriseModel->orderRows();
-        $orders['orderCount'] = $this->EnterpriseModel->countCustomerOrders();
-        $orders['completeCount'] = $this->EnterpriseModel->countCompleteOrders();
-        $orders['rejectedCount'] = $this->EnterpriseModel->countRejectedOrders();
-        $orders['paidCount'] = $this->EnterpriseModel->countPaidOrders();
-        $orders['directOrders'] = $this->EnterpriseModel->directOrders();
-        $this->load->view('order_pages/directOrders', $orders);
+        if ($this->session->userdata('user_logged')) {
+            $this->load->model('EnterpriseModel');
+            $orders['orders'] = $this->EnterpriseModel->enterpriseOrders();
+            $orders['orderDetails'] = $this->EnterpriseModel->singleOrder();
+            $orders['products'] = $this->EnterpriseModel->viewProcessingProducts();
+            $orders['rowOrders'] = $this->EnterpriseModel->orderRows();
+            $orders['orderCount'] = $this->EnterpriseModel->countCustomerOrders();
+            $orders['completeCount'] = $this->EnterpriseModel->countCompleteOrders();
+            $orders['rejectedCount'] = $this->EnterpriseModel->countRejectedOrders();
+            $orders['paidCount'] = $this->EnterpriseModel->countPaidOrders();
+            $orders['directOrders'] = $this->EnterpriseModel->directOrders();
+            $orders['countDirect'] = $this->EnterpriseModel->countDirectOrders();
+            $this->load->view('order_pages/directOrders', $orders);
+        }
     }
     public function processedOrder()
     {
-        $this->load->model('EnterpriseModel');
-        $_SESSION['order']= $_GET['ord'];
-        $orders['orders'] = $this->EnterpriseModel->processedOrders();
-        $orders['orders'] = $this->EnterpriseModel->enterpriseOrders();
-        $orders['rowOrders'] = $this->EnterpriseModel->orderRows();
-        $this->load->view('order_pages/view_orders', $orders);
+        if ($this->session->userdata('user_logged')) {
+            $this->load->model('EnterpriseModel');
+            $_SESSION['order'] = $_GET['ord'];
+            $orders['countNewOrders'] = $this->EnterpriseModel->countStoreOrders();
+            $orders['countProcessedOrders'] = $this->EnterpriseModel->countStoreOrdersProcessed();
+            $orders['countRejectedOrders'] = $this->EnterpriseModel->countStoreOrdersRejected();
+            $orders['countCompleteOrders'] = $this->EnterpriseModel->countStoreOrdersComplete();
+            $orders['orders'] = $this->EnterpriseModel->processedOrders();
+            $orders['storeOrders'] = $this->EnterpriseModel->enterpriseOrders();
+            $orders['rowOrders'] = $this->EnterpriseModel->orderRows();
+            $orders['orderDetails'] = $this->EnterpriseModel->singleOrder();
+            $this->load->library('email');
+            $this->email->from('dahabusaidi@gmail.com', 'Mimarket'); // change it to yours
+            $this->email->to($orders['orderDetails']->customer_email);// change it to yours
+            $this->email->subject('Store suspension');
+            $message = '<div class="col-sm-8" style="border: 1px solid #D5D8DC; padding: 15px"> 
+                        <h4 style="background: chocolate; color: white; padding: 10px">order processing summary '. $orders['orderDetails']->order_name .'</h4>
+                        <label>Dear <strong style="text-transform: uppercase">: '. $orders['orderDetails']->full_name .'</strong></label><br>
+                        <p>This is to notify that your order '. $orders['orderDetails']->order_name .' that you have placed on '. $orders['orderDetails']->order_date . ' has been processed. Now you can login to your mimarket account to view processing summary
+                        </p>
+                        <p>for more information please contact us on</p><br>
+                        <label><strong>phone: </strong> 0717-495-198</label><br>
+                        <label><strong>Email: </strong> dahabusaidi@gmail.com</label><br>
+                        
+                        </div>';
+            $this->email->message($message);
+            $this->email->set_newline("\r\n");
+            //Send mail
+            if ($this->email->send()) {
+                $this->session->set_flashdata("email_sent", "store registration has successfully denied.");
+                $this->load->view('order_pages/view_orders', $orders);
+
+            } else{
+                $this->session->set_flashdata("email_not_sent", "A store has been suspended but email not sent to user.");
+                $this->load->view('order_pages/view_orders', $orders);
+            }
+        }
     }
     public function orderDetails()
     {
@@ -418,14 +461,48 @@ class Products extends CI_Controller
         $orders['cartProduct'] = $this->EnterpriseModel->shoppingCart();
         $this->load->view('order_pages/order_details', $orders);
     }
-    public function customerOrderDetails()
+    public function rejectOrder()
     {
         $this->load->model('EnterpriseModel');
-        $_SESSION['order'] = $_GET['ord'];
-        $orders['orderDetails'] = $this->EnterpriseModel->customerOrderDetails();
-        $orders['singleOrder'] = $this->EnterpriseModel->customerSingleOrder();
-        $orders['cartProduct'] = $this->EnterpriseModel->shoppingCart();
-        $this->load->view('order_pages/order_details_customer', $orders);
+        $orders['singleOrder'] = $this->EnterpriseModel->getSingleOrder();
+        $orders['orderDetails'] = $this->EnterpriseModel->singleOrder();
+        $orders['singleStoreDetails'] = $this->EnterpriseModel->rejectOrders();
+        $this->load->library('email');
+        $this->email->from('dahabusaidi@gmail.com', 'Mimarket'); // change it to yours
+        $this->email->to($orders['orderDetails']->customer_email);// change it to yours
+        $this->email->subject('Store suspension');
+        $message = '<div class="col-sm-8" style="border: 1px solid #D5D8DC; padding: 15px"> 
+                        <h4 style="background: chocolate; color: white; padding: 10px">order rejection '. $orders['orderDetails']->order_name .'</h4>
+                        <label>Dear <strong style="text-transform: uppercase">: '. $orders['orderDetails']->full_name .'</strong></label><br>
+                        <p>This is to notify that your order '. $orders['orderDetails']->order_name .' that you have placed on '. $orders['orderDetails']->order_date . ' has been reject. This is becuase a supplier will not be able to deliver the order on time
+                        </p>
+                        <p>for more information please contact us on</p><br>
+                        <label><strong>phone: </strong> 0717-495-198</label><br>
+                        <label><strong>Email: </strong> dahabusaidi@gmail.com</label><br>
+                        
+                        </div>';
+        $this->email->message($message);
+        $this->email->set_newline("\r\n");
+        //Send mail
+        if ($this->email->send()) {
+            $this->session->set_flashdata("email_sent", "store registration has successfully denied.");
+            redirect('Products/storeOrdersRejected');
+
+        } else{
+            $this->session->set_flashdata("email_not_sent", "A store has been suspended but email not sent to user.");
+            redirect('Products/storeOrdersRejected');
+        }
+    }
+    public function customerOrderDetails()
+    {
+        if ($this->session->userdata('user_logged')) {
+            $this->load->model('EnterpriseModel');
+            $_SESSION['order'] = $_GET['ord'];
+            $orders['orderDetails'] = $this->EnterpriseModel->customerOrderDetails();
+            $orders['singleOrder'] = $this->EnterpriseModel->customerSingleOrder();
+            $orders['cartProduct'] = $this->EnterpriseModel->shoppingCart();
+            $this->load->view('order_pages/order_details_customer', $orders);
+        }
     }
     public function customerOrdersComplete()
     {
@@ -434,6 +511,7 @@ class Products extends CI_Controller
         $orders['completeCount'] = $this->EnterpriseModel->countCompleteOrders();
         $orders['rejectedCount'] = $this->EnterpriseModel->countRejectedOrders();
         $orders['paidCount'] = $this->EnterpriseModel->countPaidOrders();
+        $orders['countDirect'] = $this->EnterpriseModel->countDirectOrders();
         $orders['orderDetails'] = $this->EnterpriseModel->customerOrdersComplete();
         $this->load->view('order_pages/customer_orders_complete', $orders);
     }
@@ -444,6 +522,7 @@ class Products extends CI_Controller
         $orders['completeCount'] = $this->EnterpriseModel->countCompleteOrders();
         $orders['rejectedCount'] = $this->EnterpriseModel->countRejectedOrders();
         $orders['paidCount'] = $this->EnterpriseModel->countPaidOrders();
+        $orders['countDirect'] = $this->EnterpriseModel->countDirectOrders();
         $orders['orderDetails'] = $this->EnterpriseModel->customerOrdersPaid();
         $this->load->view('order_pages/customer_orders_paid', $orders);
     }
@@ -454,6 +533,7 @@ class Products extends CI_Controller
         $orders['completeCount'] = $this->EnterpriseModel->countCompleteOrders();
         $orders['rejectedCount'] = $this->EnterpriseModel->countRejectedOrders();
         $orders['paidCount'] = $this->EnterpriseModel->countPaidOrders();
+        $orders['countDirect'] = $this->EnterpriseModel->countDirectOrders();
         $orders['orderDetails'] = $this->EnterpriseModel->customerOrdersRejected();
         $this->load->view('order_pages/customer_orders_rejected', $orders);
     }
@@ -483,17 +563,20 @@ class Products extends CI_Controller
     }
     public function storeOrdersRejected()
     {
-        $this->load->model('EnterpriseModel');
-        $orders['storeOrders'] = $this->EnterpriseModel->enterpriseOrders();
-        $orders['rowOrders'] = $this->EnterpriseModel->orderRows();
-        $orders['countNewOrders'] = $this->EnterpriseModel->countStoreOrders();
-        $orders['countProcessedOrders'] = $this->EnterpriseModel->countStoreOrdersProcessed();
-        $orders['countRejectedOrders'] = $this->EnterpriseModel->countStoreOrdersRejected();
-        $orders['countCompleteOrders'] = $this->EnterpriseModel->countStoreOrdersComplete();
-        $orders['rejected'] = $this->EnterpriseModel->storeOrdersRejected();
-        $this->load->view('order_pages/owner_orders_rejected', $orders);
-    }
+        if ($this->session->userdata('user_logged')) {
+            $this->load->model('EnterpriseModel');
+            $orders['storeOrders'] = $this->EnterpriseModel->enterpriseOrders();
+            $orders['rowOrders'] = $this->EnterpriseModel->orderRows();
+            $orders['countNewOrders'] = $this->EnterpriseModel->countStoreOrders();
+            $orders['countProcessedOrders'] = $this->EnterpriseModel->countStoreOrdersProcessed();
+            $orders['countRejectedOrders'] = $this->EnterpriseModel->countStoreOrdersRejected();
+            $orders['countCompleteOrders'] = $this->EnterpriseModel->countStoreOrdersComplete();
+            $orders['rejected'] = $this->EnterpriseModel->storeOrdersRejected();
+            $this->load->view('order_pages/owner_orders_rejected', $orders);
+        }else{
 
+        }
+    }
 
 
     //reports generator functions
@@ -518,6 +601,10 @@ class Products extends CI_Controller
         $data['enterprises'] = $this->EnterpriseModel->DisplayEnterprises();
         $data['productOrders'] = $this->EnterpriseModel->ProductOrders();
         $data['orderedMost'] = $this->EnterpriseModel->OrderedProductSummary();
+        $data['totalOrders'] = $this->EnterpriseModel->totalOrders();
+        $data['totalRequests'] = $this->EnterpriseModel->totalRequests();
+        $data['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
+        $data['countNewOrders'] = $this->EnterpriseModel->countStoreOrdersDefault();
         $this->load->view('report_views/storeOrderReport', $data);
     }
     public function enterpriseReports()
@@ -527,6 +614,10 @@ class Products extends CI_Controller
         $_SESSION['enterprise'] = $_GET['ent'];
         $data['SingleEnterprise'] = $this->EnterpriseModel->ViewEnterpriseDetails();
         $data['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
+        $data['totalOrders'] = $this->EnterpriseModel->totalOrders();
+        $data['totalRequests'] = $this->EnterpriseModel->totalRequests();
+        $data['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
+        $data['countNewOrders'] = $this->EnterpriseModel->countStoreOrdersDefault();
         $this->load->view('enterprises/enterprise_report', $data);
     }
     public function enterpriseReportsInner()
@@ -551,55 +642,101 @@ class Products extends CI_Controller
         $data['SingleEnterprise'] = $this->EnterpriseModel->ViewEnterpriseDetails();
         $this->load->view('report_views/report_view_pdf', $data);
     }
+    public function MonthlyReport()
+    {
+        $this->load->library('pdf');
+        $date = date('Y-m-d');
+        $this->load->model('EnterpriseModel');
+        $data['monthlyReport'] = $this->EnterpriseModel->monthlyReports();
+        $data['monthlySoldProducts'] = $this->EnterpriseModel->monthlySoldProducts($date);
+        $data['monthlyProductsOrdered'] = $this->EnterpriseModel->monthlyProductsOrdered($date);
+        $data['SingleEnterprise'] = $this->EnterpriseModel->ViewEnterpriseDetails();
+        $this->load->view('report_views/monthly_report', $data);
+    }
+    public function MonthlyReportPdf()
+    {
+        $this->load->library('pdf');
+        $this->load->model('EnterpriseModel');
+        $data['monthlyReport'] = $this->EnterpriseModel->monthlyReports();
+        $data['monthlySoldProducts'] = $this->EnterpriseModel->monthlySoldProducts();
+        $data['monthlyProductsOrdered'] = $this->EnterpriseModel->monthlyProductsOrdered();
+        $data['SingleEnterprise'] = $this->EnterpriseModel->ViewEnterpriseDetails();
+        $this->load->view('report_views/monthly_report_pdf', $data);
+    }
+
+    public function CustomReport()
+    {
+        if ($this->session->userdata('user_logged')) {
+            if (isset($_POST['custom'])){
+                $_SESSION['year'] = $_POST['year'];
+                $_SESSION['month'] = $_POST['month'];
+                $this->load->library('pdf');
+                $this->load->model('EnterpriseModel');
+                $data['customReport'] = $this->EnterpriseModel->customReports();
+                $data['customSoldProducts'] = $this->EnterpriseModel->customSoldProducts();
+                $data['customProductsOrdered'] = $this->EnterpriseModel->customProductsOrdered();
+                $data['SingleEnterprise'] = $this->EnterpriseModel->ViewEnterpriseDetails();
+                $this->load->view('report_views/custom_report', $data);
+            }
+
+        }
+    }
+    public function CustomReportPdf()
+    {
+        if ($this->session->userdata('user_logged')) {
+            $this->load->library('pdf');
+            $this->load->model('EnterpriseModel');
+            $data['customReport'] = $this->EnterpriseModel->customReports();
+            $data['customSoldProducts'] = $this->EnterpriseModel->customSoldProducts();
+            $data['customProductsOrdered'] = $this->EnterpriseModel->customProductsOrdered();
+            $data['SingleEnterprise'] = $this->EnterpriseModel->ViewEnterpriseDetails();
+            $this->load->view('report_views/custom_report_pdf', $data);
+        }
+    }
+
 
 
 
 
     //search functions
     public function IndexSearch()
-    {
-        if (isset($_POST['search'])){
-            if ($_POST['product_name']){
-                $inputs = array(
-                    'user_input' => $_POST['product_name'],
-
-                );
+    {   if (isset($_POST['search'])) {
+            if ($this->session->userdata('user_logged')) {
+                $user_input = $_POST['product_name'];
+                $location = $_POST['location'];
+                $category = $_POST['category'];
                 $_SESSION['product_name'] = $_POST['product_name'];
                 $this->load->model('EnterpriseModel');
-                $search['searchResult'] = $this->EnterpriseModel->IndexSearchOne($inputs);
-                $search['enterprises'] = $this->EnterpriseModel->EnterpriseSearchOne($inputs);
-                $search['defaultSearch'] = $this->EnterpriseModel->defaultSearch();
-                $this->load->view('dashboard/IndexSearchResults', $search);
-            }elseif($_POST['product_name'] && $_POST['location']){
-                $inputs = array(
-                    'location' => $_POST['location'],
-                    'user_input' => $_POST['product_name'],
-
-                );
+                $search['searchResult'] = $this->EnterpriseModel->IndexSearchOne($user_input, $location, $category);
+                $search['enterprises'] = $this->EnterpriseModel->EnterpriseSearchOne($user_input, $location, $category);
+                $search['defaultSearch'] = $this->EnterpriseModel->defaultSearch($user_input, $location, $category);
+                $search['totalOrders'] = $this->EnterpriseModel->totalOrders();
+                $search['totalRequests'] = $this->EnterpriseModel->totalRequests();
+                $search['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
+                $search['countNewOrders'] = $this->EnterpriseModel->countStoreOrdersDefault();
                 $_SESSION['product_name'] = $_POST['product_name'];
-                $this->load->model('EnterpriseModel');
-                $search['searchResult'] = $this->EnterpriseModel->IndexSearchTwo($inputs);
-                $search['enterprises'] = $this->EnterpriseModel->EnterpriseSearchTwo($inputs);
-                $search['defaultSearch'] = $this->EnterpriseModel->defaultSearch();
-                $this->load->view('dashboard/IndexSearchResults', $search);
-            }elseif ($_POST['product_name'] && $_POST['location'] && $_POST['category']){
-                $inputs = array(
-                    'category' => $_POST['category'],
-                    'location' => $_POST['location'],
-                    'user_input' => $_POST['product_name'],
-
-                );
-                $_SESSION['product_name'] = $_POST['product_name'];
-                $this->load->model('EnterpriseModel');
-                $search['searchResult'] = $this->EnterpriseModel->IndexSearchThree($inputs);
-                $search['enterprises'] = $this->EnterpriseModel->EnterpriseSearchThree($inputs);
-                $search['defaultSearch'] = $this->EnterpriseModel->defaultSearch();
-                $this->load->view('dashboard/IndexSearchResults', $search);
+                $_SESSION['location'] = $_POST['location'];
+                $_SESSION['category'] = $_POST['category'];
+                $this->load->view('dashboard/registeredSearchResults', $search);
             }else{
-               redirect('Products/DefaultProducts');
+                $user_input = $_POST['product_name'];
+                $location = $_POST['location'];
+                $category = $_POST['category'];
+                $_SESSION['product_name'] = $_POST['product_name'];
+                $this->load->model('EnterpriseModel');
+                $search['searchResult'] = $this->EnterpriseModel->IndexSearchOne($user_input, $location, $category);
+                $search['enterprises'] = $this->EnterpriseModel->EnterpriseSearchOne($user_input, $location, $category);
+                $search['defaultSearch'] = $this->EnterpriseModel->defaultSearch($user_input, $location, $category);
+                $_SESSION['product_name'] = $_POST['product_name'];
+                $_SESSION['location'] = $_POST['location'];
+                $_SESSION['category'] = $_POST['category'];
+                $this->load->view('dashboard/IndexSearchResults', $search);
             }
-
         }
+    }
+    public function RegisteredSearch()
+    {
+
     }
     public function DownloadOrderDocument($fileName = null)
     {
@@ -720,6 +857,10 @@ class Products extends CI_Controller
     {
         $this->load->model('EnterpriseModel');
         $orders['saleDetails'] = $this->EnterpriseModel->singleSale();
+        $orders['countNewOrders'] = $this->EnterpriseModel->countStoreOrders();
+        $orders['countProcessedOrders'] = $this->EnterpriseModel->countStoreOrdersProcessed();
+        $orders['countRejectedOrders'] = $this->EnterpriseModel->countStoreOrdersRejected();
+        $orders['countCompleteOrders'] = $this->EnterpriseModel->countStoreOrdersComplete();
         $this->load->view('order_pages/complete_sales', $orders);
     }
     public function CompleteSalesDetails()
@@ -728,7 +869,12 @@ class Products extends CI_Controller
         $_SESSION['order'] = $_GET['ord'];
         $orders['SingleSaleDetails'] = $this->EnterpriseModel->singleSaleDetails();
         $orders['salesProducts'] = $this->EnterpriseModel->singleSaleProducts();
+        $orders['countNewOrders'] = $this->EnterpriseModel->countStoreOrders();
+        $orders['countProcessedOrders'] = $this->EnterpriseModel->countStoreOrdersProcessed();
+        $orders['countRejectedOrders'] = $this->EnterpriseModel->countStoreOrdersRejected();
+        $orders['countCompleteOrders'] = $this->EnterpriseModel->countStoreOrdersComplete();
         $this->load->view('order_pages/complete_sales_details', $orders);
     }
+
 
 }

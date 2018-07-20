@@ -222,7 +222,7 @@
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
-                            <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
+                            <a href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
 
                         <li>
@@ -245,7 +245,7 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" style="margin-top: 60px">
 
-                <li class="active">
+                <li class="">
                     <a class="" href="<?php echo base_url()?>index.php/Products/DefaultProducts"><i class="icon_house_alt"></i> <span>Home</span></a>
                 </li>
 
@@ -258,20 +258,7 @@
                         <li><a class="" href="<?php echo base_url()?>index.php/Direct/product"><i class="fa fa-bookmark"></i>Bookmarks</a></li>
                     </ul>
                 </li>
-
-                <!--                <li class="sub-menu">-->
-                <!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
-                <!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
-                <!--                    </a>-->
-                <!--                    <ul class="sub">-->
-                <!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
-                <!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
-                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
-                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
-                <!--                    </ul>-->
-                <!--                </li>-->
-
-                <li class="sub-menu">
+                <li class="sub-menu active">
                     <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
                         <span>Orders</span>
                     </a>
@@ -285,7 +272,7 @@
             </ul>
             <ul class="sidebar-menu">
                 <li class="sub">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
                 <li class="">
@@ -341,7 +328,7 @@
                                             <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersPaid" style="margin: 5px;">Paid Orders<span> (<?php foreach ($paidCount as $paid) echo $paid['total']?>)</span></a>
 
                                             </li>
-                                            <li style="padding: 5px; background-color: #BDBDBD; border-radius: 4px"><a href="<?php echo base_url()?>index.php/Products/customerDirect" style="margin: 5px;">Direct Orders<span> (<?php foreach ($paidCount as $paid) echo $paid['total']?>)</span></a>
+                                            <li style="padding: 5px; background-color: #BDBDBD; border-radius: 4px"><a href="<?php echo base_url()?>index.php/Products/customerDirect" style="margin: 5px;">Direct Orders<span> (<?php foreach ($countDirect as $direct) echo $direct['total']?>)</span></a>
 
                                             </li>
                                             <li style="padding: 5px"><a href="<?php echo base_url()?>index.php/Products/customerOrdersRejected" style="margin: 5px;">Rejected Orders<span> (<?php foreach ($rejectedCount as $rejected) echo $rejected['total']?>)</span></a>

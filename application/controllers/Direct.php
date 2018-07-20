@@ -67,6 +67,40 @@ class Direct extends CI_Controller
         $data['suspendedStoreDetails'] = $this->AdminModel->getSuspendedStoreDetails();
         $this->load->view('user-pages/user-setting', $data);
     }
+    public function userProfileSetting(){
+        $this->load->model('EnterpriseModel');
+        $data['totalOrders'] = $this->EnterpriseModel->totalOrders();
+        $data['totalRequests'] = $this->EnterpriseModel->totalRequests();
+        $data['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
+        $data['countNewOrders'] = $this->EnterpriseModel->countStoreOrdersDefault();
+        $this->load->view("user-pages/user_details_setting" , $data);
+
+    }
+    public function EditProfile(){
+        if ($this->session->userdata('user_logged')){
+            if (isset($_POST['saveChanges'])) {
+                //setting validation rules
+                $this->form_validation->set_rules('name', 'administrator name', 'required');
+                $this->form_validation->set_rules('username', 'admin username', 'required');
+                $this->form_validation->set_rules('email', 'admin name', 'required');
+                $this->form_validation->set_rules('phone', 'phone number', 'required');
+                $this->form_validation->set_rules('pass1', 'password', 'required');
+                $this->form_validation->set_rules('pass2', 'password confirmation', 'required|matches[pass1]' );
+
+                if ($this->form_validation->run() == TRUE) {
+                    $this->load->model('EnterpriseModel');
+                    $data['edit'] = $this->EnterpriseModel->EditProfile();
+                    //loading model for adding enterprise
+
+                    $this->session->set_flashdata('success_msg', 'Your profile has been successfully updated');
+                    redirect('Products/DefaultProducts');
+                } else {
+                    $this->session->set_flashdata('error_msg', 'Sorry.... failed to Update the profile, make sure you filled the form correctly and passwords must match');
+                    redirect('Direct/UserProfileSetting');
+                }
+            }
+        }
+    }
     public function PrivacyTerms(){
 
         $this->load->view("user-pages/PrivacyTerms");

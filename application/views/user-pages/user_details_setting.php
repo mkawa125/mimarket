@@ -22,6 +22,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="<?php echo base_url()?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url()?>nice/css/bootstrap.theme.css" rel="stylesheet" type="text/css">
+
     <!--external css-->
     <!-- font icon -->
     <link href="<?php echo base_url()?>nice/css/elegant-icons-style.css" rel="stylesheet" />
@@ -34,93 +36,43 @@
     <link href="<?php echo base_url()?>nice/css/xcharts.min.css" rel=" stylesheet">
     <link href="<?php echo base_url()?>nice/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
 
-    <!--    Data tables -->
-    <link href="<?php echo base_url()?>/DataTables/css/dataTables.bootstrap.min.css" rel=" stylesheet">
-    <link href="<?php echo base_url()?>nice/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.17/datatables.min.css"/>
+    <link href="<?php echo base_url()?>nice/summernote/summernote.css" rel=" stylesheet">
+    <link href="<?php echo base_url()?>nice/summernote/summernote-lite.css" rel="stylesheet">
 
     <!--custom style sheet-->
     <style>
+        .dark-bg{
+            background-color: white;
+        }
         .icon_menu{
             color: black;
         }
-        .image-box{
-            border: 1px solid #D5D8DC;
-            padding: 5px;
-            margin: 10px;
-            border-radius: 0;
-            min-height: 150px;
+        .error{
+            color: red;
+            font-size: small;
         }
-        .summary{
-            border-radius: 0;
-            padding: 10px;
-            border: 1px solid #D5D8DC;
+        .new{
             background-color: whitesmoke;
+            padding: 20px;
+            font-size: smaller;
         }
-        .summary-box{
-            padding: 5px;
-            margin: 10px;
+        .cont{
+            background-color: white;
+            padding: 20px;
+        }
+        .form-control{
+            font-size: small;
+        }
+        .row-enter{
+            padding-bottom: 10px;
         }
         .btn{
             border-radius: 0;
         }
-        .items{
-            border: 1px solid #D5D8DC ;
-            padding: 10px;
-            background-color: white;
-        }
-        ul.sidebar-menu li ul.sub li a {
-
-            padding: 0 0 0 32px;
-
-            line-height: 30px;
-
-            height: 30px;
-
-            -webkit-transition: all 0.3s ease;
-
-            -o-transition: all 0.3s ease;
-
-            transition: all 0.3s ease;
-
-            color: #d0d8df;
-
-            font-size: small;
-
-        }
-        ul.sidebar-menu li a{
-
-            color: #d0d8df;
-
-            text-decoration: none;
-
-            display: block;
-
-            padding: 8px 0 8px 15px;
-
-            font-size: small;
-
-            line-height: 25px;
-
-            font-weight: 300;
-
-            font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-
-            outline: none;
-
-            -webkit-transition: all 0.3s ease;
-
-            -moz-transition: all 0.3s ease;
-
-            -o-transition: all 0.3s ease;
-
-            transition: all 0.3s ease;
-
-        }
     </style>
 </head>
 
-<body style="background-color: whitesmoke">
+<body>
 <!-- container section start-->
 <div id="container" class="">
     <header class="header dark-bg">
@@ -236,7 +188,7 @@
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
-                            <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
+                            <a href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
 
                         <li>
@@ -295,155 +247,135 @@
     <!--    sidebar end-->
 
 
+
     <section id="main-content">
         <section class="wrapper">
-            <div class="row">
-                <div class="col-lg-3">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="row new" style="background-color: whitesmoke">
+                    <div class="row row-enter" >
+                        <div class="col-sm-9"> <h5 class="" style="color: cornflowerblue"><strong>Edit user profile</strong></h5></div>
+                    </div>
 
-                </div>
-                <div class="col-lg-8">
+                    <form id="enterprise" action="<?php echo base_url()?>index.php/Direct/EditProfile?u=<?php echo $_SESSION['user_id']?>" style="border: 2px solid #D5D8DC" method="post">
+                        <fieldset>
 
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-11 col-sm-offset-1">
-                    <h5 class="#"><i class="fa fa-dashboard"></i>
-                        <a href="#">Dashboard</a>  <i class="fa fa-angle-double-right"></i><span><a href="#">Enterprises</a></span>
-                        <i class="fa fa-angle-double-right"></i><span><a href="#">Enterprise Name</a></span></h5>
-                    <section class="">
-                        <div class="col-lg-11">
-                            <?php $success_msg = $this->session->flashdata('success_msg');
-                            if ($success_msg){?>
-                                <div class="alert alert-success alert-dismissible"><?php echo $success_msg?>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span></div>
-                                <?php
-                            }
-                            ?>
-                            <div class="row items" >
-                                <?php
-                                if (isset($SingleEnterprise)){
-                                ?>
-
-                                <div class="col-sm-12" style="font-size: small">
-                                    <div class="col-sm-4" style="margin: 10px">
-                                        <div style="background-color: cadetblue; padding: 5px; border: 1px solid #BDBDBD">
-                                            <h5 style="color: #da8241; text-transform: uppercase;"><a href="#" style="color: white"><strong><?php echo $SingleEnterprise->name?></strong></a></h5>
-                                        </div>
-                                        <div class="col-sm-12" style="border: 1px solid #BDBDBD; padding: 5px; font-size: small; background-color: whitesmoke">
-                                            <?php if (isset($SingleEnterprise)){
-                                                ?>
-                                                <div class="col-sm-12">
-                                                    <ol style="padding: 20px; list-style: circle">
-                                                        <li>
-                                                            <label><strong>Store name: </strong></label><span> <?php echo $SingleEnterprise->name?></span><br>
-                                                        </li>
-
-                                                        <li>
-                                                            <label><strong>Products: </strong></label><span> <?php echo $SingleEnterprise->category?></span><br>
-                                                        </li>
-
-                                                        <li>
-                                                            <label><strong>Date registered: </strong></label><span> <?php echo $SingleEnterprise->register_date?></span><br>
-                                                        </li>
-
-                                                        <li>
-                                                            <label><strong>User phone: </strong></label><span> <?php echo $SingleEnterprise->phone?></span><br>
-                                                        </li>
-
-                                                    </ol>
-                                                </div>
-
-                                            <?php } ?>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="col-sm-7" style=" padding: 0; margin: 10px; border: 1px solid #BDBDBD; border-radius: 0;">
-                                        <div style="background-color: darkslategray; padding: 5px; border: 1px solid #BDBDBD">
-                                            <h5 style="font-size: small; color: white; text-align: center">Store Summary</h5>
-                                        </div>
-
-                                        <div class="" style="padding: 30px; font-size: small; background-color: white">
-                                                <div class="form-group input-group" style="width: 400px;  border: 1px solid #BDBDBD; border-radius: 0; padding: 15px; background-color: whitesmoke">
-                                                    <a href="<?php echo base_url()?>index.php/Products/enterpriseReportsInner">
-                                                        <label>Click here to view today's report <strong style="color: chocolate"><?php echo date('d,M Y')?></strong></label>
-                                                    </a>
-                                                </div>
-
-                                                <div class="form-group input-group" style="width: 400px;  border: 1px solid #BDBDBD; border-radius: 0; padding: 15px; background-color: whitesmoke">
-
-                                                    <a href="<?php echo base_url()?>index.php/Products/MonthlyReport">
-                                                        <label>Click here to view report for this month from <strong style="color: chocolate"><?php echo date('M,Y',strtotime("-30 days"));?></strong> to <strong style="color: chocolate"><?php echo date('M,Y')?></strong></label>
-                                                    </a>
-                                                </div>
-
-                                                <h5 style="text-align: center">CUSTOM REPORT GENERATION</h5>
-                                            <form class="#" action="<?php echo base_url()?>index.php/Products/customReport" method="post">
-                                                <div class="form-group input-group" style="width: 400px;  border: 1px solid #BDBDBD; border-radius: 0; padding: 15px; background-color: whitesmoke">
-                                                    <label for="custom"><strong>select the year:</strong></label>
-                                                    <div class="input-group">
-                                                        <label for="year"></label>
-                                                        <select id="year" name="year">
-                                                            <option value="2018">2018</option>
-                                                            <option value="2017">2017</option>
-                                                            <option value="2016">2016</option>
-                                                            <option value="2015">2015</option>
-                                                            <option value="2014">2014</option>
-                                                            <option value="2013">2013</option>
-                                                            <option value="2012">2012</option>
-                                                            <option value="2011">2011</option>
-                                                            <option value="2010">2010</option>
-                                                            <option value="2009">2009</option>
-                                                            <option value="2008">2008</option>
-                                                            <option value="2007">2007</option>
-                                                            <option value="2006">2006</option>
-                                                            <option value="2005">2005</option>
-                                                            <option value="2004">2004</option>
-                                                            <option value="2003">2003</option>
-                                                            <option value="2002">2002</option>
-                                                            <option value="2001">2001</option>
-                                                            <option value="2000">2000</option>
-                                                        </select>
-
-                                                        <label for="month"></label>
-                                                        <select id="month" name="month">
-                                                            <option value = "1">January</option>
-                                                            <option value = "2">February</option>
-                                                            <option value = "3">March</option>
-                                                            <option value = "4">April</option>
-                                                            <option value = "5">May</option>
-                                                            <option value = "6">June</option>
-                                                            <option value = "7">July</option>
-                                                            <option value = "8">August</option>
-                                                            <option value = "9">September</option>
-                                                            <option value = "10">October</option>
-                                                            <option value = "11">November</option>
-                                                            <option value = "12">December</option>
-                                                        </select>
-                                                        <span class="input-group-addon" style="padding: 0">
-                                                            <button type="submit" name="custom" class="btn btn-primary" style="padding: 5px">search</button>
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <?php }?>
+                            <div class="col-lg-12" style="background-color: #A4A4A4; padding: 10px; border-radius: 0;">
+                                <div class="col-lg-9">
+                                    <h5 style="color: white"><i class="fa fa-edit"></i> Edit Acount</h5>
+                                </div>
+                                <div class="col-lg-3">
                                 </div>
                             </div>
-                        </div>
-                    </section>
+
+
+                            <div class="tab-content cont" style="border: 1px solid #A4A4A4; margin-top: 40px">
+
+                                <?php $error_msg = $this->session->flashdata('error_msg');
+                                if ($error_msg){?>
+                                    <div class="alert alert-danger alert-dismissible"><?php echo $error_msg?>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></div>
+                                    <?php
+                                }
+                                ?>
+
+                                <div class="row" >
+                                    <div class="col-sm-6" >
+                                        <label for="name"><strong>Admin name:</strong>
+                                            <span>
+                                                        <?php $error = form_error('name', '<p class="error">')?>
+                                                        <?php echo $error?>
+                                                    </span>
+                                        </label>
+                                        <div class="form-group input-group" <?php echo $error? 'has error': '' ?>>
+                                            <span class="input-group-addon"><i class="fa fa-user-o"></i></span>
+                                            <input type="text" class="form-control" placeholder="Enterprise name" name="name" id="name" value="<?php echo $_SESSION['full_name']?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="username"><strong>Username:</strong></label>
+                                        <?php $error = form_error('username', '<p class="error">')?>
+                                        <?php echo $error?>
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input class="form-control" style="color: orange" id="username" name="username" placeholder="enter admin username" value="<?php echo $_SESSION['username']?>">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="email" ><strong>Email Address:</strong></label>
+                                        <?php $error = form_error('email', '<p class="error">')?>
+                                        <?php echo $error?>
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon">@</span>
+                                            <input class="form-control" id="email" name="email" placeholder="e.g. admin@gmail.com" value="<?php echo $_SESSION['email']?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="phone"><strong>Phone Number:</strong></label>
+                                        <?php $error = form_error('phone', '<p class="error">')?>
+                                        <?php echo $error?>
+                                        <div class="form-group input-group form-horizontal">
+                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                            <input name="phone" id="phone" style="color: red" class="form-control" placeholder="admin phone" value="<?php echo $_SESSION['phone']?>">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12"> <h5 style="color: cornflowerblue"><i class="fa fa-key"></i> Administrator Login Passwords</h5>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label for="pass1" ><strong>Enter password:</strong></label>
+                                                <?php $error = form_error('pass1', '<p class="error">')?>
+                                                <?php echo $error?>
+                                                <div class="form-group input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                    <input type="text" class="form-control" id="pass1" name="pass1" placeholder="enter password">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label for="pass2"><strong>Confirm password:</strong></label>
+                                                <?php $error = form_error('pass2', '<p class="error">')?>
+                                                <?php echo $error?>
+                                                <div class="form-group input-group form-horizontal">
+                                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                    <input type="text" name="pass2" id="pass2" class="form-control" placeholder="re-enter password" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-primary" style="float: right" name="saveChanges"> Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
-            </div>
         </section>
+
     </section>
 </div>
+<script>
+    $('#summernote').summernote({
+        placeholder: 'Hello stand alone ui',
+        tabsize: 2,
+        height: 100
+    });
+</script>
+</body>
 <!-- statics end -->
 <!-- javascripts -->
-
 <script src="<?php echo base_url()?>nice/js/jquery.js"></script>
 <script src="<?php echo base_url()?>nice/js/jquery-ui-1.10.4.min.js"></script>
 <script src="<?php echo base_url()?>nice/js/jquery-1.8.3.min.js"></script>
@@ -475,14 +407,40 @@
 <script src="<?php echo base_url()?>nice/js/wysiwyg.js"></script>
 <script src="<?php echo base_url()?>nice/summernote/summernote-lite.js"></script>
 
-<script src="<?php echo base_url()?>/DataTables/js/dataTables.bootstrap.min.js" type="javascript"></script>
-<script src="<?php echo base_url()?>/DataTables/js/jquery.dataTables.min.js"></script>
-<script href="https://cdn.datatables.net/1.10.17/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.17/datatables.min.js"></script>
-
 <!-- custom script for this page-->
 
 <script>
-    $('#enterprise').dataTable();
+    $(document).ready(function(){
+        var next = 1;
+        $(".add-more").click(function(e){
+            e.preventDefault();
+            var addto = "#field" + next;
+            var addRemove = "#field" + (next);
+            next = next + 1;
+            var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="field' + next + '" type="text">';
+            var newInput = $(newIn);
+            var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
+            var removeButton = $(removeBtn);
+            $(addto).after(newInput);
+            $(addRemove).after(removeButton);
+            $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+            $("#count").val(next);
+
+            $('.remove-me').click(function(e){
+                e.preventDefault();
+                var fieldNum = this.id.charAt(this.id.length-1);
+                var fieldID = "#field" + fieldNum;
+                $(this).remove();
+                $(fieldID).remove();
+            });
+        });
+
+
+
+    });
+
 </script>
+
+
 </html>
+

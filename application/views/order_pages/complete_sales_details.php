@@ -193,7 +193,7 @@
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
-                            <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
+                            <a href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
 
                         <li>
@@ -256,7 +256,7 @@
             </ul>
             <ul class="sidebar-menu">
                 <li class="sub">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
                 <li class="">
@@ -318,30 +318,29 @@
                                             </div>
 
                                             <div class="" style="padding: 15px; font-size: small; background-color: whitesmoke">
-                                                <a href="<?php echo base_url()?>index.php/Direct/salesCustomerDetails">
-                                                    <button style="margin-top: 5px; text-align: left" title="view new order requests" type="button" class="btn btn-default btn-block">
-                                                        <img src="<?php echo base_url()?>/Images/systemImages/new.gif"> New Orders <strong><i class="badge badge-warning" style="float: right"> 21 </i></strong></button>
-                                                </a>
+                                                <ol style="list-style: disc">
+                                                    <li style="padding: 5px">
+                                                        <a href="<?php echo base_url()?>index.php/Products/viewEnterpriseOrders?ent=<?php echo $_SESSION['enterprise']?>" style="margin: 5px;">New Orders<span> (<?php foreach ($countNewOrders as $store) echo $store['total']?>) </span></a>
 
-                                                <a href="<?php echo base_url()?>index.php/Direct/salesCustomerDetails">
-                                                    <button style="margin-top: 5px; text-align: left" title="view new order requests" type="button" class="btn btn-default btn-block">
-                                                        <i class="fa fa-shopping-cart"></i> Pending Orders<i class="badge" style="float: right"> 2 </i> </button>
-                                                </a>
-                                                <a href="<?php echo base_url()?>index.php/Direct/salesCustomerDetails">
-                                                    <button style="margin-top: 5px; text-align: left" title="view new order requests" type="button" class="btn btn-default btn-block">
-                                                        <i class="fa fa-shopping-cart"></i> Processed Orders<i class="badge" style="float: right"> 23 </i> </button>
-                                                </a>
+                                                    </li>
+                                                    <li style="padding: 5px">
+                                                        <a href="<?php echo base_url()?>index.php/Products/storeOrdersProcessed?ent=<?php echo $_SESSION['enterprise']?>" style="margin: 5px;">Processed Orders<span> (<?php foreach ($countProcessedOrders as $store) echo $store['total']?>) </span></a>
 
-                                                <a href="<?php echo base_url()?>index.php/Products/CompleteSales" style="text-align: ">
-                                                    <button style="margin-top: 5px; text-align: left" title="view new order requests" type="button" class="btn btn-success btn-block">
-                                                        <i class="fa fa-shopping-cart"></i> Complete sales <i class="badge badge-warning" style="float: right">21 </i></button>
-                                                </a>
+                                                    </li>
+                                                    <li style="padding: 5px; border-radius: 4px">
+                                                        <a href="<?php echo base_url()?>index.php/Products/storeOrdersComplete?ent=<?php echo $_SESSION['enterprise']?>" style="margin: 5px;">Complete Orders<span> (<?php foreach ($countCompleteOrders as $store) echo $store['total']?>) </span></a>
 
-                                                <a href="<?php echo base_url()?>index.php/Direct/salesCustomerDetails">
-                                                    <button style="margin-top: 5px; text-align: left" title="view new order requests" type="button" class="btn btn btn-block">
-                                                        <i class="fa fa-shopping-cart"></i> Rejected order <i class="badge" style="float: right"> 9 </i></button>
-                                                </a>
+                                                    </li>
+                                                    <li style="padding: 5px; background-color: chocolate; border-radius: 4px; color: white">
+                                                        <a href="<?php echo base_url()?>index.php/Products/storeOrdersComplete?ent=<?php echo $_SESSION['enterprise']?>" style="margin: 5px; color: white">Complete Sales<span></span></a>
 
+                                                    </li>
+                                                    <li style="padding: 5px">
+                                                        <a href="<?php echo base_url()?>index.php/Products/storeOrdersRejected?ent=<?php echo $_SESSION['enterprise']?>" style="margin: 5px;">Rejected Orders<span> (<?php foreach ($countRejectedOrders as $store) echo $store['total']?>) </span></a>
+
+                                                    </li>
+
+                                                </ol>
                                             </div>
                                         </div>
                                         <div class="col-sm-8" style="border: 1px solid #BDBDBD">
@@ -395,7 +394,7 @@
 
                                             <div class="" align="right" style="padding: 5px">
                                                 <a href="<?php echo base_url()?>index.php/Products/orderReport?ord=<?php echo $_SESSION['order']?>">
-                                                    <button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print"></i> Print Summary</button> </a>
+                                                    <button type="button" disabled="" class="btn btn-warning btn-xs"><i class="fa fa-print"></i> Print Summary</button> </a>
                                             </div>
                                         </div>
                                     </div>

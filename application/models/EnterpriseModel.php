@@ -134,12 +134,20 @@
      {
          $this->db->select('*, COUNT(order_id) as total');
          $this->db->from('ms_orders');
-         $this->db->join('user-registration', 'ms_orders.order_id = user-registration.user_id');
          $this->db->join('enterprises', 'ms_orders.enterprise_id = enterprises.enterprise_id');
          $this->db->where(array('ms_orders.user_id' => $_SESSION['user_id'], 'ms_orders.order_status' => 0));
          $NewOrders = $this->db->get();
          $NewOrders = $NewOrders->result_array();
          return $NewOrders;
+     }
+     public function countDirectOrders()
+     {
+         $this->db->select('*, COUNT(direct_order_id) as total');
+         $this->db->from('ms_direct_orders');
+         $this->db->where(array('ms_direct_orders.user_id' => $_SESSION['user_id'], 'status' => 0));
+         $singleOrder = $this->db->get();
+         $singleOrder = $singleOrder->result_array();
+         return $singleOrder;
      }
      public function customerOrdersComplete()
      {
@@ -154,7 +162,6 @@
      public function countCompleteOrders(){
          $this->db->select('*, COUNT(order_id) as total');
          $this->db->from('ms_orders');
-         $this->db->join('user-registration', 'ms_orders.order_id = user-registration.user_id');
          $this->db->join('enterprises', 'ms_orders.enterprise_id = enterprises.enterprise_id');
          $this->db->where(array(
              'ms_orders.user_id' => $_SESSION['user_id'],
@@ -178,7 +185,6 @@
      {
          $this->db->select('*, COUNT(order_id) as total');
          $this->db->from('ms_orders');
-         $this->db->join('user-registration', 'ms_orders.order_id = user-registration.user_id');
          $this->db->join('enterprises', 'ms_orders.enterprise_id = enterprises.enterprise_id');
          $this->db->where(array(
              'ms_orders.user_id' => $_SESSION['user_id'],
@@ -202,7 +208,6 @@
      {
          $this->db->select('*, COUNT(order_id) as total');
          $this->db->from('ms_orders');
-         $this->db->join('user-registration', 'ms_orders.order_id = user-registration.user_id');
          $this->db->join('enterprises', 'ms_orders.enterprise_id = enterprises.enterprise_id');
          $this->db->where(array(
              'ms_orders.user_id' => $_SESSION['user_id'],
@@ -280,8 +285,8 @@
      {
          $this->db->select('*');
          $this->db->from('ms_orders');
-         $this->db->join('user-registration', 'ms_orders.user_id = user-registration.user_id');
          $this->db->join('enterprises', 'ms_orders.enterprise_id = enterprises.enterprise_id');
+         $this->db->join('user-registration', 'ms_orders.user_id = user-registration.user_id');
          $this->db->where(array(
              'ms_orders.enterprise_id' => $_SESSION['enterprise'],
              'ms_orders.order_status' => 3));
@@ -293,10 +298,22 @@
      {
          $this->db->select('*, COUNT(order_id) as total');
          $this->db->from('ms_orders');
-         $this->db->join('user-registration', 'ms_orders.order_id = user-registration.user_id');
          $this->db->join('enterprises', 'ms_orders.enterprise_id = enterprises.enterprise_id');
          $this->db->where(array(
              'ms_orders.enterprise_id' => $_SESSION['enterprise'],
+             'ms_orders.order_status' => 0,
+         ));
+         $orders = $this->db->get();
+         $orders = $orders->result_array();
+         return $orders;
+     }
+     public function countStoreOrdersDefault()
+     {
+         $this->db->select('*, COUNT(order_id) as total');
+         $this->db->from('ms_orders');
+         $this->db->join('enterprises', 'ms_orders.enterprise_id = enterprises.enterprise_id');
+         $this->db->where(array(
+             'ms_orders.user_id' => $_SESSION['user_id'],
              'ms_orders.order_status' => 0,
          ));
          $orders = $this->db->get();
@@ -307,7 +324,6 @@
      {
          $this->db->select('*, COUNT(order_id) as total');
          $this->db->from('ms_orders');
-         $this->db->join('user-registration', 'ms_orders.order_id = user-registration.user_id');
          $this->db->join('enterprises', 'ms_orders.enterprise_id = enterprises.enterprise_id');
          $this->db->where(array(
              'ms_orders.enterprise_id' => $_SESSION['enterprise'],
@@ -321,7 +337,6 @@
      {
          $this->db->select('*, COUNT(order_id) as total');
          $this->db->from('ms_orders');
-         $this->db->join('user-registration', 'ms_orders.order_id = user-registration.user_id');
          $this->db->join('enterprises', 'ms_orders.enterprise_id = enterprises.enterprise_id');
          $this->db->where(array(
              'ms_orders.enterprise_id' => $_SESSION['enterprise'],
@@ -335,7 +350,6 @@
      {
          $this->db->select('*, COUNT(order_id) as total');
          $this->db->from('ms_orders');
-         $this->db->join('user-registration', 'ms_orders.order_id = user-registration.user_id');
          $this->db->join('enterprises', 'ms_orders.enterprise_id = enterprises.enterprise_id');
          $this->db->where(array(
              'ms_orders.enterprise_id' => $_SESSION['enterprise'],
@@ -349,7 +363,6 @@
      {
          $this->db->select('*, COUNT(order_id) as total');
          $this->db->from('ms_orders');
-         $this->db->join('user-registration', 'ms_orders.order_id = user-registration.user_id');
          $this->db->join('enterprises', 'ms_orders.enterprise_id = enterprises.enterprise_id');
          $this->db->where(array(
              'ms_orders.enterprise_id' => $_SESSION['enterprise'],
@@ -573,94 +586,95 @@
      }
 
      //index search function
-     public function IndexSearchOne($inputs)
+     public function IndexSearchOne($user_input, $location ,$category)
      {
-         $this->db->select('*');
-         $this->db->from('ms_products');
-         $this->db->join('enterprises', 'ms_products.enterprise_id = enterprises.enterprise_id');
-         $this->db->like(array(
-             'ms_products.ProductName'=> $inputs['user_input'],
-         ));
-         $result = $this->db->get();
-         return $result;
-     }
-     public function IndexSearchTwo($inputs)
-     {
-         $product = $_POST['ProductName'];
-         $location = $_POST['location'];
-
-         $this->db->select('*');
-         $this->db->from('ms_products');
-         $this->db->join('enterprises', 'ms_products.enterprise_id = enterprises.enterprise_id');
-         $this->db->like(array(
-             'ms_products.ProductName'=> $product,
-             'enterprises.location'=> $location,
-         ));
-         $result = $this->db->get();
-         return $result;
-     }
-     public function IndexSearchThree($inputs)
-     {
-         $product= $_POST['ProductName'];
-         $category = $_POST['category'];
-         $location = $_POST['location'];
-
-         $this->db->select('*');
-         $this->db->from('ms_products');
-         $this->db->join('enterprises', 'ms_products.enterprise_id = enterprises.enterprise_id');
-         $this->db->like(array(
-             'ms_products.ProductName'=> $product,
-             'enterprises.location'=> $location,
-             'enterprises.category'=> $category,
-         ));
-         $result = $this->db->get();
-         return $result;
-     }
-     public function EnterpriseSearchOne($inputs)
-     {
-         $category = $_POST['category'];
-         $location = $_POST['location'];
-
          $this->db->select('*');
          $this->db->from('enterprises');
          $this->db->join('ms_products', 'ms_products.enterprise_id = enterprises.enterprise_id');
-         $this->db->like(array(
-             'enterprises.location'=> $location,
-             'enterprises.category'=> $category,
-         ));
-         $result = $this->db->get();
-         return $result;
+//         $this->db->order_by('enterprise_orders');
+         if (!empty($user_input) AND !empty($location) AND !empty($category)){
+             $this->db->like('ms_products.ProductName', $user_input);
+             $this->db->where(array('enterprises.location'=> $location, 'enterprises.category' => $category, 'enterprises.enterprise_status' => 1));
+             $this->db->or_like('ms_products.product_details', $user_input);
+             $this->db->where(array('enterprises.location'=> $location, 'enterprises.category' => $category, 'enterprises.enterprise_status' => 1));
+             $result = $this->db->get();
+             return $result;
+         }elseif (empty($user_input) AND empty($location) AND empty($category)){
+             $this->db->like('ms_products.ProductName', $user_input);
+             $this->db->where(array('enterprises.category' => $category, 'enterprises.enterprise_status' => 1));
+             $this->db->or_like('ms_products.product_details', $user_input);
+             $this->db->where(array('enterprises.category' => $category, 'enterprises.enterprise_status' => 1));
+             $result = $this->db->get();
+             return $result;
+         }elseif (!empty($user_input) AND!empty($category)  AND empty($location)) {
+             $this->db->like('ms_products.ProductName', $user_input);
+             $this->db->where(array('enterprises.category' => $category, 'enterprises.enterprise_status' => 1));
+             $this->db->or_like('ms_products.product_details', $user_input);
+             $this->db->where(array('enterprises.category' => $category, 'enterprises.enterprise_status' => 1));
+             $result = $this->db->get();
+             return $result;
+         }
      }
-     public function EnterpriseSearchTwo($inputs)
-     {
-         $category = $_POST['category'];
-         $location = $_POST['location'];
 
+     public function EnterpriseSearchOne($user_input, $location ,$category)
+     {
          $this->db->select('*');
          $this->db->from('enterprises');
-         $this->db->join('ms_products', 'ms_products.enterprise_id = enterprises.enterprise_id');
-         $this->db->like(array(
-             'enterprises.location'=> $location,
-             'enterprises.category'=> $category,
-         ));
-         $result = $this->db->get();
-         return $result;
-     }
-     public function EnterpriseSearchThree($inputs)
-     {
-         $category = $_POST['category'];
-         $location = $_POST['location'];
+         $this->db->order_by('enterprise_orders');
+         if (!empty($location) AND empty($category)){
+             $this->db->like(array(
+                 'enterprises.name'=> $user_input,
+             ));
+             $this->db->where(array('enterprises.location'=> $location, 'enterprises.enterprise_status' => 1));
+             $this->db->or_like(array(
+                 'enterprises.description' => $user_input,
+                 'enterprises.name' => $user_input,
+             ));
+             $this->db->where(array('enterprises.location'=> $location,  'enterprises.enterprise_status' => 1));
+             $result = $this->db->get();
+             return $result;
+         }elseif (!empty($location) AND !empty($category)){
+             $this->db->like(array(
+                 'enterprises.name'=> $user_input,
+             ));
+             $this->db->where(array('enterprises.location'=> $location, 'enterprises.category' => $category, 'enterprises.enterprise_status' => 1));
+             $this->db->or_like(array(
+                 'enterprises.description' => $user_input,
+                 'enterprises.name' => $user_input,
+             ));
+             $this->db->where(array('enterprises.location'=> $location,  'enterprises.category' => $category, 'enterprises.enterprise_status' => 1));
+             $result = $this->db->get();
+             return $result;
 
-         $this->db->select('*');
-         $this->db->from('enterprises');
-         $this->db->join('ms_products', 'ms_products.enterprise_id = enterprises.enterprise_id');
-         $this->db->like(array(
-             'enterprises.location'=> $location,
-             'enterprises.category'=> $category,
-         ));
-         $result = $this->db->get();
-         return $result;
+         }elseif(empty($location) AND empty($category)){
+             $this->db->like(array(
+                 'enterprises.name'=> $user_input,
+             ));
+             $this->db->where(array( 'enterprises.enterprise_status' => 1));
+             $this->db->or_like(array(
+                 'enterprises.description' => $user_input,
+                 'enterprises.name' => $user_input,
+             ));
+             $this->db->where(array('enterprises.enterprise_status' => 1));
+             $result = $this->db->get();
+             return $result;
+         }elseif (empty($location) AND !empty($category) AND empty($user_input)){
+             $this->db->like(array(
+                 'enterprises.name'=> $user_input,
+             ));
+             $this->db->where(array( 'enterprises.enterprise_status' => 1));
+             $this->db->or_like(array(
+                 'enterprises.description' => $user_input,
+                 'enterprises.name' => $user_input,
+             ));
+             $this->db->where(array('enterprises.enterprise_status' => 1));
+             $result = $this->db->get();
+             return $result;
+         }
+         return false;
+
      }
+
      public function defaultSearch()
      {
          $this->db->select('*');
@@ -709,6 +723,16 @@
          $this->db->where(array('sales_id' => $_SESSION['sale']));
          $this->db->update('ms_sales', $data);
      }
+     public function updateCatalogue()
+     {
+         $this->db->select('*');
+         $data = array(
+             'quantity' => 'quantity' - $_SESSION['quantity'],
+         );
+         $this->db->set($data, FALSE);
+         $this->db->where(array('product_id' => $_SESSION['product']));
+         $this->db->update('ms_product', $data);
+     }
 
      public function ViewDailyReports()
      {
@@ -722,13 +746,13 @@
                  'ms_sales.enterprise_id' => $_SESSION['enterprise'],
                  'ms_sales.user_id' => $_SESSION['user_id'],
                  'ms_sales.sales_status' => 1,
-//                 'sales_date' => date('Y-m-d'),
+                 'date(sales_date)' => date('Y-m-d'),
                  ));
          $this->db->order_by('ms_sales.sales_date', 'desc');
          $dailyReport = $this->db->get();
          return $dailyReport;
      }
-     public function ViewProductsOrdered($date)
+     public function ViewProductsOrdered()
      {
          $this->db->select('*, SUM(cart_quantity) as total');
          $this->db->from('ms_shoppingcart');
@@ -736,15 +760,14 @@
          $this->db->join('ms_orders', 'ms_orders.order_id = ms_shoppingcart.order_id');
          $this->db->where(array(
              'ms_orders.enterprise_id' => $_SESSION['enterprise'],
-//             'ms_orders.order_date' == $date,
-         )
-         );
+             'date(order_date)' => date('Y-m-d'),
+         ));
          $this->db->group_by('ms_shoppingcart.product_id');
          $ProductsOrdered = $this->db->get();
          $result = $ProductsOrdered->result_array();
          return $result;
      }
-     public function ViewSoldProducts($date)
+     public function ViewSoldProducts()
      {
          $this->db->select('*, SUM(cart_quantity) as total');
          $this->db->from('ms_sales_cart');
@@ -753,11 +776,108 @@
          $this->db->where(array(
              'ms_sales.enterprise_id' => $_SESSION['enterprise'],
              'ms_sales.sales_status' => 1,
-//             'ms_sales.sales_date' ==  $date,
+             'date(sales_date)' => date('Y-m-d'),
          ));
          $this->db->group_by('ms_sales_cart.product_id');
          $soldProducts = $this->db->get();
          $result = $soldProducts->result_array();
+         return $result;
+     }
+     public function monthlyReports()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_sales');
+         $this->db->join('enterprises', 'enterprises.enterprise_id = ms_sales.enterprise_id');
+         $this->db->where(
+             array(
+                 'ms_sales.enterprise_id' => $_SESSION['enterprise'],
+                 'ms_sales.user_id' => $_SESSION['user_id'],
+                 'ms_sales.sales_status' => 1,
+                 'month(sales_date)' => date('m'),
+             ));
+         $this->db->order_by('ms_sales.sales_date', 'desc');
+         $monthlyReport = $this->db->get();
+         return $monthlyReport;
+     }
+     public function monthlySoldProducts()
+     {
+         $this->db->select('*, SUM(cart_quantity) as total');
+         $this->db->from('ms_sales_cart');
+         $this->db->join('ms_products', 'ms_products.product_id = ms_sales_cart.product_id');
+         $this->db->join('ms_sales', 'ms_sales.sales_id = ms_sales_cart.sales_id');
+         $this->db->where(array(
+             'ms_sales.enterprise_id' => $_SESSION['enterprise'],
+             'ms_sales.sales_status' => 1,
+             'month(sales_date)' => date('m'),
+         ));
+         $this->db->group_by('ms_sales_cart.product_id');
+         $soldProducts = $this->db->get();
+         $result = $soldProducts->result_array();
+         return $result;
+     }
+     public function monthlyProductsOrdered()
+     {
+         $this->db->select('*, SUM(cart_quantity) as total');
+         $this->db->from('ms_shoppingcart');
+         $this->db->join('ms_products', 'ms_products.product_id = ms_shoppingcart.product_id');
+         $this->db->join('ms_orders', 'ms_orders.order_id = ms_shoppingcart.order_id');
+         $this->db->where(array(
+             'ms_orders.enterprise_id' => $_SESSION['enterprise'],
+             'month(order_date)' => date('m'),
+         ));
+         $this->db->group_by('ms_shoppingcart.product_id');
+         $ProductsOrdered = $this->db->get();
+         $result = $ProductsOrdered->result_array();
+         return $result;
+     }
+     public function customReports()
+     {
+         $this->db->select('*');
+         $this->db->from('ms_sales');
+         $this->db->join('enterprises', 'enterprises.enterprise_id = ms_sales.enterprise_id');
+         $this->db->where(
+             array(
+                 'ms_sales.enterprise_id' => $_SESSION['enterprise'],
+                 'ms_sales.user_id' => $_SESSION['user_id'],
+                 'ms_sales.sales_status' => 1,
+                 'month(sales_date)' =>  $_SESSION['month'],
+                 'year(sales_date)' =>  $_SESSION['year'],
+             ));
+         $this->db->order_by('ms_sales.sales_date', 'desc');
+         $monthlyReport = $this->db->get();
+         return $monthlyReport;
+     }
+     public function customSoldProducts()
+     {
+         $this->db->select('*, SUM(cart_quantity) as total');
+         $this->db->from('ms_sales_cart');
+         $this->db->join('ms_products', 'ms_products.product_id = ms_sales_cart.product_id');
+         $this->db->join('ms_sales', 'ms_sales.sales_id = ms_sales_cart.sales_id');
+         $this->db->where(array(
+             'ms_sales.enterprise_id' => $_SESSION['enterprise'],
+             'ms_sales.sales_status' => 1,
+             'month(sales_date)' =>  $_SESSION['month'],
+             'year(sales_date)' =>  $_SESSION['year'],
+         ));
+         $this->db->group_by('ms_sales_cart.product_id');
+         $soldProducts = $this->db->get();
+         $result = $soldProducts->result_array();
+         return $result;
+     }
+     public function customProductsOrdered()
+     {
+         $this->db->select('*, SUM(cart_quantity) as total');
+         $this->db->from('ms_shoppingcart');
+         $this->db->join('ms_products', 'ms_products.product_id = ms_shoppingcart.product_id');
+         $this->db->join('ms_orders', 'ms_orders.order_id = ms_shoppingcart.order_id');
+         $this->db->where(array(
+             'ms_orders.enterprise_id' => $_SESSION['enterprise'],
+             'month(order_date)' =>  $_SESSION['month'],
+             'year(order_date)' =>  $_SESSION['year'],
+         ));
+         $this->db->group_by('ms_shoppingcart.product_id');
+         $ProductsOrdered = $this->db->get();
+         $result = $ProductsOrdered->result_array();
          return $result;
      }
      public function directOrders()
@@ -771,6 +891,30 @@
          $this->db->order_by('ms_direct_orders.order_date', 'desc');
          $singleOrder = $this->db->get();
          return $singleOrder;
+     }
+     public function rejectOrders()
+     {
+         $this->db->select('*');
+         $data = array('order_status' => 3);
+         $this->db->set($data);
+         $this->db->where(array('order_id' => $_SESSION['order']));
+         $this->db->update('ms_orders', $data);
+     }
+     public function EditProfile()
+     {
+         $this->db->select('*');
+         $data = array(
+             'full_name' => $_POST['name'],
+             'username' => $_POST['username'],
+             'email' => $_POST['email'],
+             'phone' => $_POST['phone'],
+             'pass1' => md5($_POST['pass1']),
+             'pass2' => md5($_POST['pass1']),
+             'date_modified' => date('Y-m-d H:i:s'),
+         );
+         $this->db->set($data);
+         $this->db->where(array('user_id' => $_SESSION['user_id']));
+         $this->db->update('user-registration', $data);
      }
 
  }

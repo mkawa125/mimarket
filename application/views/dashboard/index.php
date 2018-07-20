@@ -127,7 +127,7 @@
                         <div class="col-sm-12 input-group">
                         <span class="input-group-addon">
                         <select class="" id="location"  name="location" style="font-size: small; padding: 3px">
-                        <option value="Arusha" selected>All regions</option>
+                        <option value="" selected>All regions</option>
                         <option value="Arusha">Arusha</option>
                         <option value="Dar es salaam">Dar es salaam</option>
                         <option value="dodoma">Dodoma</option>
@@ -150,7 +150,7 @@
                         <option value="pwani">Pwani</option>
                         <option value="rukwa">Rukwa</option>
                         <option value="ruvuma">Ruvuma</option>
-                        <option value="">Shinyanga</option>
+                        <option value="shinyanga">Shinyanga</option>
                         <option value="simiyu">Simiyu</option>
                         <option value="singida">Singida</option>
                         <option value="tabora">Tabora</option>

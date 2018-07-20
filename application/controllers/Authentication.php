@@ -91,7 +91,7 @@ class Authentication extends CI_Controller
 
             } else {
                 $this->session->set_flashdata('error_msg', 'Either password or email is incorrect');
-                redirect("Direct/login");
+                redirect("Authentication/userLogin");
             }
         }
 

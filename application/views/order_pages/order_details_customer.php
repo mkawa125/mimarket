@@ -217,7 +217,7 @@
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
-                            <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
+                            <a href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
 
                         <li>
@@ -280,7 +280,7 @@
             </ul>
             <ul class="sidebar-menu">
                 <li class="sub">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
                 <li class="">
@@ -375,21 +375,15 @@
 
                                                 if (isset($cartProduct)){
                                                     $total_cost = 0;
-                                                    if ($cartProduct->order_status = 0){
-                                                        $status = "Pending";
-                                                    }else{
-                                                        $status =  "Processed";
-                                                    }
                                                     ?>
                                                     <div class="col-sm-7"> <h5 style="text-align: center; font-size: small">Order processing summary </h5></div>
-                                                    <div class="col-sm-5"><h5><strong>Status:</strong><span> <?php echo $status?></span></h5></div>
+                                                    <div class="col-sm-5"><h5><strong>Status:</strong><span></span></h5></div>
                                                     <table class="table-bordered table table-stripped" style="font-size: smaller">
                                                         <tr style="background-color: whitesmoke; color: white">
                                                             <th>Name</th>
                                                             <th>Quantity</th>
                                                             <th>Price</th>
                                                             <th>Total</th>
-                                                            <th>Remove</th>
                                                         </tr>
                                                         <tbody>
 
@@ -402,10 +396,6 @@
                                                                 <td><?php echo $cart->cart_quantity?></td>
                                                                 <td><?php echo $cart->product_price?></td>
                                                                 <td><?php echo number_format($total,2)?></td>
-                                                                <td>
-                                                                    <?php ?>
-                                                                    <a href="<?php echo base_url()?>index.php/Products/removeCart?prod=<?php echo $cart->product_id; ?>">
-                                                                        <button type="button" class="btn btn-danger btn-xs">Remove</button> </a></td>
                                                             </tr>
                                                         <?php } ?>
                                                         <tr>

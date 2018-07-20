@@ -217,7 +217,7 @@
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
-                            <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
+                            <a href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
 
                         <li>
@@ -240,7 +240,7 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" style="margin-top: 63px">
 
-                <li class="active">
+                <li >
                     <a class="" href="<?php echo base_url()?>index.php/Products/DefaultProducts"><i class="icon_house_alt"></i> <span>Home</span></a>
                 </li>
 
@@ -266,7 +266,7 @@
 <!--                    </ul>-->
 <!--                </li>-->
 
-                <li class="sub-menu">
+                <li class="sub-menu active">
                     <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
                         <span>Orders</span>
                     </a>
@@ -280,7 +280,7 @@
             </ul>
             <ul class="sidebar-menu">
                 <li class="sub">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
                 <li class="">
@@ -321,19 +321,6 @@
                             ?>
                             <div class="row items" style="margin-top: 5px">
                                 <div class="col-sm-12" style="margin-top: 10px">
-<!--                                    <div class="row" style="margin: 5px; border: 1px solid #BDBDBD">-->
-<!--                                        <div class="col-sm-6">-->
-<!--                                            <h5 style="text-transform: uppercase; color: red; text-align: center; font-size: smaller">-->
-<!--                                                <strong>ORDER REQUESTS</strong>-->
-<!--                                            </h5>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-sm-6" style="background-color: whitesmoke; border-left: 1px solid #BDBDBD">-->
-<!--                                            <h5 style="text-transform: uppercase; color:; text-align: center">-->
-<!--                                                <strong>--><?php //echo $_SESSION['full_name']?><!--</strong>-->
-<!--                                            </h5>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-
                                     <div class="row" style="margin: 5px">
 
                                         <div class="col-sm-3" style=" padding: 0; margin-right: 0; border: 1px solid #BDBDBD; border-radius: 0;">

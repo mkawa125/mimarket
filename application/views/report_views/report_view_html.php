@@ -210,9 +210,8 @@
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
-                            <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
+                            <a href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
-
                         <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
@@ -247,21 +246,9 @@
                     </ul>
                 </li>
 
-                <!--                <li class="sub-menu">-->
-                <!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
-                <!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
-                <!--                    </a>-->
-                <!--                    <ul class="sub">-->
-                <!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
-                <!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
-                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
-                <!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
-                <!--                    </ul>-->
-                <!--                </li>-->
-
                 <li class="sub-menu">
                     <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
-                        <span>Orders <label class="badge">74</label></span>
+                        <span>Orders</span>
                     </a>
                 </li>
 
@@ -273,7 +260,7 @@
             </ul>
             <ul class="sidebar-menu">
                 <li class="sub">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
                 <li class="">
@@ -372,12 +359,13 @@
                                                 <tbody>
 
                                                 <?php foreach ($dailyReport->result() as $report){
+                                                    $date = strtotime($report->sales_date);
                                                     $total = ($report->product_price) * ($report->cart_quantity);
                                                     $total_cost = $total_cost + ( ($report->product_price) * ($report->cart_quantity));
                                                     ?>
                                                     <tr>
                                                         <td><?php echo $report->sales_id?></td>
-                                                        <td><?php echo $report->sales_date?></td>
+                                                        <td><?php echo date('M d, Y', $date)?></td>
                                                         <td><?php echo $report->ProductName?></td>
                                                         <td><?php echo $report->cart_quantity?></td>
                                                         <td><?php echo number_format($report->product_price, 2)?></td>

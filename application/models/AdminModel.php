@@ -203,7 +203,6 @@ class AdminModel extends CI_Model{
     {
         $this->db->select('*');
         $this->db->from('user-registration');
-        $this->db->join('enterprises', 'enterprises.user_id = user-registration.user_id');
         $customer = $this->db->get();
         $customer = $customer->result_array();
         return $customer;

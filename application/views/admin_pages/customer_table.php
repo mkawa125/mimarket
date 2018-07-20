@@ -335,7 +335,7 @@
                                                 <td><?php echo $row['username']; ?></td>
                                                 <td><?php echo $row['phone']; ?></td>
                                                 <td><?php echo $row['email']; ?></td>
-                                                <td><?php echo $row['location']; ?></td>
+                                                <td><?php echo $row['user_location']; ?></td>
                                                 <td>
                                                     <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal<?php echo $row['user_id']; ?>"><i class="fa fa-trash"></i></button>
                                                     <a href="<?php echo base_url()?>index.php/Admin/getCustomerDetails?u=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-primary btn-xs">View</button></a>

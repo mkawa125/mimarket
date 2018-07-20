@@ -160,13 +160,39 @@
         </div>
 
 
-        <div class="top-nav notification-row" >
-            <ul>
+        <div class="top-nav notification-row">
+            <!--             notificatoin dropdown start-->
+            <ul class="nav pull-right top-menu">
+
+                <!--                 task notificatoin start -->
+                <li id="task_notificatoin_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="icon-task-l"></i>
+                        <span class="badge bg-important"> <?php foreach ($countNewOrders as $store) echo $store['total']?> </span>
+                    </a>
+                    <ul class="dropdown-menu extended tasks-bar">
+                        <li>
+                            <p class="blue">New Orders</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">New orders</div>
+                                </div>
+                                <div class="">
+                                    <p class="">You have 8 new orders</p>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="external">
+                            <p href="<?php echo base_url()?>index.php/Admin/getNewStoreDetails">navigate to companies</p>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="<?php echo base_url()?>nice/img/zai.jpg" width="40" >
-                            </span>
                         <span class="username"><?php echo $_SESSION['username']?></span>
                         <b class="caret"></b>
                     </a>
@@ -174,10 +200,10 @@
                         <li class="eborder-top">
                             <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
+
                         <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
                         </li>
-
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
@@ -189,10 +215,10 @@
     <!--header end-->
 
     <!--sidebar start-->
-    <aside>
-        <div id="sidebar" class="nav-collapse ">
+    <aside >
+        <div id="sidebar" class="nav-collapse " >
             <!-- sidebar menu start-->
-            <ul class="sidebar-menu" style="margin-top: 63px">
+            <ul class="sidebar-menu" style="margin-top: 60px">
 
                 <li class="active">
                     <a class="" href="<?php echo base_url()?>index.php/Products/DefaultProducts"><i class="icon_house_alt"></i> <span>Home</span></a>
@@ -208,17 +234,6 @@
                     </ul>
                 </li>
 
-<!--                <li class="sub-menu">-->
-<!--                    <a href="javascript:" class=""><i class="fa fa-envelope" aria-hidden="true"></i>-->
-<!--                        <span>Messages</span><span class="menu-arrow arrow_carrot-right"></span>-->
-<!--                    </a>-->
-<!--                    <ul class="sub">-->
-<!--                        <li><a class="" href="--><?php //echo base_url()?><!--index.php/messages/validate"><i class="fa fa-envelope"></i>Send message</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-exchange"></i>Conversations</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-arrow-right"></i>Incoming</a></li>-->
-<!--                        <li><a class="" href="#"><i class="fa fa-arrow-left"></i>Sent messages</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
 
                 <li class="sub-menu">
                     <a href="<?php echo base_url()?>index.php/Products/viewOrders" class=""><i class="fa fa-shopping-cart"></i>
@@ -226,15 +241,10 @@
                     </a>
                 </li>
 
-                <li class="sub-menu">
-                    <a href="<?php echo base_url()?>index.php/Products/storeOrderReport?u=<?php echo $_SESSION['user_id']?>" class=""><i class="fa fa-bar-chart" aria-hidden="true"></i>
-                        <span>Statistics</span>
-                    </a>
-                </li>
             </ul>
             <ul class="sidebar-menu">
                 <li class="sub">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
                 <li class="">

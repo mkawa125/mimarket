@@ -187,49 +187,116 @@ Class Admin extends CI_Controller {
     {
         if ($this->session->userdata('admin_logged')){
             $this->load->model('AdminModel');
+            $data['singleStoreDetails'] = $this->AdminModel->getSingleStoreDetails();
             $data['verify'] = $this->AdminModel->verifyStore();
-            redirect('Admin/getVerifiedStoreDetails');
+            $this->load->library('email');
+            $this->email->from('dahabusaidi@gmail.com', 'Mimarket'); // change it to yours
+            $this->email->to('dahabusaidi@gmail.com');// change it to yours
+            $this->email->subject('Store Verification');
+            $message = '<div class="col-sm-8" style="border: 1px solid #D5D8DC; padding: 15px"> 
+                        <h4 style="background: darkslategrey; color: white; padding: 10px">Mimarket store verification</h4>
+                        <label>Dear <strong style="text-transform: uppercase">: '. $data['singleStoreDetails']->full_name .'</strong></label><br>
+                        <p>Your store registration has been completely, now you can enjoy to promote your products via mimarket online marketing system to more than 2.5K customers in tanzania 
+                        </p>
+                        <p>for more information please contact us on</p><br>
+                        <label><strong>phone: </strong> 0717-495-198</label><br>
+                        <label><strong>Email: </strong> dahabusaidi@gmail.com</label><br>
+                        
+                        </div>';
+            $this->email->message($message);
+            $this->email->set_newline("\r\n");
+            //Send mail
+            if ($this->email->send()) {
+                $this->session->set_flashdata("email_sent", "store has been successfully verified and email sent to store owner.");
+                redirect('Admin/getVerifiedStoreDetails');
+
+            } else{
+                $this->session->set_flashdata("email_not_sent", "A store has been suspended but email not sent to user.");
+            }   redirect('Admin/getVerifiedStoreDetails');
         }
     }
     public function denyRegistration()
     {
         if ($this->session->userdata('admin_logged')){
             $this->load->model('AdminModel');
+            $data['singleStoreDetails'] = $this->AdminModel->getSingleStoreDetails();
             $data['verify'] = $this->AdminModel->denyRegistration();
-            redirect('Admin/getDeniedStores');
+            $this->load->library('email');
+            $this->email->from('dahabusaidi@gmail.com', 'Mimarket'); // change it to yours
+            $this->email->to('dahabusaidi@gmail.com');// change it to yours
+            $this->email->subject('Store registration details');
+            $message = '<div class="col-sm-8" style="border: 1px solid #D5D8DC; padding: 15px"> 
+                        <h4 style="background: red; color: white; padding: 10px">Mimarket store denying of '. $data['singleStoreDetails']->name .' registration</h4>
+                        <label>Dear <strong style="text-transform: uppercase">: '. $data['singleStoreDetails']->full_name .'</strong></label><br>
+                        <p>This is to notify that the registration of '. $data['singleStoreDetails']->name .' has been Denied, This is because your documents are not enough to satisfy us to register your store
+                        </p>
+                        <p>for more information please contact us on</p><br>
+                        <label><strong>phone: </strong> 0717-495-198</label><br>
+                        <label><strong>Email: </strong> dahabusaidi@gmail.com</label><br>
+                        
+                        </div>';
+            $this->email->message($message);
+            $this->email->set_newline("\r\n");
+            //Send mail
+            if ($this->email->send()) {
+                $this->session->set_flashdata("email_sent", "store registration has successfully denied.");
+                redirect('Admin/getDeniedStores');
+
+            } else{
+                $this->session->set_flashdata("email_not_sent", "A store has been suspended but email not sent to user.");
+            }   redirect('Admin/getDeniedStores');
         }
     }
     public function suspendStore()
     {
         if ($this->session->userdata('admin_logged')){
             $this->load->model('AdminModel');
+            $data['singleStoreDetails'] = $this->AdminModel->getSingleStoreDetails();
             $data['suspend'] = $this->AdminModel->suspendStore();
             $this->load->library('email');
-            redirect('Admin/sendSuspensionEmail');
+            $this->email->from('dahabusaidi@gmail.com', 'Mimarket'); // change it to yours
+            $this->email->to($data['singleStoreDetails']->email);// change it to yours
+            $this->email->subject('Store suspension');
+            $message = '<div class="col-sm-8" style="border: 1px solid #D5D8DC; padding: 15px"> 
+                        <h4 style="background: chocolate; color: white; padding: 10px">Mimarket suspension of '. $data['singleStoreDetails']->name .'</h4>
+                        <label>Dear <strong style="text-transform: uppercase">: '. $data['singleStoreDetails']->full_name .'</strong></label><br>
+                        <p>This is to notify that your store '. $data['singleStoreDetails']->name .' has been suspended This is because either because of inability to deliver the orders to customers or absence of products to your store
+                        </p>
+                        <p>for more information please contact us on</p><br>
+                        <label><strong>phone: </strong> 0717-495-198</label><br>
+                        <label><strong>Email: </strong> dahabusaidi@gmail.com</label><br>
+                        
+                        </div>';
+            $this->email->message($message);
+            $this->email->set_newline("\r\n");
+            //Send mail
+            if ($this->email->send()) {
+                $this->session->set_flashdata("email_sent", "store registration has successfully denied.");
+                redirect('Admin/EnterprisesView');
+
+            } else{
+                $this->session->set_flashdata("email_not_sent", "A store has been suspended but email not sent to user.");
+                redirect('Admin/EnterprisesView');
+            }
+
         }
     }
-    public function sendSuspensionEmail()
+    public function unSuspendStore()
     {
+        if ($this->session->userdata('admin_logged')){
+            $this->load->model('AdminModel');
+            $data['suspend'] = $this->AdminModel->unSuspendStore();
+            redirect('Admin/sendUnSuspensionEmail');
+        }
+    }
+    public function sendUnSuspensionEmail(){
         //Load email library
         $this->load->library('email');
-
-        $config = Array(
-            'protocol' => 'smtp',
-            'smtp_host' => 'smtp.googlemail.com',
-            'smtp_port' => 25,
-            'smtp_user' => 'dahabusaidi@gmail.com', // change it to yours
-            'smtp_pass' => 'kakakuona', // change it to yours
-            'mailtype' => 'text',
-            'charset' => 'utf-8',
-            'wordwrap' => TRUE
-        );
-        $this->email->initialize($config);
-        $this->email->from('dahabusaidi@gmail.com', 'mkawa'); // change it to yours
-        $this->email->to('shungupius@gmail.com');// change it to yours
-        $this->email->subject('Resume from JobsBuddy for your Job posting');
-        $this->email->message('Your store has been suspended please contact mimarket staffs for assistance');
+        $this->email->from('dahabusaidi@gmail.com', 'Mimarket'); // change it to yours
+        $this->email->to('dahabusaidi@gmail.com');// change it to yours
+        $this->email->subject('Store Activation');
+        $this->email->message('Your store has been un suspended Now you can manage and promote your products with mimarket');
         $this->email->set_newline("\r\n");
-        $this->email->send();
         //Send mail
         if ($this->email->send()) {
             $this->session->set_flashdata("email_sent", "Store suspended and Email sent successfully.");
@@ -237,14 +304,6 @@ Class Admin extends CI_Controller {
 
         } else{
             $this->session->set_flashdata("email_not_sent", "A store has been suspended but email not sent to user.");
-        }    redirect('Admin/EnterprisesView');
-    }
-    public function unSuspendStore()
-    {
-        if ($this->session->userdata('admin_logged')){
-            $this->load->model('AdminModel');
-            $data['suspend'] = $this->AdminModel->unSuspendStore();
-            redirect('Admin/EnterprisesView');
         }
     }
     public function deleteStore()
@@ -288,11 +347,6 @@ Class Admin extends CI_Controller {
             $data['newStore'] = $this->AdminModel->getNewStore();
             $data['verifiedStore'] = $this->AdminModel->getVerifiedStore();
             $data['suspendedStore'] = $this->AdminModel->getSuspendedStore();
-            $data['singleStoreDetails'] = $this->AdminModel->getSingleStoreDetails();
-            $data['newStoreDetails'] = $this->AdminModel->getNewStoreDetails();
-            $data['verifiedStoreDetails'] = $this->AdminModel->getVerifiedStoreDetails();
-            $data['suspendedStoreDetails'] = $this->AdminModel->getSuspendedStoreDetails();
-            $data['storeProducts'] = $this->AdminModel->getStoreProducts();
             $data['customers'] = $this->AdminModel->getAllCustomers();
             $this->load->view('admin_pages/customer_table', $data);
         }else{
@@ -348,7 +402,7 @@ Class Admin extends CI_Controller {
             redirect('Admin/login');
         }
     }
-    public function DownloadStoreDocument($fileName)
+    public function DownloadStoreDocument()
     {
         $this->load->helper('download');
         $fileName = $_SESSION['file_name'];

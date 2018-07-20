@@ -217,7 +217,7 @@
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li class="eborder-top">
-                            <a href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-user"></i> My Profile</a>
+                            <a href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-user"></i> My Profile</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url()?>index.php/Authentication/logout"><i class="fa fa-power-off"></i> Log Out</a>
@@ -237,8 +237,7 @@
     <aside>
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
-            <ul class="sidebar-menu" style="margin-top: 63px">
-
+            <ul class="sidebar-menu" style="margin-top: 60px">
                 <li class="active">
                     <a class="" href="<?php echo base_url()?>index.php/Products/DefaultProducts"><i class="icon_house_alt"></i> <span>Home</span></a>
                 </li>
@@ -279,7 +278,7 @@
             </ul>
             <ul class="sidebar-menu">
                 <li class="sub">
-                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                    <a class="" href="<?php echo base_url()?>index.php/Direct/UserProfileSetting"><i class="fa fa-cog"></i> <span>Settings</span></a>
                 </li>
 
                 <li class="">
@@ -337,7 +336,7 @@
                                                         <label style="text-transform: uppercase"><?php echo $orderDetails->full_name;?></label><br>
                                                         <label><?php echo $orderDetails->phone;?></label><br>
                                                         <label style="color: cornflowerblue"><?php echo $orderDetails->customer_email;?></label><br>
-                                                        <label><?php echo $orderDetails->location;?></label><br>
+                                                        <label><?php echo $orderDetails->user_location;?></label><br>
 
                                                         <p>
                                                             <?php
@@ -417,6 +416,8 @@
                                                         </tbody>
                                                     </table>
                                                     <div class="" align="right" style="padding: 5px">
+                                                        <a href="<?php echo base_url()?>index.php/Products/rejectOrder?ord=<?php echo $_SESSION['order']?>">
+                                                            <button type="button" class="btn btn-danger btn-xs">Reject</button> </a>
                                                         <a href="<?php echo base_url()?>index.php/Products/orderReport?ord=<?php echo $_SESSION['order']?>">
                                                             <button type="button" class="btn btn-default btn-xs"><i class="fa fa-print"></i>Print</button> </a>
                                                         <a href="<?php echo base_url()?>index.php/Products/orderProcessing?ord=<?php echo $_SESSION['order']?>">

@@ -245,9 +245,9 @@ require 'validation.php';
 
     <section id="main-content">
         <section class="wrapper">
-            <div class="row">
+            <div class="row" style="margin-top: 15px">
                 <div class="col-lg-3">
-                    <h5 class="#"><i class="fa fa-home"></i> Home</h5>
+
                 </div>
                 <div class="col-lg-8">
 
@@ -259,7 +259,8 @@ require 'validation.php';
                         <div class="col-lg-11">
                             <div class="row items" >
                                 <div class="col-md-6 col-md-offset-3">
-                                    <div class="login-panel panel panel-default">
+                                    <label style="text-align: center; margin-top: 20px">Please fill the details correctly to login</label>
+                                    <div class=" panel panel-default">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">Please Sign In</h3>
                                         </div>
@@ -269,7 +270,9 @@ require 'validation.php';
 
                                                     <?php $error_msg = $this->session->flashdata('error_msg');
                                                     if ($error_msg){?>
-                                                        <div class="error"><?php echo $error_msg?></div>
+                                                        <div class="alert alert-danger alert-dismissible"><?php echo $error_msg?>
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span></div>
                                                         <?php
                                                     }
                                                     ?>
@@ -292,7 +295,7 @@ require 'validation.php';
 
 
                                                     <!-- Change this to a button or input when using this as a form -->
-                                                    <button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa fa-key"></i> Login</button>
+                                                    <button style="float: right" class="btn btn-sm btn-primary" type="submit"><i class="fa fa-key"></i> Login</button>
                                                 </fieldset>
                                             </form>
                                         </div>

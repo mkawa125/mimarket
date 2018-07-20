@@ -297,6 +297,14 @@
                                 <?php
                             }
                             ?>
+                            <?php $email_sent = $this->session->flashdata('email_sent');
+                            if ($email_sent){?>
+                                <div class="alert alert-success alert-dismissible"><?php echo $email_sent?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></div>
+                                <?php
+                            }
+                            ?>
                             <div class="row items" >
                                 <div class="col-lg-12" style="background-color: darkslategrey; padding: 10px">
                                     <div class="col-lg-9">

@@ -84,11 +84,11 @@ $pdf->SetFillColor(255, 255, 127);
 
 
 $title = <<<OED
-<h2>Mimarket sales and order daily report</h2>
+<h2 style="text-transform: uppercase">Mimarket sales and order monthly report</h2>
 OED;
 
 $summary= <<<OED
-<h3>General store report </h3>
+<h3>General monthly Report</h3>
 OED;
 
 $contact= <<<OED
@@ -104,8 +104,6 @@ OED;
 $pdf->writeHTMLCell(0,0,'', '' ,$title,0,1,0,true,'C',true);
 
 if (isset($SingleEnterprise)){
-    $pdf->writeHTMLCell(0,0,'', '' ,$contact,0,1,0,true,'C',true);
-
     $details = '<div class="col-sm-6" style="text-align: left; font-size: medium">
             <label><strong>Store name: </strong>'. $SingleEnterprise->name .'</label><br>
             <label><strong>Category: </strong>'. $SingleEnterprise->category.'</label><br>
@@ -119,39 +117,37 @@ if (isset($SingleEnterprise)){
 
 $total_cost = 0;
 $num = 1;
-$table  = '<table class="table table-stripped" style="padding: 10px">';
+$table  = '<table class="table table-stripped" style="padding: 10px; text-align: left">';
 $table .='<thead>';
 $table.= '<tr style="background-color: #00A8B3">
-                <th style="border: solid 1px #BDBDBD">No</th>
-                <th style="border: solid 1px #BDBDBD">Date</th>
-                <th style="border: solid 1px #BDBDBD">Name</th>
-                <th style="border: solid 1px #BDBDBD">Quantity</th>
-                <th style="border: solid 1px #BDBDBD">Price</th>
-                <th style="border: solid 1px #BDBDBD">Total</th>
+                
+                <th style="border: solid 1px #BDBDBD">Sales Date</th>
+                <th style="border: solid 1px #BDBDBD">Customer Name</th>
+                <th style="border: solid 1px #BDBDBD">Customer Email</th>
+                <th style="border: solid 1px #BDBDBD">Total Sales</th>
            </tr>';
 $table .= '</thead>';
 
-foreach ($dailyReport->result() as $row){
+foreach ($customReport->result() as $row){
     $date = strtotime($row->sales_date);
-    $total = ($row->product_price) * ($row->cart_quantity);
-    $total_cost = $total_cost + ( ($row->product_price) * ($row->cart_quantity));
+    $total = $row->sales_cost;
+    $total_cost = $total_cost + $total;
 
     $table .='<tr style="padding: ">
-            <td style="border: solid 1px #BDBDBD; padding: 8px">'.$num++. '</td>
             <td style="border: solid 1px #BDBDBD; padding: 8px">'.date('M d, Y', $date). '</td>
-            <td style="border: solid 1px #BDBDBD; padding: 8px">'.$row->ProductName. '</td>
-            <td style="border: solid 1px #BDBDBD; padding: 8px">'.$row->quantity. '</td>
-            <td style="border: solid 1px #BDBDBD; padding: 8px">'.$row->product_price. '</td>
-            <td style="border: solid 1px #BDBDBD; padding: 8px">'.number_format($total_cost, 2). '</td>
+            <td style="border: solid 1px #BDBDBD; padding: 8px">'.$row->customer_name. '</td>
+            <td style="border: solid 1px #BDBDBD; padding: 8px">'.$row->customer_email. '</td>
+            <td style="border: solid 1px #BDBDBD; padding: 8px">'.number_format($row->sales_cost, 2). '</td>
 
         </tr>';
 }
 $table .='<tr>
-            <td style="border: solid 1px #BDBDBD; padding: 8px" align="right" colspan="6"><strong>Total Order Cost: ' . number_format($total_cost, 2) .'</strong><label> TZS</label></td>
+            <td style="border: solid 1px #BDBDBD; padding: 8px" align="right" colspan="6"><strong>Total sales Cost: ' . number_format($total_cost, 2) .'</strong><label> TZS</label></td>
            </tr>';
 
 $table .='</table>';
-$pdf->writeHTMLCell(0,0,'', '' ,$summary,0,1,0,true,'C',true);
+$date = date('M', $_SESSION['month']);
+$pdf->writeHTMLCell(0,0,'', '' ,$summary.$_SESSION['year'].'-'.$_SESSION['month'],0,1,0,true,'C',true);
 
 $pdf->writeHTMLCell(0,0,'','',$table,0, 1,0,true,'C', true);
 
@@ -171,7 +167,7 @@ $table.= '<tr style="background-color: whitesmoke">
 $table .= '</thead>';
 
 $total_items =0;
-foreach ($soldProducts as $row){
+foreach ($customSoldProducts as $row){
     $date = strtotime($row['sales_date']);
     $table .='<tr style="padding: ">
             <td style="border: solid 1px #BDBDBD; padding: 8px">'.$num++. '</td>
@@ -206,7 +202,7 @@ $table.= '<tr style="background-color: chocolate">
 $table .= '</thead>';
 
 $total_items = 0;
-foreach ($ProductsOrdered as $order){
+foreach ($customProductsOrdered as $order){
     $date = strtotime($order['order_date']);
     $table .='<tr style="padding: ">
             <td style="border: solid 1px #BDBDBD; padding: 8px">'.$num++. '</td>

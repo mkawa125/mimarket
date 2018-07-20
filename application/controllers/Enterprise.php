@@ -103,6 +103,10 @@ class Enterprise extends CI_Controller{
     {
         $this->load->model('EnterpriseModel');
         $data['enterprises'] = $this->EnterpriseModel->DisplayEnterprises();
+        $data['totalOrders'] = $this->EnterpriseModel->totalOrders();
+        $data['totalRequests'] = $this->EnterpriseModel->totalRequests();
+        $data['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
+        $data['countNewOrders'] = $this->EnterpriseModel->countStoreOrdersDefault();
         $this->load->view('enterprises/individual_enterprises', $data);
     }
 
@@ -121,6 +125,10 @@ class Enterprise extends CI_Controller{
         $data['SingleEnterprise'] = $this->EnterpriseModel->ViewEnterpriseDetails();
         $data['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
         $data['images'] = $this->EnterpriseModel-> ViewEnterpriseImages();
+        $data['totalOrders'] = $this->EnterpriseModel->totalOrders();
+        $data['totalRequests'] = $this->EnterpriseModel->totalRequests();
+        $data['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
+        $data['countNewOrders'] = $this->EnterpriseModel->countStoreOrdersDefault();
         $this->load->view('enterprises/enterprise_details', $data);
     }
     public function enterpriseDetails()
@@ -129,6 +137,10 @@ class Enterprise extends CI_Controller{
         $data['SingleEnterprise'] = $this->EnterpriseModel->ViewEnterpriseDetails();
         $data['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
         $data['images'] = $this->EnterpriseModel-> ViewEnterpriseImages();
+        $data['totalOrders'] = $this->EnterpriseModel->totalOrders();
+        $data['totalRequests'] = $this->EnterpriseModel->totalRequests();
+        $data['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
+        $data['countNewOrders'] = $this->EnterpriseModel->countStoreOrdersDefault();
         $this->load->view('enterprises/enterprise_details', $data);
     }
 
@@ -147,6 +159,10 @@ class Enterprise extends CI_Controller{
         $enterprise['SingleEnterprise'] = $this->EnterpriseModel->customerEnterpriseDetails();
         $enterprise['products'] = $this->EnterpriseModel->ViewEnterpriseProducts();
         $enterprise['images'] = $this->EnterpriseModel-> ViewEnterpriseImages();
+        $enterprise['totalOrders'] = $this->EnterpriseModel->totalOrders();
+        $enterprise['totalRequests'] = $this->EnterpriseModel->totalRequests();
+        $enterprise['outOfStockProducts'] = $this->EnterpriseModel->outOfStock();
+        $enterprise['countNewOrders'] = $this->EnterpriseModel->countStoreOrdersDefault();
         $this->db->select('*');
         $this->db->from('ms_enterprise_views');
         $this->db->where(array(
